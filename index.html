@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>test site 1</title>
+        <meta name="test site 1" content="Some testing" author="323j">
+        <link rel="stylesheet" href="styles.css">
+        
+    </head>
+    
+<body>
+
+<div id="pausemenu" class="menu" > 
+
+    <h1> Menu </h1>
+    <button class="X" onclick=" togglePause();">X</button>
+    <button class="menubtn" onclick=" togglePause();">Continue (p)</button>
+    <button class="menubtn" onclick=" togglePause(); hardreset();">Restart</button>
+    <button class="menubtn" onclick=" toggleMenu('settingsmenu');" >Settings</button>
+    <button class="menubtn" onclick=" togglePause(); starteditor(); ">Level Editor</button>
+
+</div>
+
+<div id="settingsmenu" class="menu"> 
+
+    <h1>Settings </h1>
+    <button class="X" onclick=" toggleMenu('settingsmenu');">X</button>
+    <button class="menubtn" onclick="togglestyle(); render(); " >Toggle Style</button>
+    </div>  
+
+
+</div>
+
+
+<div class="topbar">
+<input id="levelwave" type="text" disabled value="Wave : 0">
+<input id="levelhtml" type="text" disabled value="Test">
+<input id="playerhealth" type="text" disabled value="Health: 100">
+<input id="playermoney" type="text" disabled value="Money: 4">
+
+</div>
+<canvas id="canvas"></canvas>
+
+<div id="editorbuttons">
+
+<div class="flex">
+    <label for="inputs" class="btn"> Input Type : </label>
+    <select id="inputs" class="btn" onchange="changeinput(this);" >
+
+        <option value="platform" selected >Platform</option>
+        <option value="delete">Delete</option>
+        <option value="move_to_top">Move To Top</option>
+        <option value="path">Path</option>
+        <option value="delete_last_point"> Delete Last Point</option>
+
+
+
+    </select>
+</div>
+
+<div  class="flex">
+    
+<button  class="btn" onclick="savelevel();" >Save Level</button>
+<button class="btn" onclick="loadlevel();" >Load Level</button>
+<button class="btn" onclick="loadlevel(LEVELS.length);" >Add Level</button>
+</div>
+
+<div class="flex">
+<button class="btn" onclick="savemap()" >Save Map</button>
+<button for="loadmap" class="btn" onclick="loadmap()" >Load Map</button>
+<button class="btn" onclick="clearmap()" >Clear Map</button>
+
+
+</div>
+
+<div class="flex">
+    <a id="DownloadMap" download="map.txt" class="btn" onclick="this.style.display = 'none'"> Download Map</a>
+    <input type="file" id="loadmap" accept=".txt" >
+    </div>
+</div>
+
+p
+</body>
+
+<script src="script.js" defer></script>
+</html>
