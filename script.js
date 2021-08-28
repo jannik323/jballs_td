@@ -33,7 +33,7 @@ playerhealth.value = 10;
 let playermoney = document.getElementById("playermoney");
 playermoney.value = "Money: 8$";
 let levelwave = document.getElementById("levelwave");
-levelwave.value = 0;
+levelwave.value = "Wave: 0";
 
 let LEVELS = [
     
@@ -260,16 +260,16 @@ class enemy{
                 this.color = "blue";
                 break;
             case "slow_1":
-                this.size = 10;
+                this.size = 11;
                 this.speed = 0.5;
                 this.health = 4;
                 this.color = "darkblue";
                 break;
-                case "fast_1":
-                    this.size = 10;
-                    this.speed = 1.5;
-                    this.health = 2;
-                    this.color = "lightblue";
+            case "fast_1":
+                this.size = 9;
+                this.speed = 1.5;
+                this.health = 2;
+                this.color = "lightblue";
                 break;
             case "normal_2":
                 this.size = 11;
@@ -278,31 +278,31 @@ class enemy{
                 this.color = "red";
                 break;
             case "slow_2":
-                this.size = 11;
+                this.size = 13;
                 this.speed = 0.6;
                 this.health = 9;
                 this.color = "darkred";
                 break;
             case "fast_2":
-                this.size = 11;
+                this.size = 9;
                 this.speed = 1.6;
                 this.health = 7;
                 this.color = "#FF6666";
                 break;
             case "normal_3":
-                this.size = 14;
+                this.size = 12;
                 this.speed = 1.1;
                 this.health = 12;
                 this.color = "green";
                 break;
             case "slow_3":
-                this.size = 14;
+                this.size = 15;
                 this.speed = 0.6;
                 this.health = 14;
                 this.color = "darkgreen";
                 break;
             case "fast_3":
-                this.size = 14;
+                this.size = 10;
                 this.speed = 1.6;
                 this.health = 10;
                 this.color = "ligthgreen";
@@ -380,7 +380,7 @@ settype(){
             this.range = 150;
             this.firerrate = 50;
             this.shotspeed = 7;
-            this.damage = 0.25;
+            this.damage = 0.2;
             break;
         case "normal_ball_buster":
             this.color = "hsl(194, 14%, 50%)";
@@ -407,7 +407,7 @@ settype(){
             this.damage = 2;
             break;
         case "normal_ball_sniper":
-            this.color = "hsl(194, 14%, 30%)";
+            this.color = "hsl(1, 52%, 28%)";
             this.size = 10;
             this.range = 400;
             this.firerrate = 300;
@@ -577,7 +577,7 @@ const spawnhandler = {
 
         {
             wave_spawnrate: 30,
-            wave_waverate:40,    
+            wave_waverate:4,    
             pieces:[
                 "slow_2",
                 "slow_2",
@@ -589,6 +589,24 @@ const spawnhandler = {
                 "fast_2",
                 "fast_3",
                 "fast_2",
+
+            ]
+        },
+
+        {
+            wave_spawnrate: 50,
+            wave_waverate:30,    
+            pieces:[
+                "slow_2",
+                "slow_3",
+                "slow_3",
+                "normal_3",
+                "normal_3",
+                "fast_3",
+                "fast_3",
+                "fast_3",
+                "fast_3",
+                "fast_3",
 
             ]
         },
@@ -756,7 +774,7 @@ const shop = {
     stower:"normal_ball_buster",
     sprice:
     {
-        tiny_ball_buster:{name:"Tiny Ball Buster",price:4},
+        tiny_ball_buster:{name:"Tiny Ball Buster",price:3},
         normal_ball_buster:{name:"Normal Ball Buster",price:8},
         fast_ball_buster:{name:"Fast Ball Buster",price:16},
         normal_ball_crusher:{name:"Normal Ball Crusher",price:20},
