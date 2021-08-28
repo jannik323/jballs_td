@@ -27,9 +27,9 @@ let style = true;
 
 
 let levelhtml = document.getElementById("levelhtml");
-levelhtml.value = "test"
+levelhtml.value = "Level: test"
 let playerhealth = document.getElementById("playerhealth");
-playerhealth.value = 10;
+playerhealth.value = "Health: 10";
 let playermoney = document.getElementById("playermoney");
 playermoney.value = "Money: 8$";
 let levelwave = document.getElementById("levelwave");
@@ -195,8 +195,8 @@ class enemy{
         if(this.health <= 0){
             makeparticle(this.x,this.y,"explosion");
             ENEMIES.splice(i,1);
-            player.changemoney(0.1);
-            makeparticle(this.x,this.y,"money",0.1);
+            player.changemoney(this.reward);
+            makeparticle(this.x,this.y,"money",this.reward);
 
         }
 
@@ -257,54 +257,63 @@ class enemy{
                 this.size = 10;
                 this.speed = 1;
                 this.health = 3;
+                this.reward = 0.1;
                 this.color = "blue";
                 break;
             case "slow_1":
                 this.size = 11;
                 this.speed = 0.5;
                 this.health = 4;
+                this.reward = 0.1;
                 this.color = "darkblue";
                 break;
             case "fast_1":
                 this.size = 9;
                 this.speed = 1.5;
                 this.health = 2;
+                this.reward = 0.1;
                 this.color = "lightblue";
                 break;
             case "normal_2":
                 this.size = 11;
                 this.speed = 1.1;
                 this.health = 8;
+                this.reward = 0.2;
                 this.color = "red";
                 break;
             case "slow_2":
                 this.size = 13;
                 this.speed = 0.6;
                 this.health = 9;
+                this.reward = 0.2;
                 this.color = "darkred";
                 break;
             case "fast_2":
                 this.size = 9;
                 this.speed = 1.6;
                 this.health = 7;
+                this.reward = 0.2;
                 this.color = "#FF6666";
                 break;
             case "normal_3":
                 this.size = 12;
                 this.speed = 1.1;
                 this.health = 12;
+                this.reward = 0.3;
                 this.color = "green";
                 break;
             case "slow_3":
                 this.size = 15;
                 this.speed = 0.6;
                 this.health = 14;
+                this.reward = 0.3;
                 this.color = "darkgreen";
                 break;
             case "fast_3":
                 this.size = 10;
                 this.speed = 1.6;
                 this.health = 10;
+                this.reward = 0.3;
                 this.color = "ligthgreen";
                 break;
 
@@ -497,27 +506,37 @@ const spawnhandler = {
     waverate:3,
 
     update: function(){
-        this.step++;
-        if(this.step > this.spawnrate){
-            this.step = 0;
-            this.piece ++;
-            if(this.piece > this.waves[this.wave].pieces.length-1 ){this.piece = 0;this.wavestep++; }
-            makeenemy(this.waves[this.wave].pieces[this.piece]);
+        spawnhandler.step++;
+        if(spawnhandler.step > spawnhandler.spawnrate){
+            spawnhandler.step = 0;
+            spawnhandler.piece ++;
+            if(spawnhandler.piece > spawnhandler.waves[spawnhandler.wave].pieces.length-1 ){spawnhandler.piece = 0;spawnhandler.wavestep++; }
+            makeenemy(spawnhandler.waves[spawnhandler.wave].pieces[spawnhandler.piece]);
         }
 
-        if(this.wavestep > this.waverate){
-            this.wave ++;
-            this.step = -300;
-            this.wavestep = 0;
-            if(this.wave > this.waves.length-1){this.wave = 0}
-            levelwave.value = "Wave: " + this.wave;
-            this.setvaltowave();
+        if(spawnhandler.wavestep > spawnhandler.waverate){
+            spawnhandler.wave ++;
+            spawnhandler.step = -300;
+            spawnhandler.wavestep = 0;
+            if(spawnhandler.wave > spawnhandler.waves.length-1){spawnhandler.wave = 0}
+            levelwave.value = "Wave: " + spawnhandler.wave;
+            spawnhandler.setvaltowave();
         }
     },
 
     setvaltowave: function(){
-        this.spawnrate = this.waves[this.wave].wave_spawnrate;
-        this.waverate = this.waves[this.wave].wave_waverate;
+        spawnhandler.spawnrate = spawnhandler.waves[spawnhandler.wave].wave_spawnrate;
+        spawnhandler.waverate = spawnhandler.waves[spawnhandler.wave].wave_waverate;
+    },
+
+    reset:function(){
+        spawnhandler.piece=0;
+        spawnhandler.step=0;
+        spawnhandler.spawnrate=150;
+        spawnhandler.wave=0;
+        spawnhandler.wavestep=0;
+        spawnhandler.waverate=3;
+        levelwave.value = "Wave: " + spawnhandler.wave;
     },
     
     waves:
@@ -762,8 +781,12 @@ const player = {
     playermoney.value = "Money: "+player.money.toFixed(1)+"$";
     },
     reset:function(){
-    player.health=100;
-    player.money=0;
+    player.health=10;
+    playerhealth.value = "Health: "+player.health;
+    player.money=8;
+    playermoney.value = "Money: "+8.0+"$";
+    player.moneystep=0;
+
     },
 
 
@@ -772,6 +795,7 @@ const player = {
 const shop = {
 
     stower:"normal_ball_buster",
+    inputtype:"place",
     sprice:
     {
         tiny_ball_buster:{name:"Tiny Ball Buster",price:3},
@@ -784,7 +808,16 @@ const shop = {
     },
     select:function(selected){
         shop.stower = selected.value;
-        document.getElementById("selectedtowerdisplay").innerHTML = shop.sprice[selected.value].name;
+        shop.inputchange("place",selected);
+    },
+    inputchange:function(type,selection=type){
+        shop.inputtype = type;
+        if(type === "place"){
+            document.getElementById("selectedtowerdisplay").innerHTML = shop.sprice[selection.value].name;
+        }else{
+            document.getElementById("selectedtowerdisplay").innerHTML = selection;
+        }
+
     },
     populateshop:function(){
         let towerselect = document.getElementById("towerbar");
@@ -801,7 +834,11 @@ const shop = {
 
         }
 
-    }
+    },
+    reset:function(){
+        shop.stower="normal_ball_buster";
+
+    },
 
 
 
@@ -944,7 +981,7 @@ function nextlevel(amount = 1){
     if (level > LEVELS.length-1){
         level = 1;
     }
-    levelhtml.value = LEVELS[level].name;
+    levelhtml.value = "Level: "+LEVELS[level].name;
     
 }
 
@@ -1001,9 +1038,12 @@ function hardreset(){
     ENEMIES = [];
     TOWERS = [];
     BULLETS = [];
+    PARTICLES = [];
     level = 1;
     player.reset();
-    levelhtml.value = LEVELS[level].name;
+    shop.reset();
+    spawnhandler.reset();
+    levelhtml.value = "Level: "+LEVELS[level].name;
     buildcurrentlevel();
 }
 
@@ -1247,19 +1287,39 @@ function gameclicking(e){
     GAMEOBJECTS.forEach((v,i)=>{
         let collision = v.collision(mouseX,mouseY,mouseX,mouseY);
         if(collision.col){
-            let hadcol = false;
-            TOWERS.forEach(tower=>{
-                if(distance(mouseX,tower.x,mouseY,tower.y) < tower.size*2){
-                    hadcol = true;
-                };
-            })
-            let stowerprice = shop.sprice[shop.stower].price;
-            if(!hadcol && player.money >= stowerprice){
-                maketower(mouseX,mouseY,shop.stower);
-                player.changemoney(-stowerprice);
-                makeparticle(mouseX,mouseY,"money",-stowerprice);
+
+            switch(shop.inputtype){
+
+                case "place":
+                    let hadcol = false;
+                    TOWERS.forEach(tower=>{
+                        if(distance(mouseX,tower.x,mouseY,tower.y) < tower.size*2){
+                            hadcol = true;
+                        };
+                    })
+                    let stowerprice = shop.sprice[shop.stower].price;
+                    if(!hadcol && player.money >= stowerprice){
+                        maketower(mouseX,mouseY,shop.stower);
+                        player.changemoney(-stowerprice);
+                        makeparticle(mouseX,mouseY,"money",-stowerprice);
+                    }
+                    break;
+                case "delete":
+                    TOWERS.forEach((tower,i)=>{
+                        if(distance(mouseX,tower.x,mouseY,tower.y) < tower.size*2){
+                            player.changemoney((shop.sprice[tower.type].price)/2);
+                            makeparticle(mouseX,mouseY,"money",(shop.sprice[tower.type].price)/2)
+                            TOWERS.splice(i,1);
+                        };
+                    })
+                    break;
+
+
+
+
             }
             return;
+
         }
         
         })
