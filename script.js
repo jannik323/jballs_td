@@ -31,7 +31,7 @@ levelhtml.value = "test"
 let playerhealth = document.getElementById("playerhealth");
 playerhealth.value = 10;
 let playermoney = document.getElementById("playermoney");
-playermoney.value = 8;
+playermoney.value = "Money: 8$";
 let levelwave = document.getElementById("levelwave");
 levelwave.value = 0;
 
@@ -741,7 +741,7 @@ const player = {
     },
     changemoney:function(amount){
     player.money += amount;
-    playermoney.value = "Money: "+player.money.toFixed(1);
+    playermoney.value = "Money: "+player.money.toFixed(1)+"$";
     },
     reset:function(){
     player.health=100;
