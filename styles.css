@@ -121,7 +121,6 @@ div h1{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
     position:relative;
 }
 
@@ -131,6 +130,7 @@ div.towerbar{
     overflow-y: scroll;
     height: 80%;
     border: 2px solid rgb(31, 31, 31);
+    margin-left: 5px;
 }
 
 button.towerselect{
@@ -150,8 +150,7 @@ button.towerselect:hover{
 div#selectedtowerdisplay{
     display: flex;
     flex-direction: column;
-    position: absolute;
-    left: 20px;
+    margin-left: 5px;
     border: 2px solid rgb(31, 31, 31);
     padding: 2px;
     height: 75%;
@@ -162,5 +161,5 @@ div#selectedtowerdisplay{
 
 
 #test{
-    color: hsl(185, 32%, 77%);
+    color: hsl(1, 52%, 28%);
 }
