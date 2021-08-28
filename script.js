@@ -8,10 +8,6 @@ ctx.lineWidth = 1;
 ctx.shadowColor = "black";
 let pausemenu = document.getElementById("pausemenu");
 
-let levelhtml = document.getElementById("levelhtml");
-let playerhealth = document.getElementById("playerhealth");
-let playermoney = document.getElementById("playermoney");
-let levelwave = document.getElementById("levelwave");
 
 
 let clicks = 0;
@@ -29,8 +25,18 @@ let level = 1;
 let textFile = null;
 let style = true;
 
-let LEVELS = [
 
+let levelhtml = document.getElementById("levelhtml");
+levelhtml.value = "test"
+let playerhealth = document.getElementById("playerhealth");
+playerhealth.value = 10;
+let playermoney = document.getElementById("playermoney");
+playermoney.value = 8;
+let levelwave = document.getElementById("levelwave");
+levelwave.value = 0;
+
+let LEVELS = [
+    
     {
         name:"Testing man",
         content:[
@@ -187,11 +193,10 @@ class enemy{
         let levely = LEVELS[level].lpath[this.pathprog].y;
 
         if(this.health <= 0){
-            for(let i = 0; i<randomrange(10,30);i++){
-                makeparticle(this.x,this.y);
-            }
+            makeparticle(this.x,this.y,"explosion");
             ENEMIES.splice(i,1);
-            player.changemoney(1);
+            player.changemoney(0.1);
+            makeparticle(this.x,this.y,"money",0.1);
 
         }
 
@@ -284,6 +289,24 @@ class enemy{
                 this.health = 7;
                 this.color = "#FF6666";
                 break;
+            case "normal_3":
+                this.size = 14;
+                this.speed = 1.1;
+                this.health = 12;
+                this.color = "green";
+                break;
+            case "slow_3":
+                this.size = 14;
+                this.speed = 0.6;
+                this.health = 14;
+                this.color = "darkgreen";
+                break;
+            case "fast_3":
+                this.size = 14;
+                this.speed = 1.6;
+                this.health = 10;
+                this.color = "ligthgreen";
+                break;
 
         }
 
@@ -296,21 +319,19 @@ class enemy{
 
 class tower{
 
-constructor(x,y,color){
+constructor(x,y,type){
 
     this.x = x;
     this.y = y;
-    this.color = color;
-    this.size = 10;
+    this.type = type;
     this.dir = 0;
-    this.range = 200;
     this.wstep = 0;
-    this.firerrate = 60;
+    this.settype();
 
 }
 
 update(i){
-this.wstep += randomrange(0,2);
+this.wstep += randomrange(1,2);
 let bestdistance = Infinity;
 let bestenemy = null;
 ENEMIES.forEach((v,i)=>{
@@ -320,7 +341,7 @@ if(enemydistance< bestdistance && enemydistance < this.range){bestdistance = ene
 if(bestenemy != null){
     this.dir = (Math.atan2((this.y-ENEMIES[bestenemy].y),(this.x-ENEMIES[bestenemy].x)))+PI;
     if(this.wstep > this.firerrate){
-        makebullet(this.x,this.y,this.dir,10);
+        makebullet(this.x,this.y,this.dir,this.shotspeed,this.damage);
         this.wstep = 0;}
 }
 
@@ -338,12 +359,82 @@ render(){
 
     ctx.beginPath();
     ctx.lineWidth = 3;
-    ctx.strokeStyle =  "red";
+    ctx.globalAlpha = 0.5;
+    ctx.strokeStyle =  "black";
     ctx.moveTo(this.x,this.y);
     ctx.lineTo(this.x +Math.cos(this.dir)*this.size, this.y + Math.sin(this.dir)*this.size);
     ctx.stroke();
     ctx.strokeStyle =  "black";
     ctx.lineWidth = 1;
+    ctx.globalAlpha = 1;
+
+}
+
+settype(){
+
+    switch(this.type){
+
+        case "tiny_ball_buster":
+            this.color = "hsl(185, 32%, 77%)";
+            this.size = 10;
+            this.range = 150;
+            this.firerrate = 50;
+            this.shotspeed = 7;
+            this.damage = 0.25;
+            break;
+        case "normal_ball_buster":
+            this.color = "hsl(194, 14%, 50%)";
+            this.size = 10;
+            this.range = 180;
+            this.firerrate = 60;
+            this.shotspeed = 10;
+            this.damage = 1;
+            break;
+        case "fast_ball_buster":
+            this.color = "hsl(194, 14%, 70%)";
+            this.size = 10;
+            this.range = 190;
+            this.firerrate = 55;
+            this.shotspeed = 11;
+            this.damage = 1;
+            break;
+        case "normal_ball_crusher":
+            this.color = "hsl(194, 14%, 30%)";
+            this.size = 10;
+            this.range = 130;
+            this.firerrate = 100;
+            this.shotspeed = 11;
+            this.damage = 2;
+            break;
+        case "normal_ball_sniper":
+            this.color = "hsl(194, 14%, 30%)";
+            this.size = 10;
+            this.range = 400;
+            this.firerrate = 300;
+            this.shotspeed = 25;
+            this.damage = 3;
+            break;
+        case "holy_ball_smasher":
+            this.color = "hsl(0, 20%, 37%)";
+            this.size = 10;
+            this.range = 300;
+            this.firerrate = 3;
+            this.shotspeed = 11;
+            this.damage = 1;
+            break;
+
+
+        
+
+
+
+
+    }
+
+
+
+
+
 }
 
 
@@ -351,11 +442,12 @@ render(){
 
 class bullet{
 
-    constructor(x,y,dir,speed){
+    constructor(x,y,dir,speed,damage){
         this.x = x;
         this.y = y;
         this.dir = dir;
         this.speed = speed;
+        this.damage = damage;
         this.color = "darkred";
         this.size = 5;
 
@@ -374,7 +466,8 @@ class bullet{
 
         ENEMIES.forEach(v=>{
             if(distance(v.x,this.x,v.y,this.y) < this.size+v.size){
-                v.health --;
+                v.health -= this.damage;
+                makeparticle(this.x,this.y,"dmg",this.damage);
                 BULLETS.splice(i,1);
             }
 
@@ -414,6 +507,7 @@ const spawnhandler = {
 
         if(this.wavestep > this.waverate){
             this.wave ++;
+            this.step = -300;
             this.wavestep = 0;
             if(this.wave > this.waves.length-1){this.wave = 0}
             levelwave.value = "Wave: " + this.wave;
@@ -429,8 +523,8 @@ const spawnhandler = {
     waves:
     [
         {
-            wave_spawnrate: 150,
-            wave_waverate:3,    
+            wave_spawnrate: 130,
+            wave_waverate:1,    
             pieces:[
                 "normal_1",
                 "normal_1",
@@ -440,18 +534,20 @@ const spawnhandler = {
         },
         
         {
-            wave_spawnrate: 50,
-            wave_waverate:2,    
+            wave_spawnrate: 100,
+            wave_waverate:3,    
             pieces:[
                 "slow_1",
                 "slow_1",
                 "slow_2",
+                "normal_1",
+                "normal_1",
             ]
         },
 
         {
-            wave_spawnrate: 80,
-            wave_waverate:4,    
+            wave_spawnrate: 50,
+            wave_waverate:2,    
             pieces:[
                 "slow_2",
                 "fast_1",
@@ -460,7 +556,7 @@ const spawnhandler = {
         },
 
         {
-            wave_spawnrate: 80,
+            wave_spawnrate: 50,
             wave_waverate:2,    
             pieces:[
                 "slow_2",
@@ -480,7 +576,7 @@ const spawnhandler = {
         },
 
         {
-            wave_spawnrate: 50,
+            wave_spawnrate: 30,
             wave_waverate:40,    
             pieces:[
                 "slow_2",
@@ -491,7 +587,7 @@ const spawnhandler = {
                 "fast_2",
                 "fast_2",
                 "fast_2",
-                "fast_2",
+                "fast_3",
                 "fast_2",
 
             ]
@@ -504,34 +600,119 @@ const spawnhandler = {
 
 class particle{
 
-    constructor(x,y){
+    constructor(x,y,type,extra){
         this.orginx = x;
         this.orginy = y;
+        this.type = type;
+        this.extra = extra;
         this.x = x;
         this.y = y;
-        this.dir = randomrange(0,6)+Math.random();
-        this.speed = randomrange(1,6);
+        this.opac = 1;
+        this.settype();
     }
     
     update(i){
-        this.x += Math.cos(this.dir)*this.speed;
-        this.y += Math.sin(this.dir)*this.speed;
-        this.speed *= 0.9;
-        if(this.speed < 0.5){PARTICLES.splice(i,1)}
+
+
+        switch(this.type){
+
+            case "explosion":
+
+                this.x += Math.cos(this.dir)*this.speed;
+                this.y += Math.sin(this.dir)*this.speed;
+                this.speed *= 0.9;
+                this.opac -= 0.02;
+
+                if(this.opac <= 0){PARTICLES.splice(i,1)}
+
+                break;
+
+            case "money":
+                this.opac -= 0.008;
+                this.y -= this.speed;
+                this.speed *= 0.9;
+                if(this.opac <= 0){
+                    PARTICLES.splice(i,1);
+                }
+                break;
+            case "dmg":
+                
+                this.opac -= 0.05;
+                this.y -= this.speed;
+                this.speed *= 0.9;
+                if(this.opac <= 0){
+                    PARTICLES.splice(i,1);
+                }
+                break;
+
+
+        }
+        
     }
     
     render(){
 
     ctx.beginPath();
     ctx.lineWidth = 2;
-    ctx.globalAlpha = 0.5;
-    ctx.strokeStyle = "red";
-    ctx.moveTo(this.orginx,this.orginy);
-    ctx.lineTo(this.x,this.y);
-    ctx.stroke();
+    ctx.globalAlpha = this.opac;
+    ctx.strokeStyle = this.color;
+
+    switch(this.type){
+
+        case "explosion":
+            ctx.moveTo(this.orginx,this.orginy);
+            ctx.lineTo(this.x,this.y);
+            ctx.stroke();
+            break;
+            case "money":
+                ctx.font = "20px Monospace";
+                ctx.strokeText(this.extra + "$",this.x,this.y);
+                break;
+            case "dmg":
+                ctx.font = "15px Monospace";
+                ctx.strokeText(this.extra,this.x,this.y);
+                break;
+
+    }
+
     ctx.strokeStyle = "black";
     ctx.lineWidth = 1;
     ctx.globalAlpha = 1;
+    }
+
+    settype(){
+
+        switch(this.type){
+
+            case "explosion":
+                this.opac = 0.5;
+                this.dir = randomrange(0,6)+Math.random();
+                this.speed = randomrange(1,6);
+                this.color = "red";
+
+                break;
+
+            case "money":
+                this.opac = 0.9;
+                this.speed = randomrange(2,3)+Math.random();;
+
+                if(this.extra > 0){
+                    this.color = "green";
+                }else{
+                    this.color = "red";
+                }
+
+                break;
+            case "dmg":
+                this.opac = 0.8;
+                this.speed = 2+Math.random();;
+                this.color = "darkred";
+                break;
+
+
+        }
+
+
     }
     
     
@@ -539,29 +720,78 @@ class particle{
 
 const player = {
 
-    health:100,
-    money:4,
+    health:10,
+    money:8,
+    moneystep:0,
+    moneyrate:150,
     update:function(){
-    if(this.health<=0){
+    player.moneystep++;
+    if(player.moneystep > player.moneyrate){
+        player.moneystep = 0
+        player.changemoney(1)
+        makeparticle(750,50,"money",1);
+    }
+    if(player.health<=0){
         hardreset();
     }
     },
     changehealth:function(amount){
-    this.health += amount;
-    playerhealth.value = "Health: "+this.health;
+    player.health += amount;
+    playerhealth.value = "Health: "+player.health;
     },
     changemoney:function(amount){
-    this.money += amount;
-    playermoney.value = "Money: "+this.money;
+    player.money += amount;
+    playermoney.value = "Money: "+player.money.toFixed(1);
     },
     reset:function(){
-    this.health=100;
-    this.money=0;
+    player.health=100;
+    player.money=0;
     },
 
 
 }
 
+const shop = {
+
+    stower:"normal_ball_buster",
+    sprice:
+    {
+        tiny_ball_buster:{name:"Tiny Ball Buster",price:4},
+        normal_ball_buster:{name:"Normal Ball Buster",price:8},
+        fast_ball_buster:{name:"Fast Ball Buster",price:16},
+        normal_ball_crusher:{name:"Normal Ball Crusher",price:20},
+        normal_ball_sniper:{name:"Normal Ball Sniper",price:40},
+        holy_ball_smasher:{name:"Holy Ball Smasher",price:150},
+
+    },
+    select:function(selected){
+        shop.stower = selected.value;
+        document.getElementById("selectedtowerdisplay").innerHTML = shop.sprice[selected.value].name;
+    },
+    populateshop:function(){
+        let towerselect = document.getElementById("towerbar");
+        for(let i in shop.sprice){
+            let htmltower = shop.sprice[i];
+            let towerbtn = document.createElement("button");
+            towerbtn.innerHTML = htmltower.name +": "+ htmltower.price + "$";              
+            let valuetower = htmltower.name.toLowerCase();    
+            valuetower = valuetower.replace(/ /g,"_")
+            towerbtn.value = valuetower;
+            towerbtn.classList.add("towerselect"); 
+            towerbtn.addEventListener("click", ()=>{shop.select(towerbtn)});
+            towerselect.appendChild(towerbtn);  
+
+        }
+
+    }
+
+
+
+
+
+}
+shop.populateshop();
+shop.select({value:shop.stower})
 
 
 
@@ -616,10 +846,10 @@ if(LEVELS[level].lpath.length > 0){
 drawpath();
 }
 GAMEOBJECTS.forEach(v=>{v.render();})
-PARTICLES.forEach(v=>{v.render();})
-ENEMIES.forEach(v=>{v.render();})
 TOWERS.forEach(v=>{v.render();})
 BULLETS.forEach(v=>{v.render();})
+PARTICLES.forEach(v=>{v.render();})
+ENEMIES.forEach(v=>{v.render();})
 
 ctx.strokeRect(selector.x,selector.y,selector.w,selector.h);
 }
@@ -651,19 +881,33 @@ function makeenemy(type){
     ENEMIES.push(newe);
 }
 
-function maketower(x,y,color){
-    const newtower = new tower(x,y,color)
+function maketower(x,y,type){
+    const newtower = new tower(x,y,type)
     TOWERS.push(newtower);
 }
 
-function makebullet(x,y,dir,speed){
-    const newbullet = new bullet(x,y,dir,speed)
+function makebullet(x,y,dir,speed,damage){
+    const newbullet = new bullet(x,y,dir,speed,damage)
     BULLETS.push(newbullet);
 }
 
-function makeparticle(x,y){
-    const newpar = new particle(x,y,)
-    PARTICLES.push(newpar);
+function makeparticle(x,y,type,extra){
+    switch(type){
+
+        case "explosion":
+            
+            for(let i = 0; i<randomrange(10,30);i++){
+                const newpar = new particle(x,y,type)
+                PARTICLES.push(newpar);
+            }
+            break;
+        case "money":
+        case "dmg":
+            const newpar = new particle(x,y,type,extra)
+            PARTICLES.push(newpar);
+            break;
+    }
+    
 }
 
 function buildcurrentlevel(){
@@ -991,9 +1235,11 @@ function gameclicking(e){
                     hadcol = true;
                 };
             })
-            if(!hadcol && player.money > 3){
-                maketower(mouseX,mouseY,"grey");
-                player.changemoney(-4);
+            let stowerprice = shop.sprice[shop.stower].price;
+            if(!hadcol && player.money >= stowerprice){
+                maketower(mouseX,mouseY,shop.stower);
+                player.changemoney(-stowerprice);
+                makeparticle(mouseX,mouseY,"money",-stowerprice);
             }
             return;
         }

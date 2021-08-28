@@ -14,8 +14,6 @@ body, html {
 canvas {
     background-color: whitesmoke;
     
-    margin-bottom: 2rem;
-    
     z-index: 0;
 }
 
@@ -111,4 +109,58 @@ div h1{
 .topbar{
     display: flex;
     flex-direction: row;
+}
+
+.shopbar{
+
+    width: 800px;
+    background-color: whitesmoke;
+    margin-top: 4px;
+    height: 100px;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+}
+
+div.towerbar{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 80%;
+    border: 2px solid rgb(31, 31, 31);
+}
+
+button.towerselect{
+    
+    border: 2px solid rgb(31, 31, 31);
+    padding: 2px;
+    margin: 2px;
+}
+
+
+button.towerselect:hover{
+    
+    background-color: grey;
+
+}
+
+div#selectedtowerdisplay{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 20px;
+    border: 2px solid rgb(31, 31, 31);
+    padding: 2px;
+    height: 75%;
+    width: 200px;
+    align-items:center;
+    justify-content:center;
+}
+
+
+#test{
+    color: hsl(185, 32%, 77%);
 }
