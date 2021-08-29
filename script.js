@@ -55,6 +55,93 @@ let LEVELS = [
     ,
 ]
 
+const ENEMYTYPES = {
+
+    tiny_ball_pincher:
+        {
+        color : "hsl(185, 32%, 87%)",
+        size : 10,
+        range : 80,
+        firerate : 8,
+        shotspeed : 5,
+        damage : 0.01,
+        },
+    tiny_ball_buster:
+        {
+        color : "hsl(185, 32%, 77%)",
+        size : 10,
+        range : 150,
+        firerate : 50,
+        shotspeed : 7,
+        damage : 0.2,
+        },
+    normal_ball_buster:
+        {
+        color : "hsl(194, 14%, 50%)",
+        size : 10,
+        range : 180,
+        firerate : 60,
+        shotspeed : 10,
+        damage : 1,
+        },
+    fast_ball_buster:
+        {
+        color : "hsl(194, 14%, 70%)",
+        size : 10,
+        range : 190,
+        firerate : 55,
+        shotspeed : 11,
+        damage : 1,
+        },
+    normal_ball_crusher:
+        {
+        color : "hsl(194, 14%, 30%)",
+        size : 10,
+        range : 130,
+        firerate : 100,
+        shotspeed : 11,
+        damage : 2,
+        },
+    normal_ball_sniper:
+        {
+        color : "hsl(1, 52%, 28%)",
+        size : 10,
+        range : 400,
+        firerate : 300,
+        shotspeed : 22,
+        damage : 3,
+        },
+    holy_ball_smasher:
+        {
+        color : "hsl(0, 20%, 37%)",
+        size : 10,
+        range : 300,
+        firerate : 3,
+        shotspeed : 11,
+        damage : 1,
+        },
+    rich_ball_slapper:
+        {
+        color : "hsl(60, 62%, 69%)",
+        size : 10,
+        range : 100,
+        firerate : 70,
+        shotspeed : 6,
+        damage : 0.1,
+        },
+    trained_ball_sniper:
+        {
+        color : "hsl(1, 52%, 20%)",
+        size : 10,
+        range : 500,
+        firerate : 350,
+        shotspeed : 25,
+        damage : 6,
+        },
+
+
+}
+
 
 // timer
 
@@ -258,63 +345,91 @@ class enemy{
                 this.speed = 1;
                 this.health = 3;
                 this.reward = 0.1;
-                this.color = "blue";
+                this.color = "hsl(211, 36%, 50%)";
                 break;
             case "slow_1":
                 this.size = 11;
                 this.speed = 0.5;
                 this.health = 4;
                 this.reward = 0.1;
-                this.color = "darkblue";
+                this.color = "hsl(211, 36%, 30%)";
                 break;
             case "fast_1":
                 this.size = 9;
                 this.speed = 1.5;
                 this.health = 2;
                 this.reward = 0.1;
-                this.color = "lightblue";
+                this.color = "hsl(211, 36%, 70%)";
                 break;
             case "normal_2":
                 this.size = 11;
                 this.speed = 1.1;
                 this.health = 8;
                 this.reward = 0.2;
-                this.color = "red";
+                this.color = "hsl(0, 36%, 50%)";
                 break;
             case "slow_2":
                 this.size = 13;
                 this.speed = 0.6;
                 this.health = 9;
                 this.reward = 0.2;
-                this.color = "darkred";
+                this.color = "hsl(0, 36%, 30%)";
                 break;
             case "fast_2":
                 this.size = 9;
                 this.speed = 1.6;
                 this.health = 7;
                 this.reward = 0.2;
-                this.color = "#FF6666";
+                this.color = "hsl(0, 36%, 70%)";
                 break;
             case "normal_3":
                 this.size = 12;
                 this.speed = 1.1;
                 this.health = 12;
                 this.reward = 0.3;
-                this.color = "green";
+                this.color = "hsl(124, 36%, 50%)";
                 break;
             case "slow_3":
                 this.size = 15;
                 this.speed = 0.6;
                 this.health = 14;
                 this.reward = 0.3;
-                this.color = "darkgreen";
+                this.color = "hsl(124, 36%, 30%)";
                 break;
             case "fast_3":
                 this.size = 10;
                 this.speed = 1.6;
                 this.health = 10;
                 this.reward = 0.3;
-                this.color = "ligthgreen";
+                this.color = "hsl(124, 36%, 70%)";
+                break;
+            case "normal_4":
+                this.size = 15;
+                this.speed = 1.1;
+                this.health = 20;
+                this.reward = 0.3;
+                this.color = "hsl(294, 36%, 50%)";
+                break;
+            case "slow_4":
+                this.size = 17;
+                this.speed = 0.6;
+                this.health = 30;
+                this.reward = 0.3;
+                this.color = "hsl(294, 36%, 30%)";
+                break;
+            case "fast_4":
+                this.size = 12;
+                this.speed = 1.6;
+                this.health = 15;
+                this.reward = 0.3;
+                this.color = "hsl(294, 36%, 70%)";
+                break;
+            case "boss_1":
+                this.size = 24;
+                this.speed = 0.4;
+                this.health = 100;
+                this.reward = 20;
+                this.color = "hsl(308, 24%, 23%)";
                 break;
 
         }
@@ -336,6 +451,7 @@ constructor(x,y,type){
     this.dir = 0;
     this.wstep = 0;
     this.settype();
+    this.showinfo = false;
 
 }
 
@@ -349,8 +465,8 @@ if(enemydistance< bestdistance && enemydistance < this.range){bestdistance = ene
 })    
 if(bestenemy != null){
     this.dir = (Math.atan2((this.y-ENEMIES[bestenemy].y),(this.x-ENEMIES[bestenemy].x)))+PI;
-    if(this.wstep > this.firerrate){
-        makebullet(this.x,this.y,this.dir,this.shotspeed,this.damage);
+    if(this.wstep > this.firerate){
+        makebullet(this.x,this.y,this.dir,this.shotspeed,this.damage,this);
         this.wstep = 0;}
 }
 
@@ -377,71 +493,30 @@ render(){
     ctx.lineWidth = 1;
     ctx.globalAlpha = 1;
 
+    if(this.showinfo){
+        ctx.globalAlpha = 0.4;
+        ctx.beginPath();
+        ctx.strokeStyle = "grey";
+        ctx.arc(this.x-this.range/100,this.y-this.range/100, this.range, 0,PI*2)
+        ctx.stroke();
+        ctx.strokeStyle = "black";
+        ctx.globalAlpha = 1;
+        ctx.font = "15px Monospace",
+        ctx.strokeText("damage: "+this.damage,this.x+this.size*2,this.y);
+        ctx.strokeText("firerate: "+this.firerate,this.x+this.size*2,this.y+20);
+        ctx.strokeText("shotspeed: "+this.shotspeed,this.x+this.size*2,this.y+40);
+    }
+
 }
 
 settype(){
 
-    switch(this.type){
-
-        case "tiny_ball_buster":
-            this.color = "hsl(185, 32%, 77%)";
-            this.size = 10;
-            this.range = 150;
-            this.firerrate = 50;
-            this.shotspeed = 7;
-            this.damage = 0.2;
-            break;
-        case "normal_ball_buster":
-            this.color = "hsl(194, 14%, 50%)";
-            this.size = 10;
-            this.range = 180;
-            this.firerrate = 60;
-            this.shotspeed = 10;
-            this.damage = 1;
-            break;
-        case "fast_ball_buster":
-            this.color = "hsl(194, 14%, 70%)";
-            this.size = 10;
-            this.range = 190;
-            this.firerrate = 55;
-            this.shotspeed = 11;
-            this.damage = 1;
-            break;
-        case "normal_ball_crusher":
-            this.color = "hsl(194, 14%, 30%)";
-            this.size = 10;
-            this.range = 130;
-            this.firerrate = 100;
-            this.shotspeed = 11;
-            this.damage = 2;
-            break;
-        case "normal_ball_sniper":
-            this.color = "hsl(1, 52%, 28%)";
-            this.size = 10;
-            this.range = 400;
-            this.firerrate = 300;
-            this.shotspeed = 25;
-            this.damage = 3;
-            break;
-        case "holy_ball_smasher":
-            this.color = "hsl(0, 20%, 37%)";
-            this.size = 10;
-            this.range = 300;
-            this.firerrate = 3;
-            this.shotspeed = 11;
-            this.damage = 1;
-            break;
-
-
-        
-
-
-
-
-    }
-
-
-
+    this.color = ENEMYTYPES[this.type].color;
+    this.size = ENEMYTYPES[this.type].size;
+    this.range = ENEMYTYPES[this.type].range;
+    this.firerate = ENEMYTYPES[this.type].firerate;
+    this.shotspeed = ENEMYTYPES[this.type].shotspeed;
+    this.damage = ENEMYTYPES[this.type].damage;
 
 
 }
@@ -451,7 +526,7 @@ settype(){
 
 class bullet{
 
-    constructor(x,y,dir,speed,damage){
+    constructor(x,y,dir,speed,damage,parent){
         this.x = x;
         this.y = y;
         this.dir = dir;
@@ -459,6 +534,7 @@ class bullet{
         this.damage = damage;
         this.color = "darkred";
         this.size = 5;
+        this.parent = parent;
 
     }
 
@@ -478,6 +554,13 @@ class bullet{
                 v.health -= this.damage;
                 makeparticle(this.x,this.y,"dmg",this.damage);
                 BULLETS.splice(i,1);
+                if(this.parent.type === "rich_ball_slapper"){
+                    v.reward += 0.1;
+                    v.reward *= 10;
+                    v.reward =  Math.round(v.reward);
+                    v.reward /= 10;
+
+                }
             }
 
 
@@ -516,7 +599,7 @@ const spawnhandler = {
 
         if(spawnhandler.wavestep > spawnhandler.waverate){
             spawnhandler.wave ++;
-            spawnhandler.step = -300;
+            spawnhandler.step = -600;
             spawnhandler.wavestep = 0;
             if(spawnhandler.wave > spawnhandler.waves.length-1){spawnhandler.wave = 0}
             levelwave.value = "Wave: " + spawnhandler.wave;
@@ -614,7 +697,7 @@ const spawnhandler = {
 
         {
             wave_spawnrate: 50,
-            wave_waverate:30,    
+            wave_waverate:3,    
             pieces:[
                 "slow_2",
                 "slow_3",
@@ -626,6 +709,70 @@ const spawnhandler = {
                 "fast_3",
                 "fast_3",
                 "fast_3",
+
+            ]
+        },
+
+        {
+            wave_spawnrate: 20,
+            wave_waverate:2,    
+            pieces:[
+                "slow_3",
+                "slow_3",
+                "slow_4",
+                "slow_4",
+                "normal_1",
+                "normal_1",
+
+            ]
+        },
+
+        {
+            wave_spawnrate: 100,
+            wave_waverate:3,    
+            pieces:[
+                "normal_4",
+                "normal_4",
+                "normal_4",
+                "normal_4",
+                "fast_4",
+                "fast_4",
+
+            ]
+        },
+
+        {
+            wave_spawnrate: 100,
+            wave_waverate:1,    
+            pieces:[
+                "normal_4",
+                "normal_4",
+                "normal_4",
+                "normal_4",
+                "slow_3",
+                "slow_3",
+                "slow_4",
+                "slow_4",
+                "boss_1",
+                
+
+            ]
+        },
+
+        {
+            wave_spawnrate: 80,
+            wave_waverate:100,    
+            pieces:[
+                "normal_4",
+                "normal_4",
+                "normal_4",
+                "normal_4",
+                "fast_4",
+                "slow_4",
+                "slow_3",
+                "slow_4",
+                "slow_4",
+                
 
             ]
         },
@@ -761,6 +908,8 @@ const player = {
     money:8,
     moneystep:0,
     moneyrate:150,
+    mouseX:0,
+    mouseY:0,
     update:function(){
     player.moneystep++;
     if(player.moneystep > player.moneyrate){
@@ -792,18 +941,75 @@ const player = {
 
 }
 
+const previewturret = {
+
+    x:0,
+    y:0,
+    type:"norrmal_ball_buster",
+    active:false,
+    color:"grey",
+    size:10,
+    range:100,
+    update:function(){
+        if(previewturret.active){
+        previewturret.x = player.mouseX;
+        previewturret.y = player.mouseY;
+        }
+
+    },
+    render:function(){
+        if(previewturret.active){
+            ctx.beginPath();
+    
+            ctx.fillStyle = this.color;
+            ctx.arc(this.x-this.size/100,this.y-this.size/100, this.size, 0,PI*2)
+            ctx.fill();
+    
+            ctx.beginPath();
+            ctx.lineWidth = 3;
+            ctx.globalAlpha = 0.5;
+            ctx.strokeStyle =  "black";
+            ctx.moveTo(this.x,this.y);
+            ctx.lineTo(this.x+this.size, this.y);
+            ctx.stroke();
+            ctx.strokeStyle =  "black";
+            ctx.lineWidth = 1;
+            ctx.globalAlpha = 1;
+
+            ctx.globalAlpha = 0.4;
+            ctx.beginPath();
+            ctx.strokeStyle = "grey";
+            ctx.arc(this.x-this.range/100,this.y-this.range/100, this.range, 0,PI*2)
+            ctx.stroke();
+            ctx.strokeStyle = "black";
+            ctx.globalAlpha = 1;
+        }
+    },
+    settype(newtype = null){
+        if(newtype !== null){previewturret.type = newtype}
+        previewturret.color = ENEMYTYPES[this.type].color;
+        previewturret.size = ENEMYTYPES[this.type].size;
+        previewturret.range = ENEMYTYPES[this.type].range;
+    }
+
+
+} 
+
 const shop = {
 
     stower:"normal_ball_buster",
     inputtype:"place",
     sprice:
     {
+        tiny_ball_pincher:{name:"Tiny Ball Pincher",price:1},
         tiny_ball_buster:{name:"Tiny Ball Buster",price:3},
         normal_ball_buster:{name:"Normal Ball Buster",price:8},
         fast_ball_buster:{name:"Fast Ball Buster",price:16},
         normal_ball_crusher:{name:"Normal Ball Crusher",price:20},
+        rich_ball_slapper:{name:"Rich Ball Slapper",price:20},
         normal_ball_sniper:{name:"Normal Ball Sniper",price:40},
-        holy_ball_smasher:{name:"Holy Ball Smasher",price:150},
+        trained_ball_sniper:{name:"Trained Ball Sniper",price:80},
+        holy_ball_smasher:{name:"Holy Ball Smasher",price:301},
 
     },
     select:function(selected){
@@ -814,8 +1020,11 @@ const shop = {
         shop.inputtype = type;
         if(type === "place"){
             document.getElementById("selectedtowerdisplay").innerHTML = shop.sprice[selection.value].name;
+            previewturret.active = true;
+            previewturret.settype(selection.value);
         }else{
             document.getElementById("selectedtowerdisplay").innerHTML = selection;
+            previewturret.active = false;
         }
 
     },
@@ -883,6 +1092,7 @@ TOWERS.forEach((v,i)=>{v.update(i);})
 BULLETS.forEach((v,i)=>{v.update(i);})
 PARTICLES.forEach((v,i)=>{v.update(i);})
 spawnhandler.update();
+previewturret.update();
 player.update();
 
 if(keys["Escape"]){
@@ -890,6 +1100,7 @@ if(keys["Escape"]){
     selector.h = 0;
     removeEventListener("mousemove", mousemove);
     removeEventListener("mouseup", mouseup);
+    shop.inputtype = "none";
 }
 
 }
@@ -905,6 +1116,7 @@ TOWERS.forEach(v=>{v.render();})
 BULLETS.forEach(v=>{v.render();})
 PARTICLES.forEach(v=>{v.render();})
 ENEMIES.forEach(v=>{v.render();})
+previewturret.render();
 
 ctx.strokeRect(selector.x,selector.y,selector.w,selector.h);
 }
@@ -941,8 +1153,8 @@ function maketower(x,y,type){
     TOWERS.push(newtower);
 }
 
-function makebullet(x,y,dir,speed,damage){
-    const newbullet = new bullet(x,y,dir,speed,damage)
+function makebullet(x,y,dir,speed,damage,parent){
+    const newbullet = new bullet(x,y,dir,speed,damage,parent)
     BULLETS.push(newbullet);
 }
 
@@ -1033,6 +1245,8 @@ function hardreset(){
     removeEventListener("mousedown", editorclicking);
     removeEventListener("mousedown", gameclicking);
     addEventListener("mousedown", gameclicking); 
+    removeEventListener("mousemove", gamemousemove);
+    addEventListener("mousemove", gamemousemove); 
     selector = {}
     GAMEOBJECTS = [];
     ENEMIES = [];
@@ -1180,6 +1394,8 @@ function starteditor(){
     setTimeout(()=>{
         addEventListener("mousedown", editorclicking); 
         removeEventListener("mousedown", gameclicking);
+        removeEventListener("mousemove", gamemousemove);
+
     },100)
 
 }
@@ -1277,15 +1493,14 @@ function mouseup(){
 
 
 addEventListener("mousedown", gameclicking); 
+addEventListener("mousemove", gamemousemove); 
 
 function gameclicking(e){
 
-    let rect = canvas.getBoundingClientRect();
-    let mouseX = (Math.floor((e.clientX- rect.left) /20 )*20)+10;
-    let mouseY = (Math.floor((e.clientY- rect.top) /20 )*20)+10;
-    if(mouseX>=0 && mouseX<800 && mouseY>=0&&mouseY<600){
+    if(player.mouseX>=0 && player.mouseX<800 && player.mouseY>=0&&player.mouseY<600){
+    if(shop.inputtype !== "none"){
     GAMEOBJECTS.forEach((v,i)=>{
-        let collision = v.collision(mouseX,mouseY,mouseX,mouseY);
+        let collision = v.collision(player.mouseX,player.mouseY,player.mouseX,player.mouseY);
         if(collision.col){
 
             switch(shop.inputtype){
@@ -1293,26 +1508,28 @@ function gameclicking(e){
                 case "place":
                     let hadcol = false;
                     TOWERS.forEach(tower=>{
-                        if(distance(mouseX,tower.x,mouseY,tower.y) < tower.size*2){
+                        if(distance(player.mouseX,tower.x,player.mouseY,tower.y) < tower.size*2){
                             hadcol = true;
                         };
                     })
                     let stowerprice = shop.sprice[shop.stower].price;
                     if(!hadcol && player.money >= stowerprice){
-                        maketower(mouseX,mouseY,shop.stower);
+                        maketower(player.mouseX,player.mouseY,shop.stower);
                         player.changemoney(-stowerprice);
-                        makeparticle(mouseX,mouseY,"money",-stowerprice);
+                        makeparticle(player.mouseX,player.mouseY,"money",-stowerprice);
                     }
-                    break;
+                break;
+
+
                 case "delete":
                     TOWERS.forEach((tower,i)=>{
-                        if(distance(mouseX,tower.x,mouseY,tower.y) < tower.size*2){
+                        if(distance(player.mouseX,tower.x,player.mouseY,tower.y) < tower.size*2){
                             player.changemoney((shop.sprice[tower.type].price)/2);
-                            makeparticle(mouseX,mouseY,"money",(shop.sprice[tower.type].price)/2)
+                            makeparticle(player.mouseX,player.mouseY,"money",(shop.sprice[tower.type].price)/2)
                             TOWERS.splice(i,1);
                         };
                     })
-                    break;
+                break;
 
 
 
@@ -1321,7 +1538,30 @@ function gameclicking(e){
             return;
 
         }
+
+        if(shop.inputtype === "info"){
+            TOWERS.forEach(tower=>{
+                tower.showinfo = false;
+                if(distance(player.mouseX,tower.x,player.mouseY,tower.y) < tower.size*2){tower.showinfo = true};
+            })
+        }
+
         
         })
+
     }
+    }else{
+        previewturret.active= false;
+        shop.inputtype = "none";
+    }
+}
+
+function gamemousemove(e){
+
+    let rect = canvas.getBoundingClientRect();
+    player.mouseX = (Math.floor((e.clientX- rect.left) /20 )*20)+10;
+    player.mouseY = (Math.floor((e.clientY- rect.top) /20 )*20)+10;
+
+
+
 }
