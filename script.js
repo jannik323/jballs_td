@@ -2016,29 +2016,29 @@ function gamemousemove(e){
 
 var sounds = {
     "shoot" : {
-      url : "sounds/shoot.wav",
+      url : "sound/shoot.wav",
       volume : .6
     },
     "place" : {
-        url : "sounds/place.wav"
+        url : "sound/place.wav"
       },
     "delete" : {
-    url : "sounds/delete.wav"
+    url : "sound/delete.wav"
     },
     "menu" : {
-    url : "sounds/menu.wav",
+    url : "sound/menu.wav",
     volume : .2
     },
     "explosion" : {
-    url : "sounds/explosion.wav",
+    url : "sound/explosion.wav",
     volume : .4
     },
     "cancel" : {
-    url : "sounds/cancel.wav",
+    url : "sound/cancel.wav",
     volume : .2
     },
     "healthdown" : {
-    url : "sounds/healthdown.wav",
+    url : "sound/healthdown.wav",
     volume : .4
     },
   };
