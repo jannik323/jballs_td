@@ -15,6 +15,8 @@ canvas {
     background-color: whitesmoke;
     
     z-index: 0;
+    border: 2px solid rgb(31, 31, 31);
+    border-radius: 7px;
 }
 
 input{
@@ -109,6 +111,21 @@ div h1{
 .topbar{
     display: flex;
     flex-direction: row;
+    width: 800px;
+    background-color: whitesmoke;
+    margin-bottom: 4px;
+    height: 40px;
+    position:relative;
+    align-items:center;
+    justify-content: space-evenly;
+    border: 2px solid rgb(31, 31, 31);
+    border-radius: 7px;
+}
+
+input.topdisplay{
+
+    border: 2px solid rgb(31, 31, 31);
+    margin: 0px;
 }
 
 .shopbar{
@@ -116,12 +133,14 @@ div h1{
     width: 800px;
     background-color: whitesmoke;
     margin-top: 4px;
-    height: 100px;
+    height: 120px;
     margin-bottom: 2rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     position:relative;
+    border: 2px solid rgb(31, 31, 31);
+    border-radius: 7px;
 }
 
 div.towerbar{
@@ -161,5 +180,9 @@ div#selectedtowerdisplay{
 
 
 #test{
-    color: hsl(308, 24%, 23%);
+    color:hsl(309, 35%, 57%);
+}
+
+.widefield{
+    width: 10rem;
 }

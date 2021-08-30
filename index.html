@@ -15,30 +15,35 @@
 <div id="pausemenu" class="menu" > 
 
     <h1> Menu </h1>
-    <button class="X" onclick=" togglePause();">X</button>
-    <button class="menubtn" onclick=" togglePause();">Continue (p)</button>
-    <button class="menubtn" onclick=" togglePause(); hardreset();">Restart</button>
-    <button class="menubtn" onclick=" toggleMenu('settingsmenu');" >Settings</button>
-    <button class="menubtn" onclick=" togglePause(); starteditor(); ">Level Editor</button>
+    <button class="X" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause();">X</button>
+    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause();">Continue (p)</button>
+    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause(); hardreset();">Restart</button>
+    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); toggleMenu('settingsmenu');" >Settings</button>
+    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause(); starteditor(); ">Level Editor</button>
 
 </div>
+
 
 <div id="settingsmenu" class="menu"> 
 
     <h1>Settings </h1>
-    <button class="X" onclick=" toggleMenu('settingsmenu');">X</button>
-    <button class="menubtn" onclick="togglestyle(); render(); " >Toggle Style</button>
+    <button class="X" onclick="playSound(`menu`,{ volume: mastervolume }); toggleMenu('settingsmenu');">X</button>
+    <label>Sound Volume</label>
+    <input type="range" min="0" max="1" step="0.05" value="1" onchange=" mastervolume = this.value; playSound(`menu`,{ volume: mastervolume });">
     </div>  
 
 
 </div>
 
+<div id="all_e">
+
+
 
 <div class="topbar">
-<input id="levelwave" type="text" disabled value="Wave : 0">
-<input id="levelhtml" type="text" disabled value="Test">
-<input id="playerhealth" type="text" disabled value="Health: 10">
-<input id="playermoney" type="text" disabled value="Money: 8">
+<input class="topdisplay" id="levelwave" type="text" disabled value="Wave : 0">
+<input class="topdisplay" id="levelhtml" type="text" disabled value="Test">
+<input class="topdisplay" id="playerhealth" type="text" disabled value="Health: 10">
+<input class="topdisplay" id="playermoney" type="text" disabled value="Money: 8">
 
 </div>
 <canvas id="canvas"></canvas>
@@ -47,9 +52,11 @@
 <div id="selectedtowerdisplay"></div>
 <div class="towerbar" id="towerbar">
 </div>
-<div id="inputtypes" class="towerbar">
-<button class="towerselect" onclick="shop.inputchange(`delete`)">Delete </button>
-<button class="towerselect" onclick="shop.inputchange(`info`)">Info </button>
+<div id="inputtypes" class="towerbar widefield">
+<button class="towerselect" onclick="playSound(`menu`,{ volume: mastervolume }); shop.inputchange(`delete`)">Delete </button>
+<button class="towerselect" onclick="playSound(`menu`,{ volume: mastervolume }); shop.inputchange(`info`)">Info </button>
+<button class="towerselect" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause();">Menu </button>
+<button class="towerselect" onclick="playSound(`menu`,{ volume: mastervolume }); nextlevel()">Next Map </button>
 
 </div>
 
@@ -85,7 +92,6 @@
 <button class="btn" onclick="clearmap()" >Clear Map</button>
 
 
-</div>
 
 <div class="flex">
     <a id="DownloadMap" download="map.txt" class="btn" onclick="this.style.display = 'none'"> Download Map</a>
@@ -94,6 +100,11 @@
 </div>
 
 p
+
+</div>
+
+</div>
+
 </body>
 
 <script src="script.js" defer></script>
