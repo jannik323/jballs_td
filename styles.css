@@ -64,6 +64,8 @@ button.menubtn{
     border: none;
     box-shadow: 1px 0px 4px grey, -1px -0px 4px grey, -0px -1px 4px grey, -0px 1px 4px grey;
     align-self: center;
+    cursor: pointer;
+
 }
 
 .btn{
@@ -73,6 +75,7 @@ button.menubtn{
     box-shadow: 1px 0px 4px grey, -1px -0px 4px grey, -0px -1px 4px grey, -0px 1px 4px grey;
     align-self: center;
     background-color: azure;
+    
 }
 
 .btn:hover{
@@ -152,17 +155,37 @@ div.towerbar{
     margin-left: 5px;
 }
 
-button.towerselect{
+.towerselect{
     
     border: 2px solid rgb(31, 31, 31);
     padding: 2px;
     margin: 2px;
+    background-color: whitesmoke;
 }
 
 
 button.towerselect:hover{
     
     background-color: grey;
+    cursor: pointer;
+
+
+}
+
+div.GameSpeed{
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    border: 2px solid rgb(31, 31, 31);
+    margin-left: 5px;
+    padding: 3px;
+    justify-content: center;
+    align-items: center;
+}
+
+input.gamespeedrange{
+color: grey;
+width: 70%;
 
 }
 
@@ -176,13 +199,15 @@ div#selectedtowerdisplay{
     width: 200px;
     align-items:center;
     justify-content:center;
+    
 }
 
 
 #test{
-    color:hsl(309, 35%, 57%);
+    color:hsl(53, 45%, 86%);
 }
 
 .widefield{
     width: 10rem;
 }
+

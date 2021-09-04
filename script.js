@@ -97,7 +97,7 @@ const TOWERTYPES = {
         color : "hsl(194, 14%, 50%)",
         size : 10,
         range : 180,
-        firerate : 60,
+        firerate : 70,
         shotspeed : 10,
         damage : 1,
         },
@@ -106,7 +106,7 @@ const TOWERTYPES = {
         color : "hsl(194, 14%, 70%)",
         size : 15,
         range : 190,
-        firerate : 55,
+        firerate : 54,
         shotspeed : 11,
         damage : 1,
         },
@@ -182,7 +182,7 @@ const TOWERTYPES = {
         range : 300,
         firerate : 300,
         shotspeed : 22,
-        damage : 8,
+        damage : 15,
         homing:PI/100,
         },
     trained_ball_sniper:
@@ -191,7 +191,7 @@ const TOWERTYPES = {
         size : 20,
         range : 450,
         firerate : 330,
-        shotspeed : 25,
+        shotspeed : 35,
         damage : 18,
         homing:PI/80,
         },
@@ -201,9 +201,9 @@ const TOWERTYPES = {
         size : 10,
         range : 200,
         firerate : 180,
-        shotspeed : 3,
-        damage : 1,
-        homing:PI/100,
+        shotspeed : 4,
+        damage : 2,
+        homing:PI/90,
         },
     normal_ball_searcher:
         {
@@ -211,9 +211,9 @@ const TOWERTYPES = {
         size : 15,
         range : 250,
         firerate : 200,
-        shotspeed : 3,
-        damage : 2,
-        homing:PI/80,
+        shotspeed : 5,
+        damage : 3,
+        homing:PI/50,
         },
     pro_ball_searcher:
         {
@@ -221,9 +221,9 @@ const TOWERTYPES = {
         size : 20,
         range : 260,
         firerate : 200,
-        shotspeed : 4,
+        shotspeed : 6,
         damage : 6,
-        homing:PI/40,
+        homing:PI/30,
         },
     normal_ball_freezer:
     {
@@ -301,7 +301,7 @@ const ENEMYTYPES = {
     slow_2:{
         size : 13,
         speed : 0.6,
-        health : 9,
+        health : 10,
         reward : 0.2,
         color : "hsl(0, 36%, 30%)",
         },
@@ -315,42 +315,42 @@ const ENEMYTYPES = {
     normal_3:{
         size : 12,
         speed : 1.1,
-        health : 12,
+        health : 14,
         reward : 0.3,
         color : "hsl(124, 36%, 50%)",
         },
     slow_3:{
         size : 15,
         speed : 0.6,
-        health : 14,
+        health : 16,
         reward : 0.3,
         color : "hsl(124, 36%, 30%)",
         },
     fast_3:{
         size : 10,
         speed : 1.6,
-        health : 10,
+        health : 12,
         reward : 0.3,
         color : "hsl(124, 36%, 70%)",
         },
     normal_4:{
         size : 15,
         speed : 1.1,
-        health : 20,
+        health : 25,
         reward : 0.3,
         color : "hsl(294, 36%, 50%)",
         },
     slow_4:{
         size : 17,
         speed : 0.6,
-        health : 30,
+        health : 35,
         reward : 0.3,
         color : "hsl(294, 36%, 30%)",
         },
     fast_4:{
         size : 12,
         speed : 1.6,
-        health : 15,
+        health : 17,
         reward : 0.3,
         color : "hsl(294, 36%, 70%)",
         },
@@ -365,37 +365,73 @@ const ENEMYTYPES = {
     normal_5:{
         size : 18,
         speed : 1.2,
-        health : 25,
+        health : 30,
         reward : 0.4,
         color : "hsl(63, 35%, 50%)",
         },
     slow_5:{
         size : 20,
         speed : 0.5,
-        health : 50,
+        health : 55,
         reward : 0.4,
         color : "hsl(63, 35%, 30%)",
         },
     fast_5:{
         size : 13,
         speed : 2,
-        health : 15,
+        health : 25,
         reward : 0.4,
         color : "hsl(63, 35%, 70%)",
         },
     superfast_1:{
         size : 10,
-        speed : 2.5,
-        health : 14,
+        speed : 3,
+        health : 23,
         reward : 0.3,
         color : "hsl(63, 35%, 80%)",
         },
     boss_2:{
         size : 35,
         speed : 0.4,
-        health : 800,
+        health : 700,
         reward : 40,
         color : "hsl(28, 62%, 58%)",
+        permshowhealth : true,
+        },
+    normal_6:{
+        size : 22,
+        speed : 1.5,
+        health : 50,
+        reward : 0.4,
+        color : "hsl(85, 35%, 50%)",
+        },
+    slow_6:{
+        size : 25,
+        speed : 0.4,
+        health : 80,
+        reward : 0.4,
+        color : "hsl(85, 35%, 30%)",
+        },
+    fast_6:{
+        size : 14,
+        speed : 2.3,
+        health : 30,
+        reward : 0.4,
+        color : "hsl(85, 35%, 70%)",
+        },
+    superfast_2:{
+        size : 10,
+        speed : 3.4,
+        health : 28,
+        reward : 0.3,
+        color : "hsl(63, 35%, 90%)",
+        },
+    sun:{
+        size : 50,
+        speed : 0.2,
+        health : 1200,
+        reward :100,
+        color : "hsl(53, 45%, 86%)",
         permshowhealth : true,
         },
 
@@ -895,7 +931,7 @@ const spawnhandler = {
     waves:
     [
         {
-            wave_spawnrate: 130,
+        wave_spawnrate: 130,
             wave_waverate:3,    
             pieces:[
                 "normal_1",
@@ -966,7 +1002,7 @@ const spawnhandler = {
         },
 
         {
-            wave_spawnrate: 50,
+            wave_spawnrate: 60,
             wave_waverate:3,    
             pieces:[
                 "slow_2",
@@ -1048,7 +1084,7 @@ const spawnhandler = {
         },
 
         {
-            wave_spawnrate: 100,
+            wave_spawnrate: 70,
             wave_waverate:5,    
             pieces:[
                 "normal_4",
@@ -1066,7 +1102,7 @@ const spawnhandler = {
         },
 
         {
-            wave_spawnrate: 140,
+            wave_spawnrate: 70,
             wave_waverate:5,    
             pieces:[
                 "normal_5",
@@ -1083,20 +1119,21 @@ const spawnhandler = {
         },
 
         {
-            wave_spawnrate: 20,
-            wave_waverate:10,    
+            wave_spawnrate: 9,
+            wave_waverate:11,    
             pieces:[
                 "normal_2",
                 "normal_2",
+                "normal_3",
                 "normal_2",
-                "normal_2",
-                "normal_2",
+                "normal_3",
+                "fast_2",
                 "fast_2",
             ]
         },
 
         {
-            wave_spawnrate: 140,
+            wave_spawnrate: 70,
             wave_waverate:5,    
             pieces:[
                 "normal_5",
@@ -1113,13 +1150,14 @@ const spawnhandler = {
         },
 
         {
-            wave_spawnrate: 130,
+            wave_spawnrate: 40,
             wave_waverate:2,    
             pieces:[
                 "normal_5",
                 "normal_5",
                 "normal_5",
                 "fast_5",
+                "superfast_1",
                 "normal_5",
                 "normal_5",
                 "slow_5",
@@ -1128,7 +1166,7 @@ const spawnhandler = {
         },
 
         {
-            wave_spawnrate: 90,
+            wave_spawnrate: 70,
             wave_waverate:1,    
             pieces:[
                 "normal_5",
@@ -1136,7 +1174,7 @@ const spawnhandler = {
                 "normal_4",
                 "fast_5",
                 "fast_5",
-                "fast_4",
+                "fast_5",
                 "normal_5",
                 "normal_5",
                 "slow_5",
@@ -1148,20 +1186,187 @@ const spawnhandler = {
         },
 
         {
-            wave_spawnrate: 100,
-            wave_waverate:200,    
+            wave_spawnrate: 50,
+            wave_waverate:5,    
             pieces:[
                 "normal_5",
                 "normal_5",
                 "normal_5",
                 "fast_5",
                 "normal_5",
+                "boss_1",
                 "normal_5",
                 "slow_5",
                 "superfast_1",
                 "superfast_1",
             ]
         },
+
+        {
+            wave_spawnrate: 70,
+            wave_waverate:3,    
+            pieces:[
+                "normal_5",
+                "normal_5",
+                "normal_5",
+                "normal_5",
+                "slow_5",
+                "slow_5",
+
+                "boss_1",
+                "normal_5",
+                "normal_5",
+                "superfast_1",
+
+                "fast_5",
+                "fast_5",
+                "fast_5",
+                "normal_5",
+                "normal_5",
+                "boss_2",
+                "normal_5",
+                "slow_5",
+                "superfast_1",
+                "superfast_1",
+            ]
+        },
+
+        {
+            wave_spawnrate: 100,
+            wave_waverate:2,    
+            pieces:[
+                "normal_5",
+                "normal_5",
+                "normal_5",
+                "normal_6",
+                "normal_6",
+                "normal_6",
+
+                "fast_5",
+                "fast_6",
+                "fast_6",
+                "superfast_2",
+
+            ]
+        },
+
+        {
+            wave_spawnrate: 70,
+            wave_waverate:3,    
+            pieces:[
+                "normal_6",
+                "normal_6",
+                "normal_6",
+                "slow_6",
+                "slow_6",
+                "slow_6",
+                "boss_1",
+
+                "fast_6",
+                "fast_6",
+            ]
+        },
+
+        {
+            wave_spawnrate: 60,
+            wave_waverate:3,    
+            pieces:[
+                "normal_6",
+                "normal_6",
+                "normal_6",
+                "boss_1",
+                "boss_1",
+                "slow_6",
+                "slow_6",
+                "slow_6",
+                "slow_6",
+                "fast_6",
+                "superfast_2",
+                "fast_6",
+            ]
+        },
+
+        {
+            wave_spawnrate: 50,
+            wave_waverate:3,    
+            pieces:[
+                "normal_6",
+                "normal_6",
+                "superfast_2",
+
+                "normal_6",
+                "boss_1",
+                "boss_1",
+                "boss_1",
+                "boss_1",
+                "boss_1",
+                "superfast_2",
+
+                "slow_6",
+                "slow_6",
+                "slow_6",
+            ]
+        },
+
+        {
+            wave_spawnrate: 100,
+            wave_waverate:1,    
+            pieces:[
+                "normal_6",
+                "normal_6",
+                "normal_6",
+                "sun",
+                "boss_1",
+                "slow_6",
+                "slow_6",
+                "slow_6",
+                "fast_6",
+                "superfast_2",
+                "superfast_2",
+                "fast_6",
+            ]
+        },
+
+        {
+            wave_spawnrate: 60,
+            wave_waverate:10,    
+            pieces:[
+                "normal_6",
+                "normal_6",
+                "boss_1",
+                "boss_2",
+                "boss_1",
+                "boss_1",
+                "slow_6",
+                "slow_6",
+                "boss_1",
+                "boss_2",
+                "slow_6",
+                "slow_6",
+                "fast_6",
+                "boss_1",
+                "superfast_2",
+                "superfast_2",
+            ]
+        },
+
+        {
+            wave_spawnrate: 120,
+            wave_waverate:100,    
+            pieces:[
+                "normal_6",
+                "boss_2",
+                "boss_2",
+                "boss_1",
+                "boss_1",
+                "boss_1",
+                "boss_2",
+                "superfast_2",
+                "sun",
+                "superfast_2",
+            ]
+        },
+
 
     ],
 
@@ -1529,6 +1734,9 @@ previewturret.render();
 
 
 ctx.strokeRect(selector.x,selector.y,selector.w,selector.h);
+
+ctx.strokeRect(player.mouseX,player.mouseY,5,5);
+
 }
 
 // draw path
@@ -1716,6 +1924,13 @@ function togglePause(){
         GameSpeed = 0; 
     }
 
+}
+
+function changegamespeed(self){
+
+    document.getElementById("gamespeeddis").value = "Game Speed: "+ self.value;
+    GameSpeed = self.value;
+    lastGameSpeed = self.value;
 }
 
 // file gen save map
@@ -1943,8 +2158,9 @@ function gameclicking(e){
 
 
                 case "delete":
+                    
                     TOWERS.forEach((tower,ie)=>{
-                        if(distance(player.mouseX,tower.x,player.mouseY,tower.y) < tower.size){
+                        if(distance(player.mouseX,tower.x,player.mouseY,tower.y) <= tower.size *1.5){
                             player.changemoney((shop.sprice[tower.type].price)/2);
                             makeparticle(player.mouseX,player.mouseY,"money",(shop.sprice[tower.type].price)/2)
                             TOWERS.splice(ie,1);
@@ -1973,14 +2189,14 @@ function gameclicking(e){
     if(shop.inputtype === "info"){
         TOWERS.forEach(tower=>{
             tower.showinfo = false;
-            if(distance(player.mouseX,tower.x,player.mouseY,tower.y) < tower.size){tower.showinfo = true};
+            if(distance(player.mouseX,tower.x,player.mouseY,tower.y) <= tower.size*1.5){tower.showinfo = true};
         })
         ENEMIES.forEach(enemy=>{
             if(!enemy.permshowhealth){
                 enemy.showhealth = false;
             }
             enemy.showinfo = false;
-            if(distance(player.mouseX,enemy.x,player.mouseY,enemy.y) < enemy.size){enemy.showhealth = true; enemy.showinfo = true;};
+            if(distance(player.mouseX,enemy.x,player.mouseY,enemy.y) <= enemy.size*1.5){enemy.showhealth = true; enemy.showinfo = true;};
         })
     }
 
@@ -2001,15 +2217,17 @@ function gameclicking(e){
 function gamemousemove(e){
     if(GameSpeed === 0){return}
 
-    let towertypesize = TOWERTYPES[shop.stower].size*2;
+    let towertypesize = TOWERTYPES[shop.stower].size;
     let rect = canvas.getBoundingClientRect();
     if(shop.inputtype === "place"){
-        player.mouseX = (Math.floor((e.clientX- rect.left) /10 )*10)+towertypesize/2;
-        player.mouseY = (Math.floor((e.clientY- rect.top) /10 )*10)+towertypesize/2;
+        player.mouseX = (Math.floor((e.clientX- rect.left) /10 )*10)+towertypesize;
+        player.mouseY = (Math.floor((e.clientY- rect.top) /10 )*10)+towertypesize;
+
     }else{
-        player.mouseX = (Math.floor((e.clientX- rect.left) /10 )*10)+5;
-        player.mouseY = (Math.floor((e.clientY- rect.top) /10 )*10)+5;
+        player.mouseX = (Math.floor((e.clientX- rect.left) /10 )*10);
+        player.mouseY = (Math.floor((e.clientY- rect.top) /10 )*10);
     }
+
     
 
 }
@@ -2017,10 +2235,11 @@ function gamemousemove(e){
 var sounds = {
     "shoot" : {
       url : "sound/shoot.wav",
-      volume : .6
+      volume : .3
     },
     "place" : {
-        url : "sound/place.wav"
+        url : "sound/place.wav",
+        volume : .6
       },
     "delete" : {
     url : "sound/delete.wav"
