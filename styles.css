@@ -141,9 +141,11 @@ input.topdisplay{
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content:space-between;
     position:relative;
     border: 2px solid rgb(31, 31, 31);
     border-radius: 7px;
+
 }
 
 div.towerbar{
@@ -171,20 +173,25 @@ button.towerselect:hover{
 
 
 }
+button.locked{
+
+    background-color: rgb(31, 31, 31);
+    color: whitesmoke;
+}
 
 div.GameSpeed{
     display: flex;
     flex-direction: column;
-    height: 80%;
+    height: 75%;
     border: 2px solid rgb(31, 31, 31);
     margin-left: 5px;
     padding: 3px;
     justify-content: center;
     align-items: center;
+    margin-right: 5px;
 }
 
 input.gamespeedrange{
-color: grey;
 width: 70%;
 
 }
@@ -196,7 +203,7 @@ div#selectedtowerdisplay{
     border: 2px solid rgb(31, 31, 31);
     padding: 2px;
     height: 75%;
-    width: 200px;
+    width: 150px;
     align-items:center;
     justify-content:center;
     
@@ -211,3 +218,6 @@ div#selectedtowerdisplay{
     width: 10rem;
 }
 
+.im_so_hidden{
+    color:rgb(31, 31, 31);
+}

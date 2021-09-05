@@ -35,6 +35,87 @@ playermoney.value = "Money: 8$";
 let levelwave = document.getElementById("levelwave");
 levelwave.value = "Wave: 0";
 
+let sounds = {
+    "shoot" : {
+      url : "sound/shoot.wav",
+      volume : .3
+    },
+    "place" : {
+        url : "sound/place.wav",
+        volume : .6
+      },
+    "delete" : {
+    url : "sound/delete.wav"
+    },
+    "menu" : {
+    url : "sound/menu.wav",
+    volume : .2
+    },
+    "explosion" : {
+    url : "sound/explosion.wav",
+    volume : .4
+    },
+    "cancel" : {
+    url : "sound/cancel.wav",
+    volume : .2
+    },
+    "healthdown" : {
+    url : "sound/healthdown.wav",
+    volume : .4
+    },
+  };
+  
+
+let soundContext = new AudioContext();
+
+for(let key in sounds) {
+loadSound(key);
+}
+
+function loadSound(name){
+    let sound = sounds[name];
+
+    let url = sound.url;
+    let buffer = sound.buffer;
+
+    let request = new XMLHttpRequest();
+    request.open('GET', url, true);
+    request.responseType = 'arraybuffer';
+
+    request.onload = function() {
+        soundContext.decodeAudioData(request.response, function(newBuffer) {
+        sound.buffer = newBuffer;
+        });
+    }
+
+    request.send();
+}
+
+function playSound(name, options){
+    let sound = sounds[name];
+    let soundVolume = sounds[name].volume || 1;
+
+    let buffer = sound.buffer;
+    if(buffer){
+        let source = soundContext.createBufferSource();
+        source.buffer = buffer;
+
+        let volume = soundContext.createGain();
+
+        if(options) {
+        if(options.volume) {
+            volume.gain.value = soundVolume * options.volume;
+        }
+        } else {
+        volume.gain.value = soundVolume;
+        }
+
+        volume.connect(soundContext.destination);
+        source.connect(volume);
+        source.start(0);
+    }
+}
+
 let LEVELS = [
     
     {
@@ -88,7 +169,7 @@ const TOWERTYPES = {
         color : "hsl(185, 32%, 77%)",
         size : 5,
         range : 130,
-        firerate : 50,
+        firerate : 60,
         shotspeed : 7,
         damage : 0.2,
         },
@@ -183,7 +264,7 @@ const TOWERTYPES = {
         firerate : 300,
         shotspeed : 22,
         damage : 15,
-        homing:PI/100,
+        homing:PI/90,
         },
     trained_ball_sniper:
         {
@@ -193,7 +274,7 @@ const TOWERTYPES = {
         firerate : 330,
         shotspeed : 35,
         damage : 18,
-        homing:PI/80,
+        homing:PI/70,
         },
     weak_ball_searcher:
         {
@@ -1595,32 +1676,39 @@ const shop = {
     inputtype:"place",
     sprice:
     {
-        tiny_ball_buster:{name:"Tiny Ball Buster",price:3},
-        normal_ball_buster:{name:"Normal Ball Buster",price:8},
-        fast_ball_buster:{name:"Fast Ball Buster",price:16},
-        tiny_ball_pincher:{name:"Tiny Ball Pincher",price:1},
-        strong_ball_pincher:{name:"Strong Ball Pincher",price:10},
-        normal_ball_freezer:{name:"Normal Ball Freezer",price:14},
-        fast_ball_freezer:{name:"Fast Ball Freezer",price:25},
-        normal_ball_refiner:{name:"Normal Ball Refiner",price:20},
-        trained_ball_refiner:{name:"Trained Ball Refiner",price:30},
-        normal_ball_crusher:{name:"Normal Ball Crusher",price:20},
-        trained_ball_crusher:{name:"Trained Ball Crusher",price:30},
-        normal_ball_spiker:{name:"Normal Ball Spiker",price:20},
-        trained_ball_spiker:{name:"Trained Ball Spiker",price:35},
-        pro_ball_crusher:{name:"Pro Ball Crusher",price:40},
-        normal_ball_sniper:{name:"Normal Ball Sniper",price:40},
-        trained_ball_sniper:{name:"Trained Ball Sniper",price:70},
-        weak_ball_searcher:{name:"Weak Ball Searcher",price:15},
-        normal_ball_searcher:{name:"Normal Ball Searcher",price:20},
-        pro_ball_searcher:{name:"Pro Ball Searcher",price:30},
-        normal_ball_smasher:{name:"Normal Ball Smasher",price:69},
-        holy_ball_smasher:{name:"Holy Ball Smasher",price:201},
+        tiny_ball_buster:{name:"Tiny Ball Buster",price:3,locked:false},
+        normal_ball_buster:{name:"Normal Ball Buster",price:8,locked:false},
+        fast_ball_buster:{name:"Fast Ball Buster",price:16,locked:false},
+        tiny_ball_pincher:{name:"Tiny Ball Pincher",price:1,locked:true},
+        strong_ball_pincher:{name:"Strong Ball Pincher",price:10,locked:true},
+        normal_ball_freezer:{name:"Normal Ball Freezer",price:14,locked:true},
+        fast_ball_freezer:{name:"Fast Ball Freezer",price:25,locked:true},
+        normal_ball_refiner:{name:"Normal Ball Refiner",price:20,locked:true},
+        trained_ball_refiner:{name:"Trained Ball Refiner",price:30,locked:true},
+        normal_ball_crusher:{name:"Normal Ball Crusher",price:20,locked:true},
+        trained_ball_crusher:{name:"Trained Ball Crusher",price:30,locked:true},
+        normal_ball_spiker:{name:"Normal Ball Spiker",price:20,locked:true},
+        trained_ball_spiker:{name:"Trained Ball Spiker",price:35,locked:true},
+        pro_ball_crusher:{name:"Pro Ball Crusher",price:40,locked:true},
+        normal_ball_sniper:{name:"Normal Ball Sniper",price:40,locked:true},
+        trained_ball_sniper:{name:"Trained Ball Sniper",price:70,locked:true},
+        weak_ball_searcher:{name:"Weak Ball Searcher",price:15,locked:true},
+        normal_ball_searcher:{name:"Normal Ball Searcher",price:20,locked:true},
+        pro_ball_searcher:{name:"Pro Ball Searcher",price:30,locked:true},
+        normal_ball_smasher:{name:"Normal Ball Smasher",price:69,locked:true},
+        holy_ball_smasher:{name:"Holy Ball Smasher",price:201,locked:true},
 
     },
     select:function(selected){
-        shop.stower = selected.value;
-        shop.inputchange("place",selected);
+        
+        if(!shop.sprice[selected.value].locked){
+            playSound("menu",{ volume: mastervolume }); 
+            shop.stower = selected.value;
+            shop.inputchange("place",selected);
+        }else{
+            playSound("cancel",{ volume: mastervolume }); 
+            shop.unlock(selected);
+        }
     },
     inputchange:function(type,selection=type){
         shop.inputtype = type;
@@ -1644,7 +1732,11 @@ const shop = {
             valuetower = valuetower.replace(/ /g,"_")
             towerbtn.value = valuetower;
             towerbtn.classList.add("towerselect"); 
-            towerbtn.addEventListener("click", ()=>{playSound(`menu`,{ volume: mastervolume }); shop.select(towerbtn)});
+            if(htmltower.locked){
+                towerbtn.classList.add("locked"); 
+                towerbtn.innerHTML = htmltower.name +" "+ (htmltower.price*2) + "$" + " to unlock";              
+            }
+            towerbtn.addEventListener("click", ()=>{shop.select(towerbtn);});
             towerselect.appendChild(towerbtn);  
 
         }
@@ -1660,12 +1752,49 @@ const shop = {
         shop.inputtype = "none";
         document.getElementById("selectedtowerdisplay").innerHTML = "";
     },
+    unlock(unlocker){
+        let unlockcost = (shop.sprice[unlocker.value].price*2);
+        if(player.money >= unlockcost){
+            player.changemoney(-unlockcost);
+            makeparticle(750,50,"money",-unlockcost);
+            unlocker.innerHTML = shop.sprice[unlocker.value].name +": "+ unlockcost/2 + "$";     
+            unlocker.classList.remove("locked");
+            shop.sprice[unlocker.value].locked = false;
+            let lockdata = JSON.parse(localStorage.getItem("locked")); 
+            lockdata[unlocker.value] = false;
+            localStorage.setItem("locked",JSON.stringify(lockdata))
+        }
+
+    },
+    setlocked(){
+
+        if(localStorage.getItem("locked")){
+            let lockdata = JSON.parse(localStorage.getItem("locked")); 
+            for (let x in shop.sprice){
+                let valuetower = shop.sprice[x].name.toLowerCase();    
+                valuetower = valuetower.replace(/ /g,"_")
+                shop.sprice[x].locked = lockdata[valuetower];
+
+            }
+        }else{
+            const lockdataup = {}
+            for (let x in shop.sprice){
+                let valuetower = shop.sprice[x].name.toLowerCase();    
+                valuetower = valuetower.replace(/ /g,"_")
+                lockdataup[valuetower] = shop.sprice[x].locked;
+
+            }
+            console.log(lockdataup);
+            localStorage.setItem("locked",JSON.stringify(lockdataup))
+        }
+    }
 
 
 
 
 
 }
+shop.setlocked();
 shop.populateshop();
 shop.select({value:shop.stower})
 
@@ -1735,7 +1864,6 @@ previewturret.render();
 
 ctx.strokeRect(selector.x,selector.y,selector.w,selector.h);
 
-ctx.strokeRect(player.mouseX,player.mouseY,5,5);
 
 }
 
@@ -1856,16 +1984,12 @@ function savelevel(){
 function loadlevel(towhere = level){
     if (towhere === LEVELS.length){LEVELS.push(new Object())}
     let loadedlevel = prompt("Enter Level Code !");
-    GAMEOBJECTS = [];
-    ENEMIES = [];
-    TOWERS = [];
     loadedlevel = JSON.parse(loadedlevel);
     LEVELS[towhere].content = loadedlevel.content;
     LEVELS[towhere].name = loadedlevel.name;
     LEVELS[towhere].lpath = loadedlevel.lpath;
-    buildcurrentlevel();
     
-
+    
 }
 
 function hardreset(){
@@ -2006,6 +2130,7 @@ addEventListener("keypress",e=>{
     switch(e.key){
         case "p":
             togglePause();
+            playSound("menu",{ volume: mastervolume });
             break;
     }
 
@@ -2157,18 +2282,6 @@ function gameclicking(e){
                 break;
 
 
-                case "delete":
-                    
-                    TOWERS.forEach((tower,ie)=>{
-                        if(distance(player.mouseX,tower.x,player.mouseY,tower.y) <= tower.size *1.5){
-                            player.changemoney((shop.sprice[tower.type].price)/2);
-                            makeparticle(player.mouseX,player.mouseY,"money",(shop.sprice[tower.type].price)/2)
-                            TOWERS.splice(ie,1);
-                            playSound("delete",{ volume: mastervolume });
-                        };
-                    })
-                break;
-
 
 
 
@@ -2181,7 +2294,7 @@ function gameclicking(e){
 
 
 
-    if(!anycol && shop.inputtype !== "info"){
+    if(!anycol && shop.inputtype !== "info" && shop.inputtype !== "delete" ){
         shop.deselect()
         playSound("cancel",{ volume: mastervolume });
     }
@@ -2189,14 +2302,25 @@ function gameclicking(e){
     if(shop.inputtype === "info"){
         TOWERS.forEach(tower=>{
             tower.showinfo = false;
-            if(distance(player.mouseX,tower.x,player.mouseY,tower.y) <= tower.size*1.5){tower.showinfo = true};
+            if(distance(player.mouseX+tower.size/2,tower.x,player.mouseY+tower.size/2,tower.y) <= tower.size){tower.showinfo = true};
         })
         ENEMIES.forEach(enemy=>{
             if(!enemy.permshowhealth){
                 enemy.showhealth = false;
             }
             enemy.showinfo = false;
-            if(distance(player.mouseX,enemy.x,player.mouseY,enemy.y) <= enemy.size*1.5){enemy.showhealth = true; enemy.showinfo = true;};
+            if( distance(player.mouseX+enemy.size/2,enemy.x,player.mouseY+enemy.size/2,enemy.y) <= enemy.size){enemy.showhealth = true; enemy.showinfo = true;};
+        })
+    }
+
+    if(shop.inputtype === "delete"){
+        TOWERS.forEach((tower,ie)=>{
+            if( distance(player.mouseX+tower.size/2,tower.x,player.mouseY+tower.size/2,tower.y) <= tower.size){
+                player.changemoney((shop.sprice[tower.type].price)/2);
+                makeparticle(player.mouseX,player.mouseY,"money",(shop.sprice[tower.type].price)/2)
+                TOWERS.splice(ie,1);
+                playSound("delete",{ volume: mastervolume });
+            };
         })
     }
 
@@ -2232,83 +2356,3 @@ function gamemousemove(e){
 
 }
 
-var sounds = {
-    "shoot" : {
-      url : "sound/shoot.wav",
-      volume : .3
-    },
-    "place" : {
-        url : "sound/place.wav",
-        volume : .6
-      },
-    "delete" : {
-    url : "sound/delete.wav"
-    },
-    "menu" : {
-    url : "sound/menu.wav",
-    volume : .2
-    },
-    "explosion" : {
-    url : "sound/explosion.wav",
-    volume : .4
-    },
-    "cancel" : {
-    url : "sound/cancel.wav",
-    volume : .2
-    },
-    "healthdown" : {
-    url : "sound/healthdown.wav",
-    volume : .4
-    },
-  };
-  
-  
-  var soundContext = new AudioContext();
-  
-  for(var key in sounds) {
-    loadSound(key);
-  }
-  
-  function loadSound(name){
-    var sound = sounds[name];
-  
-    var url = sound.url;
-    var buffer = sound.buffer;
-  
-    var request = new XMLHttpRequest();
-    request.open('GET', url, true);
-    request.responseType = 'arraybuffer';
-  
-    request.onload = function() {
-      soundContext.decodeAudioData(request.response, function(newBuffer) {
-        sound.buffer = newBuffer;
-      });
-    }
-  
-    request.send();
-  }
-  
-  function playSound(name, options){
-    var sound = sounds[name];
-    var soundVolume = sounds[name].volume || 1;
-  
-    var buffer = sound.buffer;
-    if(buffer){
-      var source = soundContext.createBufferSource();
-      source.buffer = buffer;
-  
-      var volume = soundContext.createGain();
-  
-      if(options) {
-        if(options.volume) {
-          volume.gain.value = soundVolume * options.volume;
-        }
-      } else {
-        volume.gain.value = soundVolume;
-      }
-  
-      volume.connect(soundContext.destination);
-      source.connect(volume);
-      source.start(0);
-    }
-  }
