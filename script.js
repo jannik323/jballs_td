@@ -1180,7 +1180,7 @@ const spawnhandler = {
                 case "normal":
                     increasor.size.v = 0.2;
                     increasor.speed.v = 0.05;
-                    increasor.health.v = 1.2;
+                    increasor.health.v = 1.3;
                     increasor.health.o = "*";
                     increasor.speed.o = "+";
                     increasor.size.o = "+";
@@ -1188,7 +1188,7 @@ const spawnhandler = {
                 case "hard":
                     increasor.size.v = 0.3;
                     increasor.speed.v = 1.03;
-                    increasor.health.v = 1.4;
+                    increasor.health.v = 1.5;
                     increasor.health.o = "*";
                     increasor.speed.o = "*";
                     increasor.size.o = "+";
