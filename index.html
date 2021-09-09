@@ -12,6 +12,8 @@
     
 <body>
 
+<div id="allblock"></div> 
+
 <div id="pausemenu" class="menu" > 
 
     <h1> Menu </h1>
@@ -36,11 +38,37 @@
 
 </div>
 
+<div id="endlesssmenu" class="menu"> 
+
+    <h1> Endless Mode Settings </h1>
+    <button class="X" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause();">X</button>
+
+    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause(); spawnhandler.endlessmode.changedifficulty(`easy`);"> Easy Mode</button>
+    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause(); spawnhandler.endlessmode.changedifficulty(`normal`);"> Normal Mode</button>
+    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause(); spawnhandler.endlessmode.changedifficulty(`hard`);"> Hard Mode</button>
+    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause(); spawnhandler.endlessmode.changedifficulty(`impossible`);"> Impossible Mode</button>
+    <!-- <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume });"> Custom Settings</button> -->
+    
+</div>
+
+<div id="endlesslocked" class="menu"> 
+    <h1> Game mode locked </h1>
+    <button class="X" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause();">X</button>
+    <p class="center">This game mode is locked at the moment. <br> Unlock it by finishing the main game mode. </p>
+</div>
+
+<div id="winning" class="menu"> 
+    <h1> You Won </h1>
+    <p class="center" >You have reached the last wave . <br> You have unlocked the endless mode! <br> More waves will soon be added 👍 </p>
+    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause(); hardreset();">Restart</button>
+</div>
+
 <div id="all_e">
 
 
 
 <div class="topbar">
+<progress class="topdisplay" id="waveprogres"  disabled max=100 value=0 ></progress>
 <input class="topdisplay" id="levelwave" type="text" disabled value="Wave : 0">
 <input class="topdisplay" id="levelhtml" type="text" disabled value="Test">
 <input class="topdisplay" id="playerhealth" type="text" disabled value="Health: 10">
@@ -57,15 +85,21 @@
 <button class="towerselect" onclick="playSound(`menu`,{ volume: mastervolume }); shop.inputchange(`delete`)">Delete </button>
 <button class="towerselect" onclick="playSound(`menu`,{ volume: mastervolume }); shop.inputchange(`info`)">Info </button>
 <button class="towerselect" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause();">Menu </button>
+<button class="towerselect" id="modebtn" onclick="playSound(`menu`,{ volume: mastervolume }); spawnhandler.changewavemode(this);"> Endless Mode</button>
 <button class="towerselect" onclick="playSound(`menu`,{ volume: mastervolume }); nextlevel()">Next Map </button>
 <button class="towerselect" onclick="playSound(`menu`,{ volume: mastervolume }); loadlevel(LEVELS.length);">Add Map </button>
 
 </div>
 
 <div class="GameSpeed" >
+    <div class="towerselect center">
     <input id="gamespeeddis" class="towerselect" value="Game Speed: 60 " disabled>
     <input class="gamespeedrange" min=10 max= 100 value="60" type="range" onchange="changegamespeed(this);">
-</div>
+    </div>
+    
+    <div>
+        
+    </div>
 
 </div>
 
@@ -109,6 +143,7 @@
 </div>
 
 </div>
+<!-- <p class="im_so_hidden">HEY, this is a super secret text. Why did you find it?</p> -->
 </body>
 
 <script src="script.js" defer></script>

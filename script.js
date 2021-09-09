@@ -9,7 +9,6 @@ ctx.shadowColor = "black";
 let pausemenu = document.getElementById("pausemenu");
 
 
-
 let clicks = 0;
 let selector = {};
 let ENEMIES = [];
@@ -182,12 +181,21 @@ const TOWERTYPES = {
         shotspeed : 10,
         damage : 1,
         },
+    trained_ball_buster:
+        {
+        color : "hsl(180, 14%, 40%)",
+        size : 20,
+        range : 150,
+        firerate : 72,
+        shotspeed : 11,
+        damage : 2,
+        },
     fast_ball_buster:
         {
         color : "hsl(194, 14%, 70%)",
         size : 15,
-        range : 190,
-        firerate : 54,
+        range : 160,
+        firerate : 53,
         shotspeed : 11,
         damage : 1,
         },
@@ -198,7 +206,7 @@ const TOWERTYPES = {
         range : 100,
         firerate : 100,
         shotspeed : 11,
-        damage : 2,
+        damage : 4,
         },
     trained_ball_crusher:
         {
@@ -207,7 +215,7 @@ const TOWERTYPES = {
         range : 80,
         firerate : 110,
         shotspeed : 8,
-        damage : 5,
+        damage : 7,
         },
     pro_ball_crusher:
         {
@@ -256,11 +264,21 @@ const TOWERTYPES = {
         damage : 0.2,
         moneymulti: 3,
         },
+    tiny_ball_sniper:
+        {
+        color : "hsl(1, 52%, 38%)",
+        size : 10,
+        range : 270,
+        firerate : 350,
+        shotspeed : 20,
+        damage : 5,
+        homing:PI/120,
+        },
     normal_ball_sniper:
         {
         color : "hsl(1, 52%, 28%)",
         size : 15,
-        range : 300,
+        range : 330,
         firerate : 300,
         shotspeed : 22,
         damage : 15,
@@ -280,31 +298,41 @@ const TOWERTYPES = {
         {
         color : "hsl(245, 35%, 70%)",
         size : 10,
-        range : 200,
+        range : 180,
         firerate : 180,
-        shotspeed : 4,
+        shotspeed : 6,
         damage : 2,
-        homing:PI/90,
+        homing:PI/60,
         },
     normal_ball_searcher:
         {
         color : "hsl(245, 35%, 50%)",
         size : 15,
-        range : 250,
+        range : 220,
         firerate : 200,
-        shotspeed : 5,
-        damage : 3,
-        homing:PI/50,
+        shotspeed : 7,
+        damage : 4,
+        homing:PI/40,
+        },
+    fast_ball_searcher:
+        {
+        color : "hsl(245, 35%, 70%)",
+        size : 15,
+        range : 220,
+        firerate : 70,
+        shotspeed : 7,
+        damage : 2,
+        homing:PI/40,
         },
     pro_ball_searcher:
         {
         color : "hsl(245, 35%, 30%)",
         size : 20,
-        range : 260,
-        firerate : 200,
-        shotspeed : 6,
-        damage : 6,
-        homing:PI/30,
+        range : 240,
+        firerate : 220,
+        shotspeed : 10,
+        damage : 10,
+        homing:PI/10,
         },
     normal_ball_freezer:
     {
@@ -350,6 +378,51 @@ const TOWERTYPES = {
 }
 
 const ENEMYTYPES = {
+
+    normal_endless_original:{
+        size : 10,
+        speed : 1,
+        health : 3,
+        reward : 0.1,
+        color : "hsl(255, 36%, 50%)",
+        },
+    slow_endless_original:{
+        size : 11,
+        speed : 0.5,
+        health : 4,
+        reward : 0.1,
+        color : "hsl(255, 36%, 30%)",
+        },
+    fast_endless_original:{
+        size : 9,
+        speed : 1.5,
+        health : 2,
+        reward : 0.1,
+        color : "hsl(255, 36%, 70%)",
+        },
+
+
+    normal_endless:{
+        size : 10,
+        speed : 1,
+        health : 3,
+        reward : 0.1,
+        color : "hsl(255, 36%, 50%)",
+        },
+    slow_endless:{
+        size : 11,
+        speed : 0.5,
+        health : 4,
+        reward : 0.1,
+        color : "hsl(255, 36%, 30%)",
+        },
+    fast_endless:{
+        size : 9,
+        speed : 1.5,
+        health : 2,
+        reward : 0.1,
+        color : "hsl(255, 36%, 70%)",
+        },
 
     normal_1:{
         size : 10,
@@ -439,7 +512,7 @@ const ENEMYTYPES = {
         size : 28,
         speed : 0.4,
         health : 300,
-        reward : 20,
+        reward : 10,
         color : "hsl(308, 24%, 23%)",
         permshowhealth : true,
         },
@@ -475,7 +548,7 @@ const ENEMYTYPES = {
         size : 35,
         speed : 0.4,
         health : 700,
-        reward : 40,
+        reward : 20,
         color : "hsl(28, 62%, 58%)",
         permshowhealth : true,
         },
@@ -503,7 +576,7 @@ const ENEMYTYPES = {
     superfast_2:{
         size : 10,
         speed : 3.4,
-        health : 28,
+        health : 20,
         reward : 0.3,
         color : "hsl(63, 35%, 90%)",
         },
@@ -511,7 +584,7 @@ const ENEMYTYPES = {
         size : 50,
         speed : 0.2,
         health : 1200,
-        reward :100,
+        reward :40,
         color : "hsl(53, 45%, 86%)",
         permshowhealth : true,
         },
@@ -649,7 +722,7 @@ class enemy{
         if(this.health <= 0){
             makeparticle(this.x,this.y,"explosion");
             player.changemoney(this.multiedreward);
-            makeparticle(this.x,this.y,"money",this.multiedreward);
+            makeparticle(this.x,this.y,"money",this.multiedreward.toFixed(2));
             ENEMIES.splice(i,1);
             playSound("explosion",{ volume: mastervolume });
 
@@ -792,6 +865,8 @@ update(i){
             this.wstep = 0;
             if(this.g_offset <= 2){
                 this.g_offset_a -= this.size-(this.size/1.5)
+            }else{
+                this.g_offset = 1
             }
         }
             
@@ -962,7 +1037,9 @@ class bullet{
 
 const spawnhandler = {
 
-    active:true,
+    state:"waves",
+    waveprogress:0,
+    waveprogresshtml:document.getElementById("waveprogres"),
 
     piece:0,
     step:0,
@@ -973,29 +1050,53 @@ const spawnhandler = {
     waverate:3,
 
     update: function(){
-        if(spawnhandler.active){
+        if(spawnhandler.state === "waves" || spawnhandler.state === "endless_waves"){
+             
             spawnhandler.step++;
             if(spawnhandler.step > spawnhandler.spawnrate){
                 spawnhandler.step = 0;
-                makeenemy(spawnhandler.waves[spawnhandler.wave].pieces[spawnhandler.piece]);
+                makeenemy(spawnhandler.modes[spawnhandler.state][spawnhandler.wave].pieces[spawnhandler.piece]);
                 spawnhandler.piece ++;
-                if(spawnhandler.piece > spawnhandler.waves[spawnhandler.wave].pieces.length-1 ){spawnhandler.piece = 0;spawnhandler.wavestep++; }
+                if(spawnhandler.piece > spawnhandler.modes[spawnhandler.state][spawnhandler.wave].pieces.length-1 ){spawnhandler.piece = 0;spawnhandler.wavestep++; }
+                spawnhandler.updateprogres();
             }
     
             if(spawnhandler.wavestep >= spawnhandler.waverate){
                 spawnhandler.wave ++;
                 spawnhandler.step = -800;
                 spawnhandler.wavestep = 0;
-                if(spawnhandler.wave > spawnhandler.waves.length-1){spawnhandler.wave = 0}
-                levelwave.value = "Wave: " + spawnhandler.wave;
+                if(spawnhandler.wave > spawnhandler.modes[spawnhandler.state].length-1){
+                   
+                    if(spawnhandler.state === "waves"){
+                        localStorage.setItem("endlessmode",JSON.stringify({unlocked:true}));
+                        let modebtn = document.getElementById("modebtn");
+                        modebtn.classList.remove("locked");
+                        spawnhandler.endlessmode.locked = false;
+                        togglePause(true);
+                        toggleMenu("winning");
+                    }else{
+                        spawnhandler.wave = 0
+                    }
+                }
                 spawnhandler.setvaltowave();
+                spawnhandler.updateprogres();
+                
+                
+                if( spawnhandler.state === "endless_waves"){
+                    spawnhandler.endlessmode.increaseenemy();
+                    spawnhandler.endlessmode.endlesswave++;
+                    levelwave.value = "Wave: " + spawnhandler.endlessmode.endlesswave;
+                }else{
+                    levelwave.value = "Wave: " + spawnhandler.wave;
+                }
             }
+
         }
     },
 
     setvaltowave: function(){
-        spawnhandler.spawnrate = spawnhandler.waves[spawnhandler.wave].wave_spawnrate;
-        spawnhandler.waverate = spawnhandler.waves[spawnhandler.wave].wave_waverate;
+        spawnhandler.spawnrate = spawnhandler.modes[spawnhandler.state][spawnhandler.wave].wave_spawnrate;
+        spawnhandler.waverate = spawnhandler.modes[spawnhandler.state][spawnhandler.wave].wave_waverate;
     },
 
     reset:function(){
@@ -1007,7 +1108,213 @@ const spawnhandler = {
         spawnhandler.waverate=3;
         levelwave.value = "Wave: " + spawnhandler.wave;
         spawnhandler.setvaltowave();
+        spawnhandler.endlessmode.resetendlessenemy()
+        spawnhandler.endlessmode.setincreasors("easy");
+        spawnhandler.endlessmode.endlesswave=0;
+        spawnhandler.updateprogres();
+        if(!localStorage.getItem("endlessmode")){
+            localStorage.setItem("endlessmode",JSON.stringify({unlocked:false}));
+            let modebtn = document.getElementById("modebtn");
+            modebtn.classList.add("locked");
+            spawnhandler.endlessmode.locked = true;
+        
+        }else{
+            if(!JSON.parse(localStorage.getItem("endlessmode")).unlocked){
+                let modebtn = document.getElementById("modebtn");
+                modebtn.classList.add("locked");
+                spawnhandler.endlessmode.locked = true;
+            }
+        }
+        
     },
+
+    updateprogres(){
+        let piecepercent = ( 1 / (spawnhandler.modes[spawnhandler.state][spawnhandler.wave].pieces.length  / (spawnhandler.piece+1)  )   )
+        spawnhandler.waveprogress = Math.round(   100  /  ((spawnhandler.waverate)   /   (spawnhandler.wavestep+piecepercent)  ))
+        spawnhandler.waveprogresshtml.value = spawnhandler.waveprogress;
+    },
+
+    changewavemode(btn){
+        
+        if(!spawnhandler.endlessmode.locked){
+            if(spawnhandler.state === "waves"){
+                togglePause(true); 
+                toggleMenu('endlesssmenu'); 
+            }else if(spawnhandler.state === "endless_waves"){
+                hardreset();
+                spawnhandler.updateprogres();
+                spawnhandler.state = "waves";
+                btn.innerHTML = "Endless Mode"
+            }
+        }else{
+            togglePause(true);
+            toggleMenu("endlesslocked");
+        }
+    },
+    
+    endlessmode:{
+
+        increasors:{
+
+        size : {v:0.1,o:"+"},
+        speed : {v:0.1,o:"+"},
+        health : {v:1,o:"+"},
+        },
+        endlesswave:0,
+        locked:false,
+
+        difficulty:"easy",
+
+        setincreasors:function(newdif){
+            spawnhandler.endlessmode.difficulty = newdif;
+            let increasor =  spawnhandler.endlessmode.increasors;
+            switch(newdif){
+                case "easy":
+                    increasor.size.v = 0.2;
+                    increasor.speed.v = 0.1;
+                    increasor.health.v = 1.5;
+                    increasor.health.o = "+";
+                    increasor.speed.o = "+";
+                    increasor.size.o = "+";
+                    break;
+                case "normal":
+                    increasor.size.v = 0.2;
+                    increasor.speed.v = 0.05;
+                    increasor.health.v = 1.2;
+                    increasor.health.o = "*";
+                    increasor.speed.o = "+";
+                    increasor.size.o = "+";
+                    break;
+                case "hard":
+                    increasor.size.v = 0.3;
+                    increasor.speed.v = 1.03;
+                    increasor.health.v = 1.4;
+                    increasor.health.o = "*";
+                    increasor.speed.o = "*";
+                    increasor.size.o = "+";
+                    break;
+                case "impossible":
+                    increasor.size.v = 0.3;
+                    increasor.speed.v = 1.04;
+                    increasor.health.v = 1.7;
+                    increasor.health.o = "*";
+                    increasor.speed.o = "*";
+                    increasor.size.o = "+";
+                    break;
+                default:
+                    console.log("what")
+                    break;
+
+
+            }
+
+
+
+        },
+
+        changedifficulty:function(newdif){
+            hardreset();
+            spawnhandler.updateprogres();
+            spawnhandler.endlessmode.setincreasors(newdif);
+
+            document.getElementById("modebtn").innerHTML = "Normal Waves Mode";
+            spawnhandler.state = "endless_waves";
+
+        },
+
+
+        increaseenemy:function(){
+            let increasor =  spawnhandler.endlessmode.increasors;
+
+            if(increasor.size.o === "+"){
+                ENEMYTYPES.normal_endless.size += increasor.size.v;
+                ENEMYTYPES.slow_endless.size += increasor.size.v;
+                ENEMYTYPES.fast_endless.size += increasor.size.v;
+            }else if(increasor.size.o === "*" ){
+                ENEMYTYPES.normal_endless.size *= increasor.size.v;
+                ENEMYTYPES.slow_endless.size *= increasor.size.v;
+                ENEMYTYPES.fast_endless.size *= increasor.size.v;
+            }
+            
+            if(increasor.speed.o === "+"){
+                ENEMYTYPES.normal_endless.speed += increasor.speed.v;
+                ENEMYTYPES.slow_endless.speed += increasor.speed.v;
+                ENEMYTYPES.fast_endless.speed += increasor.speed.v;
+            }else if(increasor.speed.o === "*" ){
+                ENEMYTYPES.normal_endless.speed *= increasor.speed.v;
+                ENEMYTYPES.slow_endless.speed *= increasor.speed.v;
+                ENEMYTYPES.fast_endless.speed *= increasor.speed.v;
+            }
+            
+            if(increasor.health.o === "+"){
+                ENEMYTYPES.normal_endless.health += increasor.health.v;
+                ENEMYTYPES.slow_endless.health += increasor.health.v;
+                ENEMYTYPES.fast_endless.health += increasor.health.v;
+            }else if(increasor.health.o === "*" ){
+                ENEMYTYPES.normal_endless.health *= increasor.health.v;
+                ENEMYTYPES.slow_endless.health *= increasor.health.v;
+                ENEMYTYPES.fast_endless.health *= increasor.health.v;
+            }
+
+        },
+
+
+        resetendlessenemy: function(){
+
+            ENEMYTYPES.normal_endless = {...ENEMYTYPES.normal_endless_original}
+            ENEMYTYPES.fast_endless = {...ENEMYTYPES.fast_endless_original}
+            ENEMYTYPES.slow_endless = {...ENEMYTYPES.slow_endless_original}
+    
+        },
+
+
+    },
+
+
+    modes:
+    {
+
+    endless_waves:[
+
+        {
+            wave_spawnrate: 120,
+                wave_waverate:2,    
+                pieces:[
+                    "normal_endless",
+                    "normal_endless",
+                    "normal_endless",
+                    "slow_endless",
+                ]
+        },
+
+        {
+            wave_spawnrate: 110,
+                wave_waverate:2,    
+                pieces:[
+                    "normal_endless",
+                    "slow_endless",
+                    "fast_endless",
+                    "normal_endless",
+                    "slow_endless",
+                ]
+        },
+
+        {
+            wave_spawnrate: 80,
+                wave_waverate:3,    
+                pieces:[
+                    "slow_endless",
+                    "normal_endless",
+                    "slow_endless",
+                    "fast_endless",
+                    "normal_endless",
+                    "fast_endless",
+                    "fast_endless",
+                    "slow_endless",
+                ]
+        },
+
+    ],
     
     waves:
     [
@@ -1083,7 +1390,7 @@ const spawnhandler = {
         },
 
         {
-            wave_spawnrate: 60,
+            wave_spawnrate: 60, // 5
             wave_waverate:3,    
             pieces:[
                 "slow_2",
@@ -1165,7 +1472,7 @@ const spawnhandler = {
         },
 
         {
-            wave_spawnrate: 70,
+            wave_spawnrate: 70, // 10
             wave_waverate:5,    
             pieces:[
                 "normal_4",
@@ -1247,7 +1554,7 @@ const spawnhandler = {
         },
 
         {
-            wave_spawnrate: 70,
+            wave_spawnrate: 70, // 15
             wave_waverate:1,    
             pieces:[
                 "normal_5",
@@ -1304,7 +1611,7 @@ const spawnhandler = {
                 "fast_5",
                 "normal_5",
                 "normal_5",
-                "boss_2",
+                "boss_1",
                 "normal_5",
                 "slow_5",
                 "superfast_1",
@@ -1349,7 +1656,7 @@ const spawnhandler = {
         },
 
         {
-            wave_spawnrate: 60,
+            wave_spawnrate: 60, // 20
             wave_waverate:3,    
             pieces:[
                 "normal_6",
@@ -1377,9 +1684,11 @@ const spawnhandler = {
 
                 "normal_6",
                 "boss_1",
-                "boss_1",
-                "boss_1",
-                "boss_1",
+                "normal_6",
+
+                "boss_2",
+                "normal_6",
+
                 "boss_1",
                 "superfast_2",
 
@@ -1409,15 +1718,33 @@ const spawnhandler = {
         },
 
         {
+            wave_spawnrate: 80,
+            wave_waverate:2,    
+            pieces:[
+                "normal_6",
+                "normal_6",
+                "normal_6",
+                "boss_2",
+                "boss_1",
+                "normal_6",
+                "normal_6",
+                "normal_6",
+                "slow_6",
+                "boss_1",
+                "slow_6",
+                "slow_6",
+            ]
+        },
+
+        {
             wave_spawnrate: 60,
-            wave_waverate:10,    
+            wave_waverate:4,    
             pieces:[
                 "normal_6",
                 "normal_6",
                 "boss_1",
-                "boss_2",
-                "boss_1",
-                "boss_1",
+                "normal_6",
+                "normal_6",
                 "slow_6",
                 "slow_6",
                 "boss_1",
@@ -1432,8 +1759,8 @@ const spawnhandler = {
         },
 
         {
-            wave_spawnrate: 120,
-            wave_waverate:100,    
+            wave_spawnrate: 120, // 25
+            wave_waverate:1,    
             pieces:[
                 "normal_6",
                 "boss_2",
@@ -1451,9 +1778,12 @@ const spawnhandler = {
 
     ],
 
+    }   
+
 
 }
 spawnhandler.reset();
+
 
 class particle{
 
@@ -1678,7 +2008,8 @@ const shop = {
     {
         tiny_ball_buster:{name:"Tiny Ball Buster",price:3,locked:false},
         normal_ball_buster:{name:"Normal Ball Buster",price:8,locked:false},
-        fast_ball_buster:{name:"Fast Ball Buster",price:16,locked:false},
+        fast_ball_buster:{name:"Fast Ball Buster",price:16,locked:true},
+        trained_ball_buster:{name:"Trained Ball Buster",price:16,locked:true},
         tiny_ball_pincher:{name:"Tiny Ball Pincher",price:1,locked:true},
         strong_ball_pincher:{name:"Strong Ball Pincher",price:10,locked:true},
         normal_ball_freezer:{name:"Normal Ball Freezer",price:14,locked:true},
@@ -1687,13 +2018,15 @@ const shop = {
         trained_ball_refiner:{name:"Trained Ball Refiner",price:30,locked:true},
         normal_ball_crusher:{name:"Normal Ball Crusher",price:20,locked:true},
         trained_ball_crusher:{name:"Trained Ball Crusher",price:30,locked:true},
+        pro_ball_crusher:{name:"Pro Ball Crusher",price:40,locked:true},
         normal_ball_spiker:{name:"Normal Ball Spiker",price:20,locked:true},
         trained_ball_spiker:{name:"Trained Ball Spiker",price:35,locked:true},
-        pro_ball_crusher:{name:"Pro Ball Crusher",price:40,locked:true},
+        tiny_ball_sniper:{name:"Tiny Ball Sniper",price:10,locked:true},
         normal_ball_sniper:{name:"Normal Ball Sniper",price:40,locked:true},
         trained_ball_sniper:{name:"Trained Ball Sniper",price:70,locked:true},
         weak_ball_searcher:{name:"Weak Ball Searcher",price:15,locked:true},
         normal_ball_searcher:{name:"Normal Ball Searcher",price:20,locked:true},
+        fast_ball_searcher:{name:"Fast Ball Searcher",price:20,locked:true},
         pro_ball_searcher:{name:"Pro Ball Searcher",price:30,locked:true},
         normal_ball_smasher:{name:"Normal Ball Smasher",price:69,locked:true},
         holy_ball_smasher:{name:"Holy Ball Smasher",price:201,locked:true},
@@ -1770,12 +2103,18 @@ const shop = {
 
         if(localStorage.getItem("locked")){
             let lockdata = JSON.parse(localStorage.getItem("locked")); 
+            const lockdataup = {...lockdata}
             for (let x in shop.sprice){
                 let valuetower = shop.sprice[x].name.toLowerCase();    
                 valuetower = valuetower.replace(/ /g,"_")
-                shop.sprice[x].locked = lockdata[valuetower];
+                if( lockdata[valuetower] == undefined){
+                    lockdataup[valuetower] = shop.sprice[x].locked;
+                }else{
+                    shop.sprice[x].locked = lockdata[valuetower];
+                }
 
             }
+            localStorage.setItem("locked",JSON.stringify(lockdataup))
         }else{
             const lockdataup = {}
             for (let x in shop.sprice){
@@ -1784,7 +2123,6 @@ const shop = {
                 lockdataup[valuetower] = shop.sprice[x].locked;
 
             }
-            console.log(lockdataup);
             localStorage.setItem("locked",JSON.stringify(lockdataup))
         }
     }
@@ -1999,7 +2337,6 @@ function hardreset(){
     addEventListener("mousedown", gameclicking); 
     removeEventListener("mousemove", gamemousemove);
     addEventListener("mousemove", gamemousemove); 
-    spawnhandler.active = true;
     selector = {}
     GAMEOBJECTS = [];
     ENEMIES = [];
@@ -2031,17 +2368,23 @@ function time(ms) {
 
 // toggle menus n things
 
-function togglePause(){
+function togglePause(onlypause = false){
     document.getElementById("settingsmenu").style.display = "none";
+    document.getElementById("endlesssmenu").style.display = "none";
+    document.getElementById("endlesslocked").style.display = "none";
+    document.getElementById("winning").style.display = "none";
+    let allblock = document.getElementById("allblock");
     let all_e = document.getElementById("all_e");
     if(GameSpeed === 0){
         pausemenu.style.display = "none";
+        allblock.style.display = "none";
         all_e.style.filter = "none"
         GameSpeed = lastGameSpeed; 
 
 
     }else{
-        pausemenu.style.display = "flex";
+        if(!onlypause){pausemenu.style.display = "flex";}
+        allblock.style.display = "block";
         all_e.style.filter = "blur(5px)";
 
         
@@ -2126,21 +2469,11 @@ addEventListener("keyup", e => {
     keys[e.key] = false;
 });
 
-addEventListener("keypress",e=>{
-    switch(e.key){
-        case "p":
-            togglePause();
-            playSound("menu",{ volume: mastervolume });
-            break;
-    }
-
-})
-
 function starteditor(){
     
     level=0; 
     nextlevel(0);
-    spawnhandler.active = false;
+    spawnhandler.state = "off";
     selector.t = "platform";
     document.getElementById("editorbuttons").style.display = "flex";
     document.getElementById("DownloadMap").style.display = "none";
@@ -2316,8 +2649,8 @@ function gameclicking(e){
     if(shop.inputtype === "delete"){
         TOWERS.forEach((tower,ie)=>{
             if( distance(player.mouseX+tower.size/2,tower.x,player.mouseY+tower.size/2,tower.y) <= tower.size){
-                player.changemoney((shop.sprice[tower.type].price)/2);
-                makeparticle(player.mouseX,player.mouseY,"money",(shop.sprice[tower.type].price)/2)
+                player.changemoney((shop.sprice[tower.type].price)/1.5);
+                makeparticle(player.mouseX,player.mouseY,"money",((shop.sprice[tower.type].price)/1.5).toFixed(2))
                 TOWERS.splice(ie,1);
                 playSound("delete",{ volume: mastervolume });
             };
