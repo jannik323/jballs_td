@@ -134,7 +134,7 @@ let LEVELS = [
     ,
     {"content":[{"x":400,"y":240,"w":140,"h":180,"t":"platform","e":"none"},{"x":300,"y":240,"w":20,"h":180,"t":"platform","e":"none"},{"x":400,"y":160,"w":140,"h":20,"t":"platform","e":"none"},{"x":600,"y":240,"w":20,"h":180,"t":"platform","e":"none"},{"x":400,"y":480,"w":140,"h":20,"t":"platform","e":"none"},{"x":640,"y":520,"w":40,"h":40,"t":"platform","e":"none"},{"x":640,"y":100,"w":40,"h":40,"t":"platform","e":"none"},{"x":260,"y":100,"w":40,"h":40,"t":"platform","e":"none"},{"x":260,"y":520,"w":40,"h":40,"t":"platform","e":"none"}],"lpath":[{"x":0,"y":480},{"x":340,"y":480},{"x":340,"y":200},{"x":580,"y":200},{"x":580,"y":460},{"x":360,"y":460},{"x":360,"y":220},{"x":560,"y":220},{"x":560,"y":440},{"x":380,"y":440},{"x":380,"y":0}],"name":"center of balls"}
     ,
-    {"content":[{"x":620,"y":220,"w":140,"h":60,"t":"platform","e":"none"},{"x":220,"y":220,"w":120,"h":60,"t":"platform","e":"none"},{"x":600,"y":40,"w":20,"h":60,"t":"platform","e":"none"},{"x":220,"y":40,"w":20,"h":60,"t":"platform","e":"none"},{"x":320,"y":40,"w":20,"h":60,"t":"platform","e":"none"},{"x":380,"y":220,"w":20,"h":60,"t":"platform","e":"none"},{"x":560,"y":220,"w":20,"h":60,"t":"platform","e":"none"},{"x":100,"y":220,"w":20,"h":60,"t":"platform","e":"none"},{"x":100,"y":40,"w":20,"h":60,"t":"platform","e":"none"},{"x":660,"y":40,"w":20,"h":60,"t":"platform","e":"none"},{"x":220,"y":400,"w":20,"h":60,"t":"platform","e":"none"},{"x":380,"y":400,"w":200,"h":60,"t":"platform","e":"none"},{"x":620,"y":400,"w":20,"h":60,"t":"platform","e":"none"},{"x":740,"y":400,"w":20,"h":60,"t":"platform","e":"none"},{"x":100,"y":400,"w":80,"h":80,"t":"platform","e":"none"},{"x":40,"y":220,"w":20,"h":260,"t":"platform","e":"none"},{"x":40,"y":40,"w":20,"h":60,"t":"platform","e":"none"}],"lpath":[{"x":780,"y":200},{"x":600,"y":200},{"x":600,"y":300},{"x":360,"y":300},{"x":360,"y":200},{"x":220,"y":200},{"x":220,"y":120},{"x":640,"y":120},{"x":640,"y":20},{"x":80,"y":20},{"x":80,"y":380},{"x":200,"y":380},{"x":200,"y":480},{"x":780,"y":480}],"name":"sticks and stones may break your balls"}
+    {"content":[{"x":620,"y":220,"w":140,"h":60,"t":"platform","e":"none"},{"x":220,"y":220,"w":120,"h":60,"t":"platform","e":"none"},{"x":600,"y":40,"w":20,"h":60,"t":"platform","e":"none"},{"x":220,"y":40,"w":20,"h":60,"t":"platform","e":"none"},{"x":320,"y":40,"w":20,"h":60,"t":"platform","e":"none"},{"x":380,"y":220,"w":20,"h":60,"t":"platform","e":"none"},{"x":560,"y":220,"w":20,"h":60,"t":"platform","e":"none"},{"x":100,"y":220,"w":20,"h":60,"t":"platform","e":"none"},{"x":100,"y":40,"w":20,"h":60,"t":"platform","e":"none"},{"x":660,"y":40,"w":20,"h":60,"t":"platform","e":"none"},{"x":220,"y":400,"w":20,"h":60,"t":"platform","e":"none"},{"x":380,"y":400,"w":200,"h":60,"t":"platform","e":"none"},{"x":620,"y":400,"w":20,"h":60,"t":"platform","e":"none"},{"x":740,"y":400,"w":20,"h":60,"t":"platform","e":"none"},{"x":100,"y":400,"w":80,"h":80,"t":"platform","e":"none"},{"x":40,"y":220,"w":20,"h":260,"t":"platform","e":"none"},{"x":40,"y":40,"w":20,"h":60,"t":"platform","e":"none"}],"lpath":[{"x":780,"y":200},{"x":600,"y":200},{"x":600,"y":300},{"x":360,"y":300},{"x":360,"y":200},{"x":220,"y":200},{"x":220,"y":120},{"x":640,"y":120},{"x":640,"y":20},{"x":80,"y":20},{"x":80,"y":380},{"x":200,"y":380},{"x":200,"y":480},{"x":780,"y":480}],"name":"sticks and balls"}
     ,
     {"content":[{"x":200,"y":200,"w":60,"h":60,"t":"platform","e":"none"},{"x":380,"y":200,"w":60,"h":60,"t":"platform","e":"none"},{"x":380,"y":380,"w":60,"h":60,"t":"platform","e":"none"},{"x":200,"y":380,"w":60,"h":60,"t":"platform","e":"none"},{"x":200,"y":540,"w":60,"h":40,"t":"platform","e":"none"},{"x":380,"y":540,"w":60,"h":40,"t":"platform","e":"none"},{"x":520,"y":200,"w":40,"h":60,"t":"platform","e":"none"},{"x":600,"y":200,"w":40,"h":60,"t":"platform","e":"none"},{"x":600,"y":380,"w":40,"h":60,"t":"platform","e":"none"},{"x":520,"y":380,"w":40,"h":60,"t":"platform","e":"none"},{"x":80,"y":200,"w":40,"h":60,"t":"platform","e":"none"},{"x":80,"y":380,"w":40,"h":60,"t":"platform","e":"none"},{"x":80,"y":540,"w":40,"h":40,"t":"platform","e":"none"},{"x":520,"y":540,"w":40,"h":40,"t":"platform","e":"none"},{"x":600,"y":540,"w":40,"h":40,"t":"platform","e":"none"},{"x":600,"y":100,"w":40,"h":40,"t":"platform","e":"none"},{"x":520,"y":100,"w":40,"h":40,"t":"platform","e":"none"},{"x":380,"y":100,"w":60,"h":40,"t":"platform","e":"none"},{"x":200,"y":100,"w":60,"h":40,"t":"platform","e":"none"},{"x":80,"y":100,"w":40,"h":40,"t":"platform","e":"none"}],"lpath":[{"x":0,"y":80},{"x":480,"y":80},{"x":480,"y":520},{"x":160,"y":520},{"x":160,"y":160},{"x":680,"y":160},{"x":680,"y":480},{"x":0,"y":480}],"name":"ballsy patterns"}
     ,
@@ -153,6 +153,7 @@ const TOWERTYPES = {
         firerate : 8,
         shotspeed : 5,
         damage : 0.01,
+        focus : "nearest",
         },
     strong_ball_pincher:
         {
@@ -162,6 +163,7 @@ const TOWERTYPES = {
         firerate : 8,
         shotspeed : 5,
         damage : 0.1,
+        focus : "nearest",
         },
     tiny_ball_buster:
         {
@@ -171,6 +173,7 @@ const TOWERTYPES = {
         firerate : 60,
         shotspeed : 7,
         damage : 0.2,
+        focus : "nearest",
         },
     normal_ball_buster:
         {
@@ -180,6 +183,7 @@ const TOWERTYPES = {
         firerate : 70,
         shotspeed : 10,
         damage : 1,
+        focus : "nearest",
         },
     trained_ball_buster:
         {
@@ -189,6 +193,7 @@ const TOWERTYPES = {
         firerate : 72,
         shotspeed : 11,
         damage : 2,
+        focus : "nearest",
         },
     fast_ball_buster:
         {
@@ -198,6 +203,7 @@ const TOWERTYPES = {
         firerate : 53,
         shotspeed : 11,
         damage : 1,
+        focus : "nearest",
         },
     normal_ball_crusher:
         {
@@ -207,6 +213,7 @@ const TOWERTYPES = {
         firerate : 100,
         shotspeed : 11,
         damage : 4,
+        focus : "strongest",
         },
     trained_ball_crusher:
         {
@@ -216,6 +223,7 @@ const TOWERTYPES = {
         firerate : 110,
         shotspeed : 8,
         damage : 7,
+        focus : "strongest",
         },
     pro_ball_crusher:
         {
@@ -225,6 +233,7 @@ const TOWERTYPES = {
         firerate : 150,
         shotspeed : 9,
         damage : 10,
+        focus : "strongest",
         },
     normal_ball_smasher:
         {
@@ -234,6 +243,7 @@ const TOWERTYPES = {
         firerate : 8,
         shotspeed : 3,
         damage : 0.5,
+        focus : "nearest",
         },
     holy_ball_smasher:
         {
@@ -243,6 +253,7 @@ const TOWERTYPES = {
         firerate : 4,
         shotspeed : 5,
         damage : 0.5,
+        focus : "nearest",
         },
     normal_ball_refiner:
         {
@@ -253,6 +264,7 @@ const TOWERTYPES = {
         shotspeed : 6,
         damage : 0.1,
         moneymulti: 2,
+        focus : "nearest",
         },
     trained_ball_refiner:
         {
@@ -263,6 +275,7 @@ const TOWERTYPES = {
         shotspeed : 7,
         damage : 0.2,
         moneymulti: 3,
+        focus : "nearest",
         },
     tiny_ball_sniper:
         {
@@ -273,6 +286,7 @@ const TOWERTYPES = {
         shotspeed : 20,
         damage : 5,
         homing:PI/120,
+        focus : "strongest",
         },
     normal_ball_sniper:
         {
@@ -283,6 +297,7 @@ const TOWERTYPES = {
         shotspeed : 22,
         damage : 15,
         homing:PI/90,
+        focus : "strongest",
         },
     trained_ball_sniper:
         {
@@ -293,6 +308,7 @@ const TOWERTYPES = {
         shotspeed : 35,
         damage : 18,
         homing:PI/70,
+        focus : "strongest",
         },
     weak_ball_searcher:
         {
@@ -303,6 +319,7 @@ const TOWERTYPES = {
         shotspeed : 6,
         damage : 2,
         homing:PI/60,
+        focus : "fastest",
         },
     normal_ball_searcher:
         {
@@ -312,7 +329,8 @@ const TOWERTYPES = {
         firerate : 200,
         shotspeed : 7,
         damage : 4,
-        homing:PI/40,
+        homing:PI/30,
+        focus : "fastest",
         },
     fast_ball_searcher:
         {
@@ -323,6 +341,7 @@ const TOWERTYPES = {
         shotspeed : 7,
         damage : 2,
         homing:PI/40,
+        focus : "fastest",
         },
     pro_ball_searcher:
         {
@@ -333,6 +352,7 @@ const TOWERTYPES = {
         shotspeed : 10,
         damage : 10,
         homing:PI/10,
+        focus : "fastest",
         },
     normal_ball_freezer:
     {
@@ -343,6 +363,7 @@ const TOWERTYPES = {
         shotspeed : 10,
         damage : 1,
         freeze:1.5,
+        focus : "fastest",
         },
     fast_ball_freezer:
     {
@@ -353,6 +374,7 @@ const TOWERTYPES = {
         shotspeed : 11,
         damage : 1,
         freeze:2,
+        focus : "fastest",
         },
     normal_ball_spiker:
     {
@@ -363,6 +385,7 @@ const TOWERTYPES = {
         shotspeed : 10,
         damage : 0.5,
         spike:0.1,
+        focus : "fastest",
         },
     trained_ball_spiker:
     {
@@ -373,6 +396,7 @@ const TOWERTYPES = {
         shotspeed : 11,
         damage : 1,
         spike:0.4,
+        focus : "strongest",
         },
 
 }
@@ -736,7 +760,7 @@ class enemy{
                 this.spike = Math.round(this.spike);
                 this.spike /= 100;
                 this.health -= this.spike;
-                makeparticle(this.x,this.y,"dmg",this.spike);
+                makeparticle(this.x,this.y-this.size,"dmg",this.spike);
             }
         }
 
@@ -782,36 +806,44 @@ class enemy{
         }
     }
 
-    render(){
-        ctx.beginPath();
-        ctx.shadowBlur = this.size;
-        ctx.fillStyle = this.color;
-        ctx.arc(this.x-this.size/100,this.y-this.size/100, this.size, 0,PI*2)
-        ctx.fill();
-        ctx.shadowBlur = 0;
-
-        if(this.showhealth){
+    render(part = "enemy"){
+        if(part === "enemy"){
             ctx.beginPath();
-            ctx.lineWidth = 4;
-            ctx.strokeStyle = "green";
-            ctx.moveTo(this.x-this.size,this.y-(this.size*2));
-            ctx.lineTo(this.x-this.size+((this.health/this.orighealth)*this.size*2),this.y-(this.size*2));
-            ctx.stroke();
-            ctx.strokeStyle = "black";
-            ctx.lineWidth = 1;
+            ctx.shadowBlur = this.size;
+            ctx.fillStyle = this.color;
+            ctx.arc(this.x-this.size/100,this.y-this.size/100, this.size, 0,PI*2)
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        }
+        if(part === "info"){
+            if(this.showhealth){
+                ctx.beginPath();
+                ctx.lineWidth = 4;
+                ctx.strokeStyle = "green";
+                ctx.moveTo(this.x-this.size,this.y-(this.size*2));
+                ctx.lineTo(this.x-this.size+((this.health/this.orighealth)*this.size*2),this.y-(this.size*2));
+                ctx.stroke();
+                ctx.strokeStyle = "black";
+                ctx.lineWidth = 1;
+            }
+    
+            if(this.showinfo){
+    
+                ctx.strokeStyle = "black";
+                ctx.globalAlpha = 1;
+                ctx.font = "15px Monospace",
+                ctx.fillStyle = "whitesmoke";
+                ctx.strokeRect(this.x+this.size*2,this.y-20,80+(10*this.type.length),100);
+                ctx.fillRect(this.x+this.size*2,this.y-20,80+(10*this.type.length),100); 
+                ctx.strokeText("name: "+this.type,this.x+this.size*2+20,this.y);
+                ctx.strokeText("reward: "+this.multiedreward,this.x+this.size*2+20,this.y+20);
+                ctx.strokeText("health: "+this.orighealth,this.x+this.size*2+20,this.y+40);
+                ctx.strokeText("speed: "+this.totalspeed,this.x+this.size*2+20,this.y+60)
+    
+            }
         }
 
-        if(this.showinfo){
-
-            ctx.strokeStyle = "black";
-            ctx.globalAlpha = 1;
-            ctx.font = "15px Monospace",
-            ctx.strokeText(this.type,this.x+this.size*2,this.y);
-            ctx.strokeText("reward: "+this.multiedreward,this.x+this.size*2,this.y+20);
-            ctx.strokeText("health: "+this.orighealth,this.x+this.size*2,this.y+40);
-            ctx.strokeText("speed: "+this.totalspeed,this.x+this.size*2,this.y+60)
-
-        }
+        
     }
 
     settypes(){
@@ -842,6 +874,7 @@ constructor(x,y,type){
     this.type = type;
     this.dir = 0;
     this.wstep = 0;
+    this.focus = "furthest";
     this.settype();
     this.showinfo = false;
     this.g_offset = 2;
@@ -851,12 +884,50 @@ constructor(x,y,type){
 
 update(i){
     this.wstep += 1+Math.random();
-    let bestdistance = Infinity;
+
+
     let bestenemy = null;
-    ENEMIES.forEach((v,i)=>{
-        let enemydistance = distance(v.x,this.x,v.y,this.y)
-        if(enemydistance< bestdistance && enemydistance < this.range){bestdistance = enemydistance; bestenemy = i;}
-    })    
+    switch(this.focus){
+        case "nearest":
+            let bestdistance = Infinity;
+            ENEMIES.forEach((v,i)=>{
+                let enemydistance = distance(v.x,this.x,v.y,this.y);
+                if(enemydistance< bestdistance && enemydistance < this.range){bestdistance = enemydistance; bestenemy = i;}
+            })    
+            break;
+        case "furthest":
+            let smallestdistance = 0;
+            ENEMIES.forEach((v,i)=>{
+                let enemydistance = distance(v.x,this.x,v.y,this.y);
+                if(enemydistance> smallestdistance && enemydistance < this.range){smallestdistance = enemydistance; bestenemy = i;}
+            })    
+            break;
+        case "fastest":
+            let fastestspeed = 0;
+            ENEMIES.forEach((v,i)=>{
+                let enemydistance = distance(v.x,this.x,v.y,this.y);
+                if(v.totalspeed> fastestspeed && enemydistance < this.range){fastestspeed = v.totalspeed; bestenemy = i;}
+            })    
+            break;
+        case "strongest":
+            let strongesthealth = 0;
+            ENEMIES.forEach((v,i)=>{
+                let enemydistance = distance(v.x,this.x,v.y,this.y);
+                if(v.health> strongesthealth && enemydistance < this.range){strongesthealth = v.health; bestenemy = i;}
+            })    
+            break;
+        case "weakest":
+            let weakesthealth = Infinity;
+            ENEMIES.forEach((v,i)=>{
+                let enemydistance = distance(v.x,this.x,v.y,this.y);
+                if(v.health< weakesthealth && enemydistance < this.range){weakesthealth = v.health; bestenemy = i;}
+            })    
+            break;
+
+    }
+    
+
+
     if(bestenemy != null){
         this.dir = (Math.atan2((this.y-ENEMIES[bestenemy].y),(this.x-ENEMIES[bestenemy].x)))+PI;
         if(this.wstep > this.firerate){
@@ -919,10 +990,14 @@ render(part = "tower"){
         ctx.strokeStyle = "black";
         ctx.globalAlpha = 1;
         ctx.font = "15px Monospace",
-        ctx.strokeText(this.type,this.x+this.size*2,this.y+0);
-        ctx.strokeText("damage: "+this.damage,this.x+this.size*2,this.y+20);
-        ctx.strokeText("firerate: "+this.firerate,this.x+this.size*2,this.y+40);
-        ctx.strokeText("shotspeed: "+this.shotspeed,this.x+this.size*2,this.y+60);
+        ctx.fillStyle = "whitesmoke";
+        ctx.strokeRect(this.x+this.size*2,this.y-20,80+(10*this.type.length),120);
+        ctx.fillRect(this.x+this.size*2,this.y-20,80+(10*this.type.length),120); 
+        ctx.strokeText("name: "+this.type,this.x+this.size*2+20,this.y+0);
+        ctx.strokeText("damage: "+this.damage,this.x+this.size*2+20,this.y+20);
+        ctx.strokeText("firerate: "+this.firerate,this.x+this.size*2+20,this.y+40);
+        ctx.strokeText("shotspeed: "+this.shotspeed,this.x+this.size*2+20,this.y+60);
+        ctx.strokeText("focus: "+this.focus,this.x+this.size*2+20,this.y+80);
       
     }
     
@@ -944,6 +1019,7 @@ settype(){
     this.moneymulti = TOWERTYPES[this.type].moneymulti;
     this.freeze = TOWERTYPES[this.type].freeze;
     this.spike = TOWERTYPES[this.type].spike;
+    this.focus = TOWERTYPES[this.type].focus;
 
 
 }
@@ -1002,7 +1078,7 @@ class bullet{
         ENEMIES.forEach(v=>{
             if(distance(v.x,this.x,v.y,this.y) < this.size+v.size){
                 v.health -= this.damage;
-                makeparticle(this.x,this.y,"dmg",this.damage);
+                makeparticle(v.x,v.y-v.size,"dmg",this.damage);
                 BULLETS.splice(i,1);
                 if (this.parent.moneymulti !== undefined){
                     v.moneymulti = this.parent.moneymulti;
@@ -2003,6 +2079,7 @@ const previewturret = {
 const shop = {
 
     stower:"normal_ball_buster",
+    etower:null,
     inputtype:"place",
     sprice:
     {
@@ -2078,7 +2155,7 @@ const shop = {
     reset:function(){
         shop.stower="normal_ball_buster";
         shop.inputtype="place";
-
+        shop.etower="null";
     },
     deselect:function(){
         previewturret.active= false;
@@ -2192,10 +2269,11 @@ drawpath();
 GAMEOBJECTS.forEach(v=>{v.render();})
 TOWERS.forEach(v=>{v.render("tower");})
 TOWERS.forEach(v=>{v.render("canon");})
-TOWERS.forEach(v=>{v.render("text");})
 BULLETS.forEach(v=>{v.render();})
 PARTICLES.forEach(v=>{v.render();})
 ENEMIES.forEach(v=>{v.render();})
+TOWERS.forEach(v=>{v.render("text");})
+ENEMIES.forEach(v=>{v.render("info");})
 previewturret.render();
 
 
@@ -2368,11 +2446,12 @@ function time(ms) {
 
 // toggle menus n things
 
-function togglePause(onlypause = false){
+function togglePause(onlypause = false, bluram = 5){
     document.getElementById("settingsmenu").style.display = "none";
     document.getElementById("endlesssmenu").style.display = "none";
     document.getElementById("endlesslocked").style.display = "none";
     document.getElementById("winning").style.display = "none";
+    document.getElementById("editmenu").style.display = "none";
     let allblock = document.getElementById("allblock");
     let all_e = document.getElementById("all_e");
     if(GameSpeed === 0){
@@ -2385,7 +2464,7 @@ function togglePause(onlypause = false){
     }else{
         if(!onlypause){pausemenu.style.display = "flex";}
         allblock.style.display = "block";
-        all_e.style.filter = "blur(5px)";
+        all_e.style.filter = "blur("+ bluram +"px)";
 
         
         GameSpeed = 0; 
@@ -2627,7 +2706,7 @@ function gameclicking(e){
 
 
 
-    if(!anycol && shop.inputtype !== "info" && shop.inputtype !== "delete" ){
+    if(!anycol && shop.inputtype !== "info" && shop.inputtype !== "delete" && shop.inputtype !== "edit"){
         shop.deselect()
         playSound("cancel",{ volume: mastervolume });
     }
@@ -2653,6 +2732,20 @@ function gameclicking(e){
                 makeparticle(player.mouseX,player.mouseY,"money",((shop.sprice[tower.type].price)/1.5).toFixed(2))
                 TOWERS.splice(ie,1);
                 playSound("delete",{ volume: mastervolume });
+            };
+        })
+    }
+
+    if(shop.inputtype === "edit"){
+        TOWERS.forEach((tower)=>{
+            if( distance(player.mouseX+tower.size/2,tower.x,player.mouseY+tower.size/2,tower.y) <= tower.size){
+                let rect = canvas.getBoundingClientRect();
+                let editmenu = document.getElementById("editmenu");
+                editmenu.style.left = rect.left + tower.x + tower.size  + "px";
+                editmenu.style.top = rect.top + tower.y+ tower.size + "px";
+                shop.etower = tower;
+                togglePause(true,1);
+                toggleMenu("editmenu")
             };
         })
     }

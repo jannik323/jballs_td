@@ -84,7 +84,7 @@ button.menubtn{
     border: none;
     box-shadow: 1px 0px 4px grey, -1px -0px 4px grey, -0px -1px 4px grey, -0px 1px 4px grey;
     align-self: center;
-    background-color: azure;
+    background-color: #f0ffff;
     
 }
 
@@ -96,6 +96,11 @@ button.menubtn{
 button:hover{
 
     background-color: gray;
+}
+
+button.btnwideself{
+    width:max-content;
+    z-index: 3;
 }
 
 div h1{
@@ -193,13 +198,13 @@ button.locked{
 div.GameSpeed{
     display: flex;
     flex-direction: column;
-    height: 75%;
+
+    height: 80%;
     width: 200px;
     border: 2px solid rgb(31, 31, 31);
     margin-left: 5px;
-    padding: 2px;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     margin-right: 5px;
 }
 
@@ -230,9 +235,7 @@ div#selectedtowerdisplay{
     width: 10rem;
 }
 
-.im_so_hidden{
-    color:rgb(31, 31, 31);
-}
+
 
 div.center{
     width: min-content;
@@ -241,8 +244,8 @@ div.center{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
+
 input[type="range"]{
     margin: 2px;
     filter: grayscale(100);
@@ -258,4 +261,20 @@ input[type="range"]{
 
 p.center{
     align-self: center;
+}
+
+div.editmenu{
+
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    left: 10px;
+    top: 1px;
+    width: 150px;
+    height: max-content;
+    box-shadow: 10px 0px 14px grey, -10px -0px 14px grey, -0px -10px 14px grey, -0px 10px 14px grey;
+    padding: 1rem;
+    background-color: white;
+    z-index: 4;
+    border-radius: 20px;
 }

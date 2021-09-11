@@ -12,6 +12,27 @@
     
 <body>
 
+<div class="editmenu" id="editmenu">
+
+    <svg height="210" width="500" style="position: absolute; left:0; top:0">
+        <polygon points="0 0,20 0,20 0,0 20" style="fill:rgb(148, 41, 41);stroke:black;stroke-width:1" />
+        Sorry, your browser does not support inline SVG.
+    </svg>
+        
+    <button class="X" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause();">X</button>
+    <p class="center" > <strong>Edit Tower</strong>  </p>
+    <p class="center" > Focus Mode: </p>
+
+    <button class="menubtn btnwideself" onclick="playSound(`menu`,{ volume: mastervolume }); shop.etower.focus=`nearest`;">Nearest Enemy </button>
+    <button class="menubtn btnwideself" onclick="playSound(`menu`,{ volume: mastervolume });shop.etower.focus=`furthest`;">Furthest Enemy </button>
+    <button class="menubtn btnwideself" onclick="playSound(`menu`,{ volume: mastervolume });shop.etower.focus=`strongest`;">Strongest Enemy </button>
+    <button class="menubtn btnwideself" onclick="playSound(`menu`,{ volume: mastervolume });shop.etower.focus=`weakest`;">Weakest Enemy </button>
+    <button class="menubtn btnwideself" onclick="playSound(`menu`,{ volume: mastervolume });shop.etower.focus=`fastest`;">Fastest Enemy </button>
+
+
+
+</div>
+
 <div id="allblock"></div> 
 
 <div id="pausemenu" class="menu" > 
@@ -22,6 +43,7 @@
     <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause(); hardreset();">Restart</button>
     <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); toggleMenu('settingsmenu');" >Settings</button>
     <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause(); starteditor(); ">Level Editor</button>
+    <button class="menubtn locked" onclick="playSound(`menu`,{ volume: mastervolume });">Cheat Codes</button>
 
 </div>
 
@@ -84,21 +106,22 @@
 <div id="inputtypes" class="towerbar widefield">
 <button class="towerselect" onclick="playSound(`menu`,{ volume: mastervolume }); shop.inputchange(`delete`)">Delete </button>
 <button class="towerselect" onclick="playSound(`menu`,{ volume: mastervolume }); shop.inputchange(`info`)">Info </button>
-<button class="towerselect" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause();">Menu </button>
-<button class="towerselect" id="modebtn" onclick="playSound(`menu`,{ volume: mastervolume }); spawnhandler.changewavemode(this);"> Endless Mode</button>
-<button class="towerselect" onclick="playSound(`menu`,{ volume: mastervolume }); nextlevel()">Next Map </button>
-<button class="towerselect" onclick="playSound(`menu`,{ volume: mastervolume }); loadlevel(LEVELS.length);">Add Map </button>
+<button class="towerselect" onclick="playSound(`menu`,{ volume: mastervolume }); shop.inputchange(`edit`)">Edit </button>
 
 </div>
 
+<div id="inputtypes" class="towerbar widefield">
+    <button class="towerselect" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause();">Menu </button>
+    <button class="towerselect" id="modebtn" onclick="playSound(`menu`,{ volume: mastervolume }); spawnhandler.changewavemode(this);"> Endless Mode</button>
+    <button class="towerselect" onclick="playSound(`menu`,{ volume: mastervolume }); nextlevel()">Next Map </button>
+    <button class="towerselect" onclick="playSound(`menu`,{ volume: mastervolume }); loadlevel(LEVELS.length);">Add Map </button>
+</div>
+
 <div class="GameSpeed" >
-    <div class="towerselect center">
-    <input id="gamespeeddis" class="towerselect" value="Game Speed: 60 " disabled>
-    <input class="gamespeedrange" min=10 max= 100 value="60" type="range" onchange="changegamespeed(this);">
-    </div>
     
-    <div>
-        
+    <div class="towerselect center">
+        <input id="gamespeeddis" class="towerselect" value="Game Speed: 60 " disabled>
+        <input class="gamespeedrange" min=10 max= 100 value="60" type="range" onchange="changegamespeed(this);">
     </div>
 
 </div>
