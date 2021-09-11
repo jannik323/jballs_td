@@ -19,15 +19,15 @@
         Sorry, your browser does not support inline SVG.
     </svg>
         
-    <button class="X" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause();">X</button>
+    <button class="X" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause(false,5,4);">X</button>
     <p class="center" > <strong>Edit Tower</strong>  </p>
-    <p class="center" > Focus Mode: </p>
+    <p class="center" > Change Focus Mode: </p>
 
-    <button class="menubtn btnwideself" onclick="playSound(`menu`,{ volume: mastervolume }); shop.etower.focus=`nearest`;">Nearest Enemy </button>
-    <button class="menubtn btnwideself" onclick="playSound(`menu`,{ volume: mastervolume });shop.etower.focus=`furthest`;">Furthest Enemy </button>
-    <button class="menubtn btnwideself" onclick="playSound(`menu`,{ volume: mastervolume });shop.etower.focus=`strongest`;">Strongest Enemy </button>
-    <button class="menubtn btnwideself" onclick="playSound(`menu`,{ volume: mastervolume });shop.etower.focus=`weakest`;">Weakest Enemy </button>
-    <button class="menubtn btnwideself" onclick="playSound(`menu`,{ volume: mastervolume });shop.etower.focus=`fastest`;">Fastest Enemy </button>
+    <button class="menubtn btnwideself" onclick=" shop.edittower(`nearest`); togglePause()">Nearest Enemy 1$ </button>
+    <button class="menubtn btnwideself" onclick=" shop.edittower(`furthest`); togglePause()">Furthest Enemy 1$ </button>
+    <button class="menubtn btnwideself" onclick="shop.edittower(`strongest`); togglePause()">Strongest Enemy 1$ </button>
+    <button class="menubtn btnwideself" onclick="shop.edittower(`weakest`); togglePause()">Weakest Enemy 1$ </button>
+    <button class="menubtn btnwideself" onclick="shop.edittower(`fastest`); togglePause()">Fastest Enemy 1$ </button>
 
 
 

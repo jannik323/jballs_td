@@ -2132,6 +2132,16 @@ const shop = {
         }
 
     },
+    edittower:function(newfocus){
+        if(player.money >= 1){
+            shop.etower.focus=newfocus;
+            player.changemoney(-1);
+            makeparticle(shop.etower.x,shop.etower.y,"money",-1);
+            playSound(`menu`,{ volume: mastervolume });
+        }else{
+            playSound(`cancel`,{ volume: mastervolume });
+        }
+    },
     populateshop:function(){
         let towerselect = document.getElementById("towerbar");
         for(let i in shop.sprice){
@@ -2446,7 +2456,7 @@ function time(ms) {
 
 // toggle menus n things
 
-function togglePause(onlypause = false, bluram = 5){
+function togglePause(onlypause = false, bluram = 5,pausespeed = 0){
     document.getElementById("settingsmenu").style.display = "none";
     document.getElementById("endlesssmenu").style.display = "none";
     document.getElementById("endlesslocked").style.display = "none";
@@ -2454,7 +2464,7 @@ function togglePause(onlypause = false, bluram = 5){
     document.getElementById("editmenu").style.display = "none";
     let allblock = document.getElementById("allblock");
     let all_e = document.getElementById("all_e");
-    if(GameSpeed === 0){
+    if(GameSpeed === pausespeed){
         pausemenu.style.display = "none";
         allblock.style.display = "none";
         all_e.style.filter = "none"
@@ -2467,7 +2477,7 @@ function togglePause(onlypause = false, bluram = 5){
         all_e.style.filter = "blur("+ bluram +"px)";
 
         
-        GameSpeed = 0; 
+        GameSpeed = pausespeed; 
     }
 
 }
@@ -2744,7 +2754,7 @@ function gameclicking(e){
                 editmenu.style.left = rect.left + tower.x + tower.size  + "px";
                 editmenu.style.top = rect.top + tower.y+ tower.size + "px";
                 shop.etower = tower;
-                togglePause(true,1);
+                togglePause(true,1,4);
                 toggleMenu("editmenu")
             };
         })
