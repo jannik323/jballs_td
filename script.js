@@ -2429,7 +2429,7 @@ const shop = {
 // game loop 
 
 document.getElementById("all_e").style.display = "none";
-start_game = document.getElementById("start_game");
+let start_game = document.getElementById("start_game");
 start_game.style.display = "flex";
 
 function startgame(){

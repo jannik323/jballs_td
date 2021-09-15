@@ -12,6 +12,16 @@ body, html {
     font-family: monospace;
 }
 
+div.whole{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items:center;
+    height:820px;
+    width:820px;
+    overflow:visible;
+}
+
 #allblock{
     display: none;
     position: absolute;
@@ -140,16 +150,11 @@ div h1{
     margin-bottom: 1rem;
 }
 
-.DownloadMap{
-    display: none;
-}
-
 .topbar{
     display: flex;
     flex-direction: row;
     width: 800px;
     background-color: whitesmoke;
-    margin-bottom: 4px;
     height: 40px;
     position:relative;
     align-items:center;
@@ -169,9 +174,7 @@ input.topdisplay{
 
     width: 800px;
     background-color: whitesmoke;
-    margin-top: 4px;
     height: 120px;
-    margin-bottom: 2rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -292,8 +295,4 @@ div.editmenu{
     background-color: white;
     z-index: 4;
     border-radius: 20px;
-}
-
-#test{
-    color:hsl(0, 0%, 38%);
 }
