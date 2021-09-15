@@ -28,7 +28,7 @@ let mastervolume = 1;
 let levelhtml = document.getElementById("levelhtml");
 levelhtml.value = "Level: balling ground"
 let playerhealth = document.getElementById("playerhealth");
-playerhealth.value = "Health: 10";
+playerhealth.value = "Health: 20";
 let playermoney = document.getElementById("playermoney");
 playermoney.value = "Money: 8$";
 let levelwave = document.getElementById("levelwave");
@@ -126,19 +126,25 @@ let LEVELS = [
         ]
     },
 
-    {"content":[{"x":20,"y":140,"w":80,"h":380,"t":"platform","e":"none"},{"x":200,"y":340,"w":140,"h":140,"t":"platform","e":"none"},{"x":380,"y":140,"w":140,"h":140,"t":"platform","e":"none"},{"x":580,"y":360,"w":100,"h":100,"t":"platform","e":"none"}],"lpath":[{"x":0,"y":90},{"x":100,"y":100},{"x":140,"y":140},{"x":150,"y":240},{"x":180,"y":500},{"x":240,"y":540},{"x":330,"y":530},{"x":370,"y":500},{"x":350,"y":140},{"x":370,"y":100},{"x":500,"y":90},{"x":540,"y":130},{"x":560,"y":490},{"x":620,"y":530},{"x":690,"y":520},{"x":720,"y":480},{"x":710,"y":330},{"x":750,"y":280},{"x":790,"y":280}],"name":"balling ground"}
+    {"content":[{"x":20,"y":200,"w":80,"h":100,"t":"platform_level_1","e":"none"},{"x":260,"y":320,"w":40,"h":180,"t":"platform_level_1","e":"none"},{"x":200,"y":340,"w":60,"h":140,"t":"platform_level_2","e":"none"},{"x":300,"y":340,"w":40,"h":140,"t":"platform_level_2","e":"none"},{"x":580,"y":360,"w":100,"h":100,"t":"platform_level_3","e":"none"},{"x":200,"y":0,"w":60,"h":120,"t":"lava","e":"none"},{"x":440,"y":460,"w":60,"h":140,"t":"lava","e":"none"},{"x":640,"y":0,"w":60,"h":140,"t":"lava","e":"none"},{"x":40,"y":380,"w":80,"h":80,"t":"platform_level_1","e":"none"},{"x":20,"y":460,"w":80,"h":40,"t":"platform_level_2","e":"none"},{"x":20,"y":300,"w":80,"h":80,"t":"platform_level_2","e":"none"},{"x":40,"y":140,"w":80,"h":60,"t":"platform_level_2","e":"none"},{"x":400,"y":200,"w":100,"h":60,"t":"platform_level_1","e":"none"},{"x":380,"y":140,"w":140,"h":60,"t":"platform_level_2","e":"none"}],"lpath":[{"x":0,"y":90},{"x":100,"y":100},{"x":140,"y":140},{"x":150,"y":240},{"x":180,"y":500},{"x":240,"y":540},{"x":330,"y":530},{"x":370,"y":500},{"x":350,"y":140},{"x":370,"y":100},{"x":500,"y":90},{"x":540,"y":130},{"x":560,"y":490},{"x":620,"y":530},{"x":690,"y":520},{"x":720,"y":480},{"x":710,"y":330},{"x":750,"y":280},{"x":790,"y":280}],"name":"balling ground"}
     ,
-    {"content":[{"x":320,"y":140,"w":280,"h":60,"t":"platform","e":"none"},{"x":160,"y":20,"w":20,"h":80,"t":"platform","e":"none"},{"x":160,"y":220,"w":20,"h":260,"t":"platform","e":"none"},{"x":680,"y":480,"w":20,"h":100,"t":"platform","e":"none"},{"x":720,"y":120,"w":20,"h":100,"t":"platform","e":"none"}],"lpath":[{"x":220,"y":0},{"x":220,"y":120},{"x":300,"y":100},{"x":440,"y":100},{"x":600,"y":100},{"x":680,"y":120},{"x":680,"y":220},{"x":600,"y":240},{"x":300,"y":240},{"x":220,"y":220},{"x":220,"y":380},{"x":220,"y":480},{"x":300,"y":460},{"x":580,"y":460},{"x":640,"y":480},{"x":640,"y":580}],"name":"ballside"}
+    {"content":[{"x":160,"y":240,"w":20,"h":220,"t":"platform_level_1","e":"none"},{"x":680,"y":500,"w":20,"h":80,"t":"platform_level_1","e":"none"},{"x":720,"y":140,"w":20,"h":60,"t":"platform_level_1","e":"none"},{"x":480,"y":140,"w":120,"h":60,"t":"platform_level_1","e":"none"},{"x":160,"y":20,"w":20,"h":80,"t":"platform_level_1","e":"none"},{"x":360,"y":340,"w":60,"h":40,"t":"platform_level_1","e":"none"},{"x":320,"y":280,"w":140,"h":60,"t":"platform_level_2","e":"none"},{"x":300,"y":160,"w":120,"h":40,"t":"platform_level_1","e":"none"},{"x":420,"y":140,"w":60,"h":60,"t":"platform_level_2","e":"none"},{"x":600,"y":140,"w":40,"h":40,"t":"platform_level_2","e":"none"},{"x":460,"y":280,"w":60,"h":40,"t":"platform_level_3","e":"none"},{"x":520,"y":360,"w":280,"h":40,"t":"lava","e":"none"},{"x":100,"y":160,"w":140,"h":20,"t":"lava","e":"none"},{"x":0,"y":160,"w":100,"h":60,"t":"lava","e":"none"},{"x":440,"y":480,"w":60,"h":120,"t":"lava","e":"none"},{"x":280,"y":540,"w":160,"h":60,"t":"lava","e":"none"},{"x":460,"y":0,"w":60,"h":60,"t":"lava","e":"none"},{"x":520,"y":0,"w":80,"h":20,"t":"lava","e":"none"},{"x":60,"y":380,"w":60,"h":120,"t":"lava","e":"none"},{"x":40,"y":460,"w":20,"h":80,"t":"lava","e":"none"}],"lpath":[{"x":220,"y":0},{"x":220,"y":120},{"x":300,"y":100},{"x":440,"y":100},{"x":600,"y":100},{"x":680,"y":120},{"x":680,"y":220},{"x":600,"y":240},{"x":300,"y":240},{"x":220,"y":220},{"x":220,"y":380},{"x":220,"y":480},{"x":300,"y":460},{"x":580,"y":460},{"x":640,"y":480},{"x":640,"y":580}],"name":"ballside"}
     ,
-    {"content":[{"x":280,"y":300,"w":80,"h":200,"t":"platform","e":"none"},{"x":280,"y":140,"w":80,"h":60,"t":"platform","e":"none"},{"x":40,"y":440,"w":120,"h":60,"t":"platform","e":"none"},{"x":640,"y":140,"w":80,"h":60,"t":"platform","e":"none"},{"x":460,"y":300,"w":80,"h":200,"t":"platform","e":"none"}],"lpath":[{"x":0,"y":540},{"x":420,"y":540},{"x":420,"y":260},{"x":220,"y":260},{"x":220,"y":100},{"x":780,"y":100}],"name":"balled in"}
+    {"content":[{"x":100,"y":460,"w":100,"h":40,"t":"platform_level_1","e":"none"},{"x":280,"y":300,"w":60,"h":140,"t":"platform_level_1","e":"none"},{"x":260,"y":440,"w":120,"h":60,"t":"platform_level_2","e":"none"},{"x":40,"y":440,"w":60,"h":60,"t":"platform_level_2","e":"none"},{"x":480,"y":240,"w":40,"h":100,"t":"platform_level_1","e":"none"},{"x":480,"y":340,"w":100,"h":100,"t":"platform_level_2","e":"none"},{"x":460,"y":440,"w":140,"h":60,"t":"platform_level_3","e":"none"},{"x":280,"y":140,"w":40,"h":80,"t":"platform_level_1","e":"none"},{"x":320,"y":160,"w":60,"h":40,"t":"platform_level_2","e":"none"},{"x":640,"y":140,"w":100,"h":40,"t":"platform_level_1","e":"none"},{"x":600,"y":140,"w":40,"h":100,"t":"platform_level_2","e":"none"},{"x":0,"y":280,"w":100,"h":60,"t":"lava","e":"none"},{"x":340,"y":20,"w":160,"h":40,"t":"lava","e":"none"},{"x":440,"y":140,"w":120,"h":40,"t":"lava","e":"none"},{"x":440,"y":0,"w":60,"h":20,"t":"lava","e":"none"},{"x":0,"y":140,"w":20,"h":140,"t":"lava","e":"none"}],"lpath":[{"x":0,"y":540},{"x":420,"y":540},{"x":420,"y":260},{"x":220,"y":260},{"x":220,"y":100},{"x":780,"y":100}],"name":"balled in"}
     ,
-    {"content":[{"x":400,"y":240,"w":140,"h":180,"t":"platform","e":"none"},{"x":300,"y":240,"w":20,"h":180,"t":"platform","e":"none"},{"x":400,"y":160,"w":140,"h":20,"t":"platform","e":"none"},{"x":600,"y":240,"w":20,"h":180,"t":"platform","e":"none"},{"x":400,"y":480,"w":140,"h":20,"t":"platform","e":"none"},{"x":640,"y":520,"w":40,"h":40,"t":"platform","e":"none"},{"x":640,"y":100,"w":40,"h":40,"t":"platform","e":"none"},{"x":260,"y":100,"w":40,"h":40,"t":"platform","e":"none"},{"x":260,"y":520,"w":40,"h":40,"t":"platform","e":"none"}],"lpath":[{"x":0,"y":480},{"x":340,"y":480},{"x":340,"y":200},{"x":580,"y":200},{"x":580,"y":460},{"x":360,"y":460},{"x":360,"y":220},{"x":560,"y":220},{"x":560,"y":440},{"x":380,"y":440},{"x":380,"y":0}],"name":"center of balls"}
+    {"content":[{"x":280,"y":520,"w":60,"h":40,"t":"platform_level_1","e":"none"},{"x":420,"y":480,"w":60,"h":40,"t":"platform_level_1","e":"none"},{"x":660,"y":500,"w":60,"h":60,"t":"platform_level_1","e":"none"},{"x":620,"y":260,"w":40,"h":120,"t":"platform_level_2","e":"none"},{"x":280,"y":280,"w":40,"h":100,"t":"platform_level_1","e":"none"},{"x":400,"y":140,"w":40,"h":40,"t":"platform_level_1","e":"none"},{"x":440,"y":160,"w":40,"h":20,"t":"platform_level_2","e":"none"},{"x":580,"y":80,"w":80,"h":40,"t":"platform_level_1","e":"none"},{"x":200,"y":500,"w":80,"h":60,"t":"platform_level_2","e":"none"},{"x":420,"y":300,"w":80,"h":60,"t":"platform_level_1","e":"none"},{"x":480,"y":360,"w":20,"h":20,"t":"platform_level_1","e":"none"},{"x":480,"y":380,"w":60,"h":40,"t":"platform_level_2","e":"none"},{"x":400,"y":360,"w":80,"h":60,"t":"platform_level_3","e":"none"},{"x":400,"y":240,"w":120,"h":60,"t":"platform_level_2","e":"none"}],"lpath":[{"x":0,"y":480},{"x":340,"y":480},{"x":340,"y":200},{"x":580,"y":200},{"x":580,"y":460},{"x":360,"y":460},{"x":360,"y":220},{"x":560,"y":220},{"x":560,"y":440},{"x":380,"y":440},{"x":380,"y":0}],"name":"center of balls"}
     ,
-    {"content":[{"x":620,"y":220,"w":140,"h":60,"t":"platform","e":"none"},{"x":220,"y":220,"w":120,"h":60,"t":"platform","e":"none"},{"x":600,"y":40,"w":20,"h":60,"t":"platform","e":"none"},{"x":220,"y":40,"w":20,"h":60,"t":"platform","e":"none"},{"x":320,"y":40,"w":20,"h":60,"t":"platform","e":"none"},{"x":380,"y":220,"w":20,"h":60,"t":"platform","e":"none"},{"x":560,"y":220,"w":20,"h":60,"t":"platform","e":"none"},{"x":100,"y":220,"w":20,"h":60,"t":"platform","e":"none"},{"x":100,"y":40,"w":20,"h":60,"t":"platform","e":"none"},{"x":660,"y":40,"w":20,"h":60,"t":"platform","e":"none"},{"x":220,"y":400,"w":20,"h":60,"t":"platform","e":"none"},{"x":380,"y":400,"w":200,"h":60,"t":"platform","e":"none"},{"x":620,"y":400,"w":20,"h":60,"t":"platform","e":"none"},{"x":740,"y":400,"w":20,"h":60,"t":"platform","e":"none"},{"x":100,"y":400,"w":80,"h":80,"t":"platform","e":"none"},{"x":40,"y":220,"w":20,"h":260,"t":"platform","e":"none"},{"x":40,"y":40,"w":20,"h":60,"t":"platform","e":"none"}],"lpath":[{"x":780,"y":200},{"x":600,"y":200},{"x":600,"y":300},{"x":360,"y":300},{"x":360,"y":200},{"x":220,"y":200},{"x":220,"y":120},{"x":640,"y":120},{"x":640,"y":20},{"x":80,"y":20},{"x":80,"y":380},{"x":200,"y":380},{"x":200,"y":480},{"x":780,"y":480}],"name":"sticks and balls"}
+    {"content":[{"x":660,"y":220,"w":100,"h":40,"t":"platform_level_1","e":"none"},{"x":660,"y":40,"w":60,"h":60,"t":"platform_level_3","e":"none"},{"x":360,"y":80,"w":120,"h":20,"t":"platform_level_1","e":"none"},{"x":160,"y":120,"w":20,"h":60,"t":"platform_level_1","e":"none"},{"x":380,"y":220,"w":40,"h":60,"t":"platform_level_1","e":"none"},{"x":420,"y":240,"w":60,"h":40,"t":"platform_level_2","e":"none"},{"x":260,"y":420,"w":80,"h":40,"t":"platform_level_1","e":"none"},{"x":100,"y":240,"w":40,"h":60,"t":"platform_level_1","e":"none"},{"x":440,"y":500,"w":80,"h":20,"t":"platform_level_1","e":"none"},{"x":520,"y":500,"w":120,"h":40,"t":"platform_level_2","e":"none"},{"x":220,"y":400,"w":40,"h":60,"t":"platform_level_2","e":"none"},{"x":100,"y":300,"w":60,"h":40,"t":"platform_level_2","e":"none"},{"x":640,"y":260,"w":120,"h":60,"t":"platform_level_2","e":"none"},{"x":480,"y":60,"w":140,"h":40,"t":"platform_level_2","e":"none"}],"lpath":[{"x":780,"y":200},{"x":600,"y":200},{"x":600,"y":300},{"x":360,"y":300},{"x":360,"y":200},{"x":220,"y":200},{"x":220,"y":120},{"x":640,"y":120},{"x":640,"y":20},{"x":80,"y":20},{"x":80,"y":380},{"x":200,"y":380},{"x":200,"y":480},{"x":780,"y":480}],"name":"sticks and balls"}
     ,
-    {"content":[{"x":200,"y":200,"w":60,"h":60,"t":"platform","e":"none"},{"x":380,"y":200,"w":60,"h":60,"t":"platform","e":"none"},{"x":380,"y":380,"w":60,"h":60,"t":"platform","e":"none"},{"x":200,"y":380,"w":60,"h":60,"t":"platform","e":"none"},{"x":200,"y":540,"w":60,"h":40,"t":"platform","e":"none"},{"x":380,"y":540,"w":60,"h":40,"t":"platform","e":"none"},{"x":520,"y":200,"w":40,"h":60,"t":"platform","e":"none"},{"x":600,"y":200,"w":40,"h":60,"t":"platform","e":"none"},{"x":600,"y":380,"w":40,"h":60,"t":"platform","e":"none"},{"x":520,"y":380,"w":40,"h":60,"t":"platform","e":"none"},{"x":80,"y":200,"w":40,"h":60,"t":"platform","e":"none"},{"x":80,"y":380,"w":40,"h":60,"t":"platform","e":"none"},{"x":80,"y":540,"w":40,"h":40,"t":"platform","e":"none"},{"x":520,"y":540,"w":40,"h":40,"t":"platform","e":"none"},{"x":600,"y":540,"w":40,"h":40,"t":"platform","e":"none"},{"x":600,"y":100,"w":40,"h":40,"t":"platform","e":"none"},{"x":520,"y":100,"w":40,"h":40,"t":"platform","e":"none"},{"x":380,"y":100,"w":60,"h":40,"t":"platform","e":"none"},{"x":200,"y":100,"w":60,"h":40,"t":"platform","e":"none"},{"x":80,"y":100,"w":40,"h":40,"t":"platform","e":"none"}],"lpath":[{"x":0,"y":80},{"x":480,"y":80},{"x":480,"y":520},{"x":160,"y":520},{"x":160,"y":160},{"x":680,"y":160},{"x":680,"y":480},{"x":0,"y":480}],"name":"ballsy patterns"}
+    {"content":[{"x":400,"y":120,"w":180,"h":40,"t":"platform_level_1","e":"none"},{"x":660,"y":60,"w":60,"h":100,"t":"platform_level_2","e":"none"},{"x":420,"y":260,"w":160,"h":40,"t":"platform_level_1","e":"none"},{"x":540,"y":300,"w":40,"h":80,"t":"platform_level_1","e":"none"},{"x":140,"y":360,"w":100,"h":60,"t":"platform_level_1","e":"none"},{"x":380,"y":500,"w":120,"h":40,"t":"platform_level_1","e":"none"},{"x":320,"y":300,"w":220,"h":40,"t":"platform_level_2","e":"none"},{"x":340,"y":220,"w":200,"h":40,"t":"platform_level_2","e":"none"},{"x":400,"y":80,"w":180,"h":40,"t":"platform_level_2","e":"none"},{"x":340,"y":80,"w":60,"h":60,"t":"platform_level_2","e":"none"},{"x":200,"y":220,"w":40,"h":140,"t":"platform_level_2","e":"none"},{"x":420,"y":440,"w":40,"h":60,"t":"platform_level_2","e":"none"},{"x":680,"y":480,"w":60,"h":60,"t":"platform_level_1","e":"none"},{"x":660,"y":460,"w":20,"h":60,"t":"platform_level_2","e":"none"}],"lpath":[{"x":0,"y":40},{"x":620,"y":40},{"x":620,"y":200},{"x":280,"y":200},{"x":280,"y":420},{"x":620,"y":420},{"x":620,"y":580}],"name":"balled in balls"}
     ,
-    {"content":[{"x":320,"y":80,"w":260,"h":80,"t":"platform","e":"none"},{"x":320,"y":240,"w":260,"h":40,"t":"platform","e":"none"},{"x":320,"y":340,"w":260,"h":40,"t":"platform","e":"none"},{"x":320,"y":460,"w":260,"h":80,"t":"platform","e":"none"},{"x":660,"y":80,"w":80,"h":80,"t":"platform","e":"none"},{"x":660,"y":460,"w":80,"h":80,"t":"platform","e":"none"},{"x":200,"y":240,"w":40,"h":40,"t":"platform","e":"none"},{"x":200,"y":340,"w":40,"h":40,"t":"platform","e":"none"}],"lpath":[{"x":0,"y":40},{"x":620,"y":40},{"x":620,"y":200},{"x":280,"y":200},{"x":280,"y":420},{"x":620,"y":420},{"x":620,"y":580}],"name":"balled in balls"}
+    {"content":[{"x":160,"y":200,"w":160,"h":60,"t":"platform_level_2","e":"none"},{"x":180,"y":160,"w":120,"h":40,"t":"platform_level_1","e":"none"},{"x":260,"y":420,"w":200,"h":60,"t":"platform_level_1","e":"none"},{"x":220,"y":480,"w":180,"h":40,"t":"platform_level_2","e":"none"},{"x":540,"y":260,"w":20,"h":100,"t":"platform_level_2","e":"none"},{"x":560,"y":280,"w":60,"h":40,"t":"platform_level_1","e":"none"},{"x":80,"y":320,"w":40,"h":100,"t":"platform_level_1","e":"none"},{"x":120,"y":340,"w":40,"h":80,"t":"platform_level_2","e":"none"},{"x":260,"y":20,"w":40,"h":60,"t":"platform_level_2","e":"none"},{"x":300,"y":40,"w":60,"h":60,"t":"platform_level_1","e":"none"},{"x":560,"y":120,"w":80,"h":40,"t":"platform_level_1","e":"none"},{"x":80,"y":80,"w":40,"h":60,"t":"lava","e":"none"},{"x":100,"y":480,"w":40,"h":20,"t":"lava","e":"none"},{"x":100,"y":500,"w":20,"h":20,"t":"lava","e":"none"},{"x":360,"y":280,"w":20,"h":40,"t":"lava","e":"none"},{"x":380,"y":240,"w":20,"h":60,"t":"lava","e":"none"},{"x":600,"y":420,"w":40,"h":40,"t":"lava","e":"none"},{"x":540,"y":440,"w":60,"h":40,"t":"lava","e":"none"}],"lpath":[{"x":240,"y":260},{"x":240,"y":400},{"x":500,"y":400},{"x":500,"y":200},{"x":680,"y":200},{"x":680,"y":460},{"x":680,"y":540},{"x":60,"y":540},{"x":60,"y":40},{"x":240,"y":40},{"x":240,"y":140},{"x":240,"y":160}],"name":"ball around"}
+    ,
+    {"content":[{"x":260,"y":180,"w":180,"h":60,"t":"water","e":"none"},{"x":380,"y":240,"w":60,"h":60,"t":"water","e":"none"},{"x":260,"y":240,"w":60,"h":60,"t":"water","e":"none"},{"x":260,"y":300,"w":180,"h":60,"t":"water","e":"none"},{"x":440,"y":420,"w":40,"h":160,"t":"platform_level_1","e":"none"},{"x":540,"y":240,"w":40,"h":200,"t":"platform_level_2","e":"none"},{"x":220,"y":80,"w":40,"h":20,"t":"platform_level_2","e":"none"},{"x":420,"y":80,"w":40,"h":20,"t":"platform_level_2","e":"none"},{"x":180,"y":180,"w":20,"h":40,"t":"platform_level_2","e":"none"},{"x":180,"y":340,"w":20,"h":40,"t":"platform_level_2","e":"none"},{"x":180,"y":240,"w":20,"h":80,"t":"platform_level_3","e":"none"},{"x":100,"y":260,"w":40,"h":40,"t":"platform_level_2","e":"none"},{"x":320,"y":240,"w":60,"h":60,"t":"platform_level_1","e":"none"},{"x":180,"y":420,"w":260,"h":40,"t":"platform_level_2","e":"none"}],"lpath":[{"x":0,"y":160},{"x":460,"y":160},{"x":460,"y":380},{"x":220,"y":380},{"x":220,"y":120},{"x":480,"y":120},{"x":480,"y":380},{"x":480,"y":400},{"x":200,"y":400},{"x":180,"y":400},{"x":160,"y":400},{"x":160,"y":80},{"x":160,"y":60},{"x":480,"y":60},{"x":500,"y":60},{"x":500,"y":580}],"name":"water ball"},
+
+    {"content":[{"x":100,"y":20,"w":40,"h":180,"t":"platform_level_1","e":"none"},{"x":180,"y":160,"w":180,"h":40,"t":"platform_level_1","e":"none"},{"x":140,"y":20,"w":40,"h":180,"t":"platform_level_2","e":"none"},{"x":220,"y":260,"w":200,"h":40,"t":"platform_level_1","e":"none"},{"x":420,"y":100,"w":40,"h":200,"t":"platform_level_1","e":"none"},{"x":220,"y":300,"w":240,"h":40,"t":"platform_level_2","e":"none"},{"x":560,"y":160,"w":60,"h":60,"t":"platform_level_1","e":"none"},{"x":480,"y":480,"w":120,"h":40,"t":"platform_level_1","e":"none"},{"x":620,"y":340,"w":40,"h":180,"t":"platform_level_2","e":"none"},{"x":620,"y":100,"w":40,"h":120,"t":"platform_level_2","e":"none"},{"x":540,"y":300,"w":120,"h":40,"t":"platform_level_2","e":"none"},{"x":540,"y":220,"w":120,"h":80,"t":"platform_level_3","e":"none"},{"x":440,"y":420,"w":40,"h":100,"t":"platform_level_2","e":"none"},{"x":80,"y":300,"w":40,"h":160,"t":"platform_level_2","e":"none"},{"x":0,"y":240,"w":180,"h":40,"t":"platform_level_3","e":"none"},{"x":140,"y":300,"w":40,"h":160,"t":"lava","e":"none"},{"x":200,"y":20,"w":160,"h":120,"t":"water","e":"none"},{"x":700,"y":80,"w":60,"h":360,"t":"water","e":"none"},{"x":60,"y":520,"w":140,"h":60,"t":"water","e":"none"}],"lpath":[{"x":80,"y":0},{"x":80,"y":220},{"x":400,"y":220},{"x":400,"y":80},{"x":680,"y":80},{"x":680,"y":240},{"x":680,"y":540},{"x":420,"y":540},{"x":420,"y":360},{"x":220,"y":360},{"x":220,"y":480},{"x":60,"y":480},{"x":60,"y":300},{"x":0,"y":300}],"name":"big ball hills"}
+    ,
+    {"content":[{"x":20,"y":140,"w":80,"h":380,"t":"platform","e":"none"},{"x":200,"y":340,"w":140,"h":140,"t":"platform","e":"none"},{"x":380,"y":140,"w":140,"h":140,"t":"platform","e":"none"},{"x":580,"y":360,"w":100,"h":100,"t":"platform","e":"none"}],"lpath":[{"x":0,"y":90},{"x":100,"y":100},{"x":140,"y":140},{"x":150,"y":240},{"x":180,"y":500},{"x":240,"y":540},{"x":330,"y":530},{"x":370,"y":500},{"x":350,"y":140},{"x":370,"y":100},{"x":500,"y":90},{"x":540,"y":130},{"x":560,"y":490},{"x":620,"y":530},{"x":690,"y":520},{"x":720,"y":480},{"x":710,"y":330},{"x":750,"y":280},{"x":790,"y":280}],"name":" old balling ground"}
     ,
 
 ]
@@ -180,7 +186,7 @@ const TOWERTYPES = {
         color : "hsl(194, 14%, 50%)",
         size : 10,
         range : 180,
-        firerate : 70,
+        firerate : 75,
         shotspeed : 10,
         damage : 1,
         focus : "nearest",
@@ -260,7 +266,7 @@ const TOWERTYPES = {
         color : "hsl(60, 62%, 69%)",
         size : 10,
         range : 60,
-        firerate : 100,
+        firerate : 150,
         shotspeed : 6,
         damage : 0.1,
         moneymulti: 2,
@@ -271,7 +277,7 @@ const TOWERTYPES = {
         color : "hsl(60, 62%, 49%)",
         size : 15,
         range : 70,
-        firerate : 110,
+        firerate : 180,
         shotspeed : 7,
         damage : 0.2,
         moneymulti: 3,
@@ -359,7 +365,7 @@ const TOWERTYPES = {
         color : "hsl(181, 35%, 75%)",
         size : 10,
         range : 130,
-        firerate : 100,
+        firerate : 130,
         shotspeed : 10,
         damage : 1,
         freeze:1.5,
@@ -370,7 +376,7 @@ const TOWERTYPES = {
         color : "hsl(181, 35%, 85%)",
         size : 15,
         range : 130,
-        firerate : 80,
+        firerate : 90,
         shotspeed : 11,
         damage : 1,
         freeze:2,
@@ -408,6 +414,7 @@ const ENEMYTYPES = {
         speed : 1,
         health : 3,
         reward : 0.1,
+        damage: 1,
         color : "hsl(255, 36%, 50%)",
         },
     slow_endless_original:{
@@ -415,6 +422,7 @@ const ENEMYTYPES = {
         speed : 0.5,
         health : 4,
         reward : 0.1,
+        damage: 1,
         color : "hsl(255, 36%, 30%)",
         },
     fast_endless_original:{
@@ -422,6 +430,7 @@ const ENEMYTYPES = {
         speed : 1.5,
         health : 2,
         reward : 0.1,
+        damage: 1,
         color : "hsl(255, 36%, 70%)",
         },
 
@@ -431,6 +440,7 @@ const ENEMYTYPES = {
         speed : 1,
         health : 3,
         reward : 0.1,
+        damage: 1,
         color : "hsl(255, 36%, 50%)",
         },
     slow_endless:{
@@ -438,6 +448,7 @@ const ENEMYTYPES = {
         speed : 0.5,
         health : 4,
         reward : 0.1,
+        damage: 1,
         color : "hsl(255, 36%, 30%)",
         },
     fast_endless:{
@@ -445,98 +456,114 @@ const ENEMYTYPES = {
         speed : 1.5,
         health : 2,
         reward : 0.1,
+        damage: 1,
         color : "hsl(255, 36%, 70%)",
         },
+
+
 
     normal_1:{
         size : 10,
         speed : 1,
         health : 3,
         reward : 0.1,
-        color : "hsl(211, 36%, 50%)",
+        damage: 1,
+        color : "hsl(0, 36%, 50%)",
         },
     slow_1:{
         size : 11,
         speed : 0.5,
         health : 4,
         reward : 0.1,
-        color : "hsl(211, 36%, 30%)",
+        damage: 2,
+        color : "hsl(0, 36%, 30%)",
         },
     fast_1:{
         size : 9,
         speed : 1.5,
         health : 2,
         reward : 0.1,
-        color : "hsl(211, 36%, 70%)",
+        damage: 1,
+        color : "hsl(0, 36%, 70%)",
         },
     normal_2:{
         size : 11,
         speed : 1.1,
         health : 8,
         reward : 0.2,
-        color : "hsl(0, 36%, 50%)",
+        damage: 1,
+        color : "hsl(20, 36%, 50%)",
         },
     slow_2:{
         size : 13,
         speed : 0.6,
         health : 10,
         reward : 0.2,
-        color : "hsl(0, 36%, 30%)",
+        damage: 2,
+        color : "hsl(20, 36%, 30%)",
         },
     fast_2:{
         size : 9,
         speed : 1.6,
         health : 7,
         reward : 0.2,
-        color : "hsl(0, 36%, 70%)",
+        damage: 1,
+        color : "hsl(20, 36%, 70%)",
         },
     normal_3:{
         size : 12,
         speed : 1.1,
         health : 14,
         reward : 0.3,
-        color : "hsl(124, 36%, 50%)",
+        damage: 2,
+        color : "hsl(40, 36%, 50%)",
         },
     slow_3:{
         size : 15,
         speed : 0.6,
         health : 16,
         reward : 0.3,
-        color : "hsl(124, 36%, 30%)",
+        damage: 3,
+        color : "hsl(40, 36%, 30%)",
         },
     fast_3:{
         size : 10,
         speed : 1.6,
         health : 12,
         reward : 0.3,
-        color : "hsl(124, 36%, 70%)",
+        damage: 2,
+        color : "hsl(40, 36%, 70%)",
         },
     normal_4:{
         size : 15,
         speed : 1.1,
         health : 25,
         reward : 0.3,
-        color : "hsl(294, 36%, 50%)",
+        damage: 2,
+        color : "hsl(60, 36%, 50%)",
         },
     slow_4:{
         size : 17,
         speed : 0.6,
         health : 35,
         reward : 0.3,
-        color : "hsl(294, 36%, 30%)",
+        damage: 3,
+        color : "hsl(60, 36%, 30%)",
         },
     fast_4:{
         size : 12,
         speed : 1.6,
         health : 17,
         reward : 0.3,
-        color : "hsl(294, 36%, 70%)",
+        damage: 2,
+        color : "hsl(60, 36%, 70%)",
         },
     boss_1:{
         size : 28,
         speed : 0.4,
         health : 300,
-        reward : 10,
+        reward : 5,
+        damage: 5,
         color : "hsl(308, 24%, 23%)",
         permshowhealth : true,
         },
@@ -545,72 +572,106 @@ const ENEMYTYPES = {
         speed : 1.2,
         health : 30,
         reward : 0.4,
-        color : "hsl(63, 35%, 50%)",
+        damage: 3,
+        color : "hsl(80, 36%, 50%)",
         },
     slow_5:{
         size : 20,
         speed : 0.5,
         health : 55,
         reward : 0.4,
-        color : "hsl(63, 35%, 30%)",
+        damage: 4,
+        color : "hsl(80, 36%, 30%)",
         },
     fast_5:{
         size : 13,
         speed : 2,
         health : 25,
         reward : 0.4,
-        color : "hsl(63, 35%, 70%)",
+        damage: 3,
+        color : "hsl(80, 36%, 70%)",
         },
     superfast_1:{
         size : 10,
         speed : 3,
         health : 23,
         reward : 0.3,
-        color : "hsl(63, 35%, 80%)",
+        damage: 3,
+        color : "hsl(63, 36%, 80%)",
         },
     boss_2:{
         size : 35,
         speed : 0.4,
         health : 700,
-        reward : 20,
+        reward : 10,
+        damage: 8,
         color : "hsl(28, 62%, 58%)",
         permshowhealth : true,
         },
     normal_6:{
         size : 22,
         speed : 1.5,
-        health : 50,
+        health : 70,
         reward : 0.4,
-        color : "hsl(85, 35%, 50%)",
+        damage: 3,
+        color : "hsl(100, 36%, 50%)",
         },
     slow_6:{
         size : 25,
         speed : 0.4,
-        health : 80,
+        health : 90,
         reward : 0.4,
-        color : "hsl(85, 35%, 30%)",
+        damage: 4,
+        color : "hsl(100, 36%, 30%)",
         },
     fast_6:{
         size : 14,
         speed : 2.3,
-        health : 30,
+        health : 40,
         reward : 0.4,
-        color : "hsl(85, 35%, 70%)",
+        damage: 3,
+        color : "hsl(100, 36%, 70%)",
         },
     superfast_2:{
         size : 10,
         speed : 3.4,
         health : 20,
         reward : 0.3,
-        color : "hsl(63, 35%, 90%)",
+        damage: 4,
+        color : "hsl(63, 36%, 90%)",
         },
     sun:{
         size : 50,
         speed : 0.2,
         health : 1200,
-        reward :40,
+        reward :20,
+        damage: 10,
         color : "hsl(53, 45%, 86%)",
         permshowhealth : true,
+        },
+    normal_7:{
+        size : 23,
+        speed : 1.5,
+        health : 100,
+        reward : 0.5,
+        damage: 4,
+        color : "hsl(120, 36%, 50%)",
+        },
+    slow_7:{
+        size : 26,
+        speed : 0.4,
+        health : 150,
+        reward : 0.5,
+        damage: 4,
+        color : "hsl(120, 36%, 30%)",
+        },
+    fast_7:{
+        size : 15,
+        speed : 2.3,
+        health : 70,
+        reward : 0.5,
+        damage: 4,
+        color : "hsl(120, 36%, 70%)",
         },
 
 }
@@ -620,13 +681,13 @@ const ENEMYTYPES = {
 
 const timer = {
     time:0,
-    reset: function(set=0){this.time = set},
-    start: function(){this.timer = setInterval(() => {
-        this.time += 100;
+    reset: function(set=0){timer.time = set},
+    start: function(){timer.timer = setInterval(() => {
+        timer.time += 100;
     }, 100);},
-    stop: function(){clearInterval(this.timer)},
+    stop: function(){clearInterval(timer.timer)},
     display: function(){
-        timerhtml.value = time(this.time);
+        timerhtml.value = time(timer.time);
     
     }
 
@@ -663,8 +724,7 @@ class gameobject{
         ctx.fillStyle = this.fillcolor;
         ctx.shadowColor = this.shadowcolor;
 
-        
-        ctx.strokeRect(this.x,this.y,this.width,this.height);
+        if(this.strokecolor !== "none"){ctx.strokeRect(this.x,this.y,this.width,this.height);}
         ctx.fillRect(this.x,this.y,this.width,this.height);
 
         
@@ -674,6 +734,8 @@ class gameobject{
         ctx.shadowBlur = 0;
         ctx.lineWidth = 1;
         ctx.globalAlpha = 1;
+        ctx.shadowColor = "black";
+        ctx.strokeStyle = "black;"
 
 
     }
@@ -709,12 +771,69 @@ class gameobject{
             this.fillcolor = "#e8e4dd";
             this.shadowcolor = "black";
             this.opac = 1;
+            this.placeable = true;
+            this.alti = 1;
+
         
-        }else{
+        }
+        else if(this.type === "platform_level_1"){
+            this.strokecolor = "black"
+            this.fillcolor = "hsl(0, 0%, 30%)";
+            this.shadowcolor = "black";
+            this.opac = 1;
+            this.placeable = true;
+            this.alti = 1;
+        
+        }
+        else if(this.type === "platform_level_2"){
+            this.strokecolor = "black"
+            this.fillcolor = "hsl(0, 0%, 50%)";
+            this.shadowcolor = "black";
+            this.opac = 1;
+            this.placeable = true;
+            this.alti = 2;
+
+        
+        }
+        else if(this.type === "platform_level_3"){
+            this.strokecolor = "black"
+            this.fillcolor = "hsl(0, 0%, 70%";
+            this.shadowcolor = "black";
+            this.opac = 1;
+            this.placeable = true;
+            this.alti = 3;
+
+        
+        }
+        else if(this.type === "lava"){
+            this.strokecolor = "none"
+            this.fillcolor = "#bf6a5d";
+            this.shadowcolor = "#bf6a5d";
+            this.opac = 1;
+            this.placeable = false;
+            this.alti = 10;
+
+        
+        }
+        else if(this.type === "water"){
+            this.strokecolor = "none"
+            this.fillcolor = "#5dabbf";
+            this.shadowcolor = "#5dabbf";
+            this.opac = 1;
+            this.placeable = false;
+            this.alti = 0;
+            this.resistance = 0.92;
+
+        
+        }
+        else{
             this.strokecolor = "white"
             this.fillcolor = "pink";
             this.shadowcolor = "pink";
             this.opac = 1;
+            this.placeable = false;
+            this.alti = 0;
+
         }
     }
 
@@ -798,7 +917,7 @@ class enemy{
                     this.pathprog ++}
                 else{
                     ENEMIES.splice(i,1);
-                    player.changehealth(-1);
+                    player.changehealth(- this.damage);
                     playSound("healthdown",{ volume: mastervolume });
                 }
             }
@@ -833,12 +952,13 @@ class enemy{
                 ctx.globalAlpha = 1;
                 ctx.font = "15px Monospace",
                 ctx.fillStyle = "whitesmoke";
-                ctx.strokeRect(this.x+this.size*2,this.y-20,80+(10*this.type.length),100);
-                ctx.fillRect(this.x+this.size*2,this.y-20,80+(10*this.type.length),100); 
+                ctx.strokeRect(this.x+this.size*2,this.y-20,80+(10*this.type.length),120);
+                ctx.fillRect(this.x+this.size*2,this.y-20,80+(10*this.type.length),120); 
                 ctx.strokeText("name: "+this.type,this.x+this.size*2+20,this.y);
                 ctx.strokeText("reward: "+this.multiedreward,this.x+this.size*2+20,this.y+20);
                 ctx.strokeText("health: "+this.orighealth,this.x+this.size*2+20,this.y+40);
-                ctx.strokeText("speed: "+this.totalspeed,this.x+this.size*2+20,this.y+60)
+                ctx.strokeText("speed: "+this.totalspeed.toFixed(2),this.x+this.size*2+20,this.y+60)
+                ctx.strokeText("damage: "+this.damage,this.x+this.size*2+20,this.y+80)
     
             }
         }
@@ -853,6 +973,7 @@ class enemy{
         this.health = ENEMYTYPES[this.type].health;
         this.reward = ENEMYTYPES[this.type].reward;
         this.color = ENEMYTYPES[this.type].color;
+        this.damage = ENEMYTYPES[this.type].damage;
         this.permshowhealth = ENEMYTYPES[this.type].permshowhealth;
 
         this.orighealth  =this.health;
@@ -867,11 +988,12 @@ class enemy{
 
 class tower{
 
-constructor(x,y,type){
+constructor(x,y,type,alti){
 
     this.x = x;
     this.y = y;
     this.type = type;
+    this.alti = alti;
     this.dir = 0;
     this.wstep = 0;
     this.focus = "furthest";
@@ -892,35 +1014,53 @@ update(i){
             let bestdistance = Infinity;
             ENEMIES.forEach((v,i)=>{
                 let enemydistance = distance(v.x,this.x,v.y,this.y);
-                if(enemydistance< bestdistance && enemydistance < this.range){bestdistance = enemydistance; bestenemy = i;}
+                if(enemydistance< bestdistance && enemydistance < this.range){
+                    if(!this.shootcol(v)){
+                        bestdistance = enemydistance; bestenemy = i;
+                    }
+                    
+                }
             })    
             break;
         case "furthest":
             let smallestdistance = 0;
             ENEMIES.forEach((v,i)=>{
                 let enemydistance = distance(v.x,this.x,v.y,this.y);
-                if(enemydistance> smallestdistance && enemydistance < this.range){smallestdistance = enemydistance; bestenemy = i;}
+                if(enemydistance> smallestdistance && enemydistance < this.range){
+                    if(!this.shootcol(v)){
+                    smallestdistance = enemydistance; bestenemy = i;
+                    }
+                }
             })    
             break;
         case "fastest":
             let fastestspeed = 0;
             ENEMIES.forEach((v,i)=>{
                 let enemydistance = distance(v.x,this.x,v.y,this.y);
-                if(v.totalspeed> fastestspeed && enemydistance < this.range){fastestspeed = v.totalspeed; bestenemy = i;}
+                if(v.totalspeed> fastestspeed && enemydistance < this.range){
+                    if(!this.shootcol(v)){
+                    fastestspeed = v.totalspeed; bestenemy = i;}
+                    }
             })    
             break;
         case "strongest":
             let strongesthealth = 0;
             ENEMIES.forEach((v,i)=>{
                 let enemydistance = distance(v.x,this.x,v.y,this.y);
-                if(v.health> strongesthealth && enemydistance < this.range){strongesthealth = v.health; bestenemy = i;}
+                if(v.health> strongesthealth && enemydistance < this.range){
+                    if(!this.shootcol(v)){
+                    strongesthealth = v.health; bestenemy = i;}
+                    }
             })    
             break;
         case "weakest":
             let weakesthealth = Infinity;
             ENEMIES.forEach((v,i)=>{
                 let enemydistance = distance(v.x,this.x,v.y,this.y);
-                if(v.health< weakesthealth && enemydistance < this.range){weakesthealth = v.health; bestenemy = i;}
+                if(v.health< weakesthealth && enemydistance < this.range){
+                    if(!this.shootcol(v)){
+                    weakesthealth = v.health; bestenemy = i;}
+                    }
             })    
             break;
 
@@ -951,6 +1091,28 @@ update(i){
         this.g_offset = 2
     }
 
+}
+
+shootcol(e){
+
+let col = false;
+
+GAMEOBJECTS.forEach(v=>{
+    if(v.alti > this.alti){
+        if(linecol(this.x,this.y,e.x,e.y,v.x,v.y,v.x,v.y+v.height) || linecol(this.x,this.y,e.x,e.y,v.x,v.y,v.x+v.width,v.y) || linecol(this.x,this.y,e.x,e.y,v.x+v.width,v.y,v.x+v.width,v.y+v.height) || linecol(this.x,this.y,e.x,e.y,v.x,v.y+v.height,v.x+v.width,v.y+v.height)){
+        col = true;
+        }
+    }
+})
+
+// ctx.beginPath();
+// ctx.moveTo(this.x,this.y);
+// ctx.lineTo(e.x,e.y);
+// if(col){ctx.strokeStyle = "red"}else{ctx.strokeStyle = "black"}
+// ctx.stroke();
+
+
+return col;
 }
 
 render(part = "tower"){
@@ -1038,6 +1200,7 @@ class bullet{
         this.color = "#bf715b";
         this.parent = parent;
         this.size = parent.size/4;
+        this.alti = parent.alti;
         this.x += Math.cos(this.dir)*parent.size;
         this.y += Math.sin(this.dir)*parent.size;
         
@@ -1049,6 +1212,8 @@ class bullet{
         this.x += Math.cos(this.dir)*this.speed;
         this.y += Math.sin(this.dir)*this.speed;
 
+
+        // homing
         if(this.parent.homing !== undefined){
             let bestdistance = Infinity;
             let bestenemy = null;
@@ -1067,13 +1232,37 @@ class bullet{
             }
         }
 
-
+        // canvas limit col
         
         if( this.x > canvas.width-this.size || this.x < 0 ||  this.y > canvas.height-this.size || this.y < 0){
             BULLETS.splice(i,1);
         }
 
-        
+
+        // gm col
+        GAMEOBJECTS.forEach(v=>{
+
+            if(v.alti >this.alti){
+                let collision = v.collision(this.x,this.y,this.x+this.size,this.y+this.size);
+                if(collision.col){
+                    BULLETS.splice(i,1);
+                }
+            }else if(v.resistance !== undefined){
+                let collision = v.collision(this.x,this.y,this.x+this.size,this.y+this.size);
+                if(collision.col){
+                    this.speed *= 0.9
+                }
+            }
+
+        })
+
+        // speed death
+
+        if(this.speed < 1){
+            BULLETS.splice(i,1);
+        }
+
+        // enemy col
 
         ENEMIES.forEach(v=>{
             if(distance(v.x,this.x,v.y,this.y) < this.size+v.size){
@@ -1147,6 +1336,10 @@ const spawnhandler = {
                         localStorage.setItem("endlessmode",JSON.stringify({unlocked:true}));
                         let modebtn = document.getElementById("modebtn");
                         modebtn.classList.remove("locked");
+                        let editbtn = document.getElementById("leveleditbtn");
+                        editbtn.classList.remove("locked");
+                        let addmapbtn = document.getElementById("addmapbtn");
+                        addmapbtn.classList.remove("locked");
                         spawnhandler.endlessmode.locked = false;
                         togglePause(true);
                         toggleMenu("winning");
@@ -1188,16 +1381,26 @@ const spawnhandler = {
         spawnhandler.endlessmode.setincreasors("easy");
         spawnhandler.endlessmode.endlesswave=0;
         spawnhandler.updateprogres();
+
+
         if(!localStorage.getItem("endlessmode")){
             localStorage.setItem("endlessmode",JSON.stringify({unlocked:false}));
             let modebtn = document.getElementById("modebtn");
             modebtn.classList.add("locked");
+            let editbtn = document.getElementById("leveleditbtn");
+            editbtn.classList.add("locked");
+            let addmapbtn = document.getElementById("addmapbtn");
+            addmapbtn.classList.add("locked");
             spawnhandler.endlessmode.locked = true;
         
         }else{
             if(!JSON.parse(localStorage.getItem("endlessmode")).unlocked){
                 let modebtn = document.getElementById("modebtn");
                 modebtn.classList.add("locked");
+                let editbtn = document.getElementById("leveleditbtn");
+                editbtn.classList.add("locked");
+                let addmapbtn = document.getElementById("addmapbtn");
+                addmapbtn.classList.add("locked");
                 spawnhandler.endlessmode.locked = true;
             }
         }
@@ -1738,8 +1941,7 @@ const spawnhandler = {
                 "normal_6",
                 "normal_6",
                 "normal_6",
-                "boss_1",
-                "boss_1",
+                "normal_7",
                 "slow_6",
                 "slow_6",
                 "slow_6",
@@ -1759,13 +1961,13 @@ const spawnhandler = {
                 "superfast_2",
 
                 "normal_6",
-                "boss_1",
+                "normal_7",
                 "normal_6",
 
                 "boss_2",
                 "normal_6",
 
-                "boss_1",
+                "normal_7",
                 "superfast_2",
 
                 "slow_6",
@@ -1782,7 +1984,7 @@ const spawnhandler = {
                 "normal_6",
                 "normal_6",
                 "sun",
-                "boss_1",
+                "normal_7",
                 "slow_6",
                 "slow_6",
                 "slow_6",
@@ -1801,12 +2003,12 @@ const spawnhandler = {
                 "normal_6",
                 "normal_6",
                 "boss_2",
-                "boss_1",
+                "normal_7",
                 "normal_6",
                 "normal_6",
                 "normal_6",
                 "slow_6",
-                "boss_1",
+                "normal_7",
                 "slow_6",
                 "slow_6",
             ]
@@ -1818,17 +2020,17 @@ const spawnhandler = {
             pieces:[
                 "normal_6",
                 "normal_6",
-                "boss_1",
+                "slow_7",
                 "normal_6",
                 "normal_6",
                 "slow_6",
                 "slow_6",
-                "boss_1",
+                "slow_7",
                 "boss_2",
                 "slow_6",
                 "slow_6",
                 "fast_6",
-                "boss_1",
+                "slow_7",
                 "superfast_2",
                 "superfast_2",
             ]
@@ -1840,13 +2042,13 @@ const spawnhandler = {
             pieces:[
                 "normal_6",
                 "boss_2",
-                "boss_2",
-                "boss_1",
-                "boss_1",
-                "boss_1",
+                "slow_7",
+                "sun",
+                "slow_7",
+                "slow_7",
+                "normal_7",
                 "boss_2",
                 "superfast_2",
-                "sun",
                 "superfast_2",
             ]
         },
@@ -1983,7 +2185,7 @@ class particle{
 
 const player = {
 
-    health:10,
+    health:20,
     money:8,
     moneystep:0,
     moneyrate:150,
@@ -2219,21 +2421,30 @@ const shop = {
 
 
 }
-shop.setlocked();
-shop.populateshop();
-shop.select({value:shop.stower})
 
 
-
-//  build level 
-
-buildcurrentlevel();
 
 
 
 // game loop 
 
-window.requestAnimationFrame(main); 
+document.getElementById("all_e").style.display = "none";
+start_game = document.getElementById("start_game");
+start_game.style.display = "flex";
+
+function startgame(){
+
+    document.getElementById("all_e").style.display = "block";
+
+    shop.setlocked();
+    shop.populateshop();
+    shop.select({value:shop.stower})
+
+    addEventListener("mousedown", gameclicking); 
+    addEventListener("mousemove", gamemousemove); 
+    window.requestAnimationFrame(main); 
+    buildcurrentlevel();
+}
 
 let lastRenderTime = 0;
 let GameSpeed = 60;
@@ -2251,44 +2462,44 @@ function main(currentTime){
 
 
 function update(){
-GAMEOBJECTS.forEach(v=>{v.update();})
-ENEMIES.forEach((v,i)=>{v.update(i);})
-TOWERS.forEach((v,i)=>{v.update(i);})
-BULLETS.forEach((v,i)=>{v.update(i);})
-PARTICLES.forEach((v,i)=>{v.update(i);})
-spawnhandler.update();
-previewturret.update();
-player.update();
+    GAMEOBJECTS.forEach(v=>{v.update();})
+    ENEMIES.forEach((v,i)=>{v.update(i);})
+    TOWERS.forEach((v,i)=>{v.update(i);})
+    BULLETS.forEach((v,i)=>{v.update(i);})
+    PARTICLES.forEach((v,i)=>{v.update(i);})
+    spawnhandler.update();
+    previewturret.update();
+    player.update();
 
-if(keys["Escape"]){
-    selector.w = 0;
-    selector.h = 0;
-    removeEventListener("mousemove", mousemove);
-    removeEventListener("mouseup", mouseup);
-    shop.deselect();
-}
+    if(keys["Escape"]){
+        selector.w = 0;
+        selector.h = 0;
+        removeEventListener("mousemove", mousemove);
+        removeEventListener("mouseup", mouseup);
+        shop.deselect();
+    }
 
 }
 
 function render(){
 
-ctx.clearRect(0,0,canvas.width,canvas.height)
-if(LEVELS[level].lpath.length > 0){
-drawpath();
-}
-GAMEOBJECTS.forEach(v=>{v.render();})
-TOWERS.forEach(v=>{v.render("tower");})
-TOWERS.forEach(v=>{v.render("canon");})
-BULLETS.forEach(v=>{v.render();})
-PARTICLES.forEach(v=>{v.render();})
-ENEMIES.forEach(v=>{v.render();})
-TOWERS.forEach(v=>{v.render("text");})
-ENEMIES.forEach(v=>{v.render("info");})
-previewturret.render();
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    if(LEVELS[level].lpath.length > 0){
+    drawpath();
+    }
+    GAMEOBJECTS.forEach(v=>{v.render();})
+    TOWERS.forEach(v=>{v.render("tower");})
+    TOWERS.forEach(v=>{v.render("canon");})
+    BULLETS.forEach(v=>{v.render();})
+    PARTICLES.forEach(v=>{v.render();})
+    ENEMIES.forEach(v=>{v.render();})
+    TOWERS.forEach(v=>{v.render("text");})
+    ENEMIES.forEach(v=>{v.render("info");})
+    previewturret.render();
 
 
 
-ctx.strokeRect(selector.x,selector.y,selector.w,selector.h);
+    ctx.strokeRect(selector.x,selector.y,selector.w,selector.h);
 
 
 }
@@ -2297,15 +2508,16 @@ ctx.strokeRect(selector.x,selector.y,selector.w,selector.h);
 
 function drawpath(){
 
-ctx.setLineDash([5,5]);
-let lpath = LEVELS[level].lpath;
-ctx.beginPath();
-ctx.moveTo(lpath[0].x,lpath[0].y);
-lpath.forEach(v=>{
-ctx.lineTo(v.x,v.y)
-})
-ctx.stroke();
-ctx.setLineDash([]);
+    ctx.strokeStyle = "black";
+    ctx.setLineDash([5,5]);
+    let lpath = LEVELS[level].lpath;
+    ctx.beginPath();
+    ctx.moveTo(lpath[0].x,lpath[0].y);
+    lpath.forEach(v=>{
+    ctx.lineTo(v.x,v.y)
+    })
+    ctx.stroke();
+    ctx.setLineDash([]);
 
 
 }
@@ -2322,8 +2534,8 @@ function makeenemy(type){
     ENEMIES.push(newe);
 }
 
-function maketower(x,y,type){
-    const newtower = new tower(x,y,type)
+function maketower(x,y,type,alti){
+    const newtower = new tower(x,y,type,alti)
     TOWERS.push(newtower);
 }
 
@@ -2445,6 +2657,16 @@ function distance(x1,x2,y1,y2){
 return Math.sqrt(((x2-x1)**2)+((y2-y1)**2));
 }
 
+function linecol(x1,y1,x2,y2,x3,y3,x4,y4) {
+    
+  // calculate the distance to intersection point
+  let uA = ((x4-x3)*(y1-y3) - (y4-y3)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
+  let uB = ((x2-x1)*(y1-y3) - (y2-y1)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
+  // if uA and uB are between 0-1, lines are colliding
+  if (uA >= 0 && uA <= 1 && uB >= 0 && uB <= 1) {return true;}
+  return false;
+  };
+
 
 function randomrange(min, max) { 
     return Math.floor(Math.random() * (max - min + 1) + min)
@@ -2457,11 +2679,6 @@ function time(ms) {
 // toggle menus n things
 
 function togglePause(onlypause = false, bluram = 5,pausespeed = 0){
-    document.getElementById("settingsmenu").style.display = "none";
-    document.getElementById("endlesssmenu").style.display = "none";
-    document.getElementById("endlesslocked").style.display = "none";
-    document.getElementById("winning").style.display = "none";
-    document.getElementById("editmenu").style.display = "none";
     let allblock = document.getElementById("allblock");
     let all_e = document.getElementById("all_e");
     if(GameSpeed === pausespeed){
@@ -2481,6 +2698,21 @@ function togglePause(onlypause = false, bluram = 5,pausespeed = 0){
     }
 
 }
+
+function toggleMenu(id){
+
+    let keybind = document.getElementById(id);
+    if(keybind.style.display==="flex"){
+        keybind.style.display = "none";
+    }else{
+        keybind.style.display = "flex";
+
+    }
+}
+
+
+
+
 
 function changegamespeed(self){
 
@@ -2538,16 +2770,7 @@ function changeinput(self){
     selector.t = self.value;
 }
 
-function toggleMenu(id){
 
-    let keybind = document.getElementById(id);
-    if(keybind.style.display==="flex"){
-        keybind.style.display = "none";
-    }else{
-        keybind.style.display = "flex";
-
-    }
-}
 
 addEventListener("keydown", e => {
     // console.log(e.key);
@@ -2560,12 +2783,16 @@ addEventListener("keyup", e => {
 
 function starteditor(){
     
+    if(spawnhandler.endlessmode.locked) {toggleMenu("editlocked"); return;}
+    togglePause();
     level=0; 
     nextlevel(0);
     spawnhandler.state = "off";
     selector.t = "platform";
     document.getElementById("editorbuttons").style.display = "flex";
-    document.getElementById("DownloadMap").style.display = "none";
+    document.getElementById("shopbar").style.display = "none";
+    document.getElementById("topbar").style.display = "none";
+    player.moneyrate = Infinity;
     
 
     setTimeout(()=>{
@@ -2669,8 +2896,7 @@ function mouseup(){
 }
 
 
-addEventListener("mousedown", gameclicking); 
-addEventListener("mousemove", gamemousemove); 
+
 
 function gameclicking(e){
     if(GameSpeed === 0){return}
@@ -2680,45 +2906,40 @@ function gameclicking(e){
     if(player.mouseX>=0 && player.mouseX<800 && player.mouseY>=0&&player.mouseY<600){
     if(shop.inputtype !== "none"){
         
-    let anycol = false;
-    GAMEOBJECTS.forEach(v=>{
-        let collision = v.incollision(player.mouseX-(TOWERTYPES[shop.stower].size),player.mouseY-(TOWERTYPES[shop.stower].size),player.mouseX+(TOWERTYPES[shop.stower].size),player.mouseY+(TOWERTYPES[shop.stower].size));
-        if(collision){
-            anycol = true;
-            switch(shop.inputtype){
 
-                case "place":
-                    let hadcol = false;
-                    TOWERS.forEach(tower=>{
-                        if(distance(player.mouseX,tower.x,player.mouseY,tower.y) < tower.size+TOWERTYPES[shop.stower].size){
-                            hadcol = true;
-                        };
-                    })
-                    let stowerprice = shop.sprice[shop.stower].price;
-                    if(!hadcol && player.money >= stowerprice){
-                        maketower(player.mouseX,player.mouseY,shop.stower);
-                        player.changemoney(-stowerprice);
-                        makeparticle(player.mouseX,player.mouseY,"money",-stowerprice);
-                        playSound("place",{ volume: mastervolume });
+    if(shop.inputtype === "place"){  
+        let anycol = false;
+
+        GAMEOBJECTS.forEach(v=>{
+
+            if(v.placeable){
+                        let collision = v.incollision(player.mouseX-(TOWERTYPES[shop.stower].size),player.mouseY-(TOWERTYPES[shop.stower].size),player.mouseX+(TOWERTYPES[shop.stower].size),player.mouseY+(TOWERTYPES[shop.stower].size));
+                    if(collision){
+                        anycol = true;
+                        let hadcol = false;
+                        TOWERS.forEach(tower=>{
+                            if(distance(player.mouseX,tower.x,player.mouseY,tower.y) < tower.size+TOWERTYPES[shop.stower].size){
+                                hadcol = true;
+                            };
+                        })
+                        let stowerprice = shop.sprice[shop.stower].price;
+                        if(!hadcol && player.money >= stowerprice){
+                            maketower(player.mouseX,player.mouseY,shop.stower,v.alti);
+                            player.changemoney(-stowerprice);
+                            makeparticle(player.mouseX,player.mouseY,"money",-stowerprice);
+                            playSound("place",{ volume: mastervolume });
+                        }
                     }
-                break;
-
-
-
-
 
             }
-
-        }
-
-    
         })
 
-
-
-    if(!anycol && shop.inputtype !== "info" && shop.inputtype !== "delete" && shop.inputtype !== "edit"){
-        shop.deselect()
-        playSound("cancel",{ volume: mastervolume });
+        if(!anycol ){
+            playSound("cancel",{ volume: mastervolume });
+            shop.deselect();
+        }   
+    
+            
     }
 
     if(shop.inputtype === "info"){

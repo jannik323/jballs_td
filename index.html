@@ -19,15 +19,15 @@
         Sorry, your browser does not support inline SVG.
     </svg>
         
-    <button class="X" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause(false,5,4);">X</button>
+    <button class="X" onclick="playSound(`menu`,{ volume: mastervolume }); toggleMenu('editmenu'); togglePause(false,5,4);">X</button>
     <p class="center" > <strong>Edit Tower</strong>  </p>
     <p class="center" > Change Focus Mode: </p>
 
-    <button class="menubtn btnwideself" onclick=" shop.edittower(`nearest`); togglePause(false,5,4)">Nearest Enemy 1$ </button>
-    <button class="menubtn btnwideself" onclick=" shop.edittower(`furthest`); togglePause(false,5,4)">Furthest Enemy 1$ </button>
-    <button class="menubtn btnwideself" onclick="shop.edittower(`strongest`); togglePause(false,5,4)">Strongest Enemy 1$ </button>
-    <button class="menubtn btnwideself" onclick="shop.edittower(`weakest`); togglePause(false,5,4)">Weakest Enemy 1$ </button>
-    <button class="menubtn btnwideself" onclick="shop.edittower(`fastest`); togglePause(false,5,4)">Fastest Enemy 1$ </button>
+    <button class="menubtn btnwideself" onclick=" shop.edittower(`nearest`); toggleMenu('editmenu'); togglePause(false,5,4)">Nearest Enemy 1$ </button>
+    <button class="menubtn btnwideself" onclick=" shop.edittower(`furthest`); toggleMenu('editmenu'); togglePause(false,5,4)">Furthest Enemy 1$ </button>
+    <button class="menubtn btnwideself" onclick="shop.edittower(`strongest`); toggleMenu('editmenu'); togglePause(false,5,4)">Strongest Enemy 1$ </button>
+    <button class="menubtn btnwideself" onclick="shop.edittower(`weakest`); toggleMenu('editmenu'); togglePause(false,5,4)">Weakest Enemy 1$ </button>
+    <button class="menubtn btnwideself" onclick="shop.edittower(`fastest`); toggleMenu('editmenu'); togglePause(false,5,4)">Fastest Enemy 1$ </button>
 
 
 
@@ -39,57 +39,76 @@
 
     <h1> Menu </h1>
     <button class="X" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause();">X</button>
-    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause();">Continue (p)</button>
+    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause();">Continue</button>
     <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause(); hardreset();">Restart</button>
     <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); toggleMenu('settingsmenu');" >Settings</button>
-    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause(); starteditor(); ">Level Editor</button>
-    <button class="menubtn locked" onclick="playSound(`menu`,{ volume: mastervolume });">Cheat Codes</button>
+    <button class="menubtn" id="leveleditbtn" onclick="playSound(`menu`,{ volume: mastervolume }); starteditor(); ">Map Editor</button>
+    
 
 </div>
 
-
-<div id="settingsmenu" class="menu"> 
-
-    <h1>Settings </h1>
-    <button class="X" onclick="playSound(`menu`,{ volume: mastervolume }); toggleMenu('settingsmenu');">X</button>
-    <button class="menubtn" onclick="localStorage.removeItem(`locked`); location.reload();" > Reset Progress </button>
-    <label>Sound Volume</label>
-    <input type="range" min="0" max="1" step="0.02" value="1" onchange=" mastervolume = this.value; playSound(`menu`,{ volume: mastervolume });">
-    </div>  
-
-
-</div>
 
 <div id="endlesssmenu" class="menu"> 
 
     <h1> Endless Mode Settings </h1>
-    <button class="X" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause();">X</button>
+    <button class="X" onclick="playSound(`menu`,{ volume: mastervolume }); toggleMenu(`endlesssmenu`); togglePause();">X</button>
 
-    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause(); spawnhandler.endlessmode.changedifficulty(`easy`);"> Easy Mode</button>
-    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause(); spawnhandler.endlessmode.changedifficulty(`normal`);"> Normal Mode</button>
-    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause(); spawnhandler.endlessmode.changedifficulty(`hard`);"> Hard Mode</button>
-    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause(); spawnhandler.endlessmode.changedifficulty(`impossible`);"> Impossible Mode</button>
+    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); toggleMenu(`endlesssmenu`); togglePause(); spawnhandler.endlessmode.changedifficulty(`easy`);"> Easy Mode</button>
+    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); toggleMenu(`endlesssmenu`); togglePause(); spawnhandler.endlessmode.changedifficulty(`normal`);"> Normal Mode</button>
+    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); toggleMenu(`endlesssmenu`); togglePause(); spawnhandler.endlessmode.changedifficulty(`hard`);"> Hard Mode</button>
+    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); toggleMenu(`endlesssmenu`); togglePause(); spawnhandler.endlessmode.changedifficulty(`impossible`);"> Impossible Mode</button>
     <!-- <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume });"> Custom Settings</button> -->
     
 </div>
 
 <div id="endlesslocked" class="menu"> 
     <h1> Game mode locked </h1>
-    <button class="X" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause();">X</button>
+    <button class="X" onclick="playSound(`menu`,{ volume: mastervolume }); toggleMenu(`endlesslocked`); togglePause();">X</button>
     <p class="center">This game mode is locked at the moment. <br> Unlock it by finishing the main game mode. </p>
+</div>
+
+
+
+<div id="editlocked" class="menu"> 
+    <h1> Map Editor locked </h1>
+    <button class="X" onclick="playSound(`menu`,{ volume: mastervolume }); toggleMenu(`editlocked`);">X</button>
+    <p class="center">The map editor is currently locked. <br> Unlock it by finishing the main game mode. </p>
+</div>
+
+<div id="cmapslocked" class="menu"> 
+    <h1> Custom Maps locked </h1>
+    <button class="X" onclick="playSound(`menu`,{ volume: mastervolume }); toggleMenu(`cmapslocked`); togglePause();">X</button>
+    <p class="center">Adding custom maps is currently locked. <br> Unlock it by finishing the main game mode. </p>
 </div>
 
 <div id="winning" class="menu"> 
     <h1> You Won </h1>
     <p class="center" >You have reached the last wave . <br> You have unlocked the endless mode! <br> More waves will soon be added 👍 </p>
-    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause(); hardreset();">Restart</button>
+    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); toggleMenu(`winning`); togglePause(); hardreset();">Restart</button>
 </div>
 
-<div id="all_e">
+<div id="start_game" class="start_game"> 
+    <h1> Ball Buster TD </h1>
+    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); toggleMenu(`start_game`); startgame();">Start Game</button>
+    <button class="menubtn" onclick="playSound(`menu`,{ volume: mastervolume }); toggleMenu('settingsmenu');" >Settings</button>
+    
+</div>
+
+
+<div id="settingsmenu" class="menu"> 
+
+    <h1 class="start"> Settings </h1>
+    <button class="X" onclick="playSound(`menu`,{ volume: mastervolume }); toggleMenu('settingsmenu');">X</button>
+    <button class="menubtn" dnclick="localStorage.removeItem(`locked`); location.reload();" > Reset Progress </button>
+    <label>Sound Volume</label>
+    <input type="range" min="0" max="1" step="0.02" value="1" onchange=" mastervolume = this.value; playSound(`menu`,{ volume: mastervolume });">
+</div>  
+
+<div id="all_e" >
 
 
 
-<div class="topbar">
+<div class="topbar" id="topbar">
 <progress class="topdisplay" id="waveprogres"  disabled max=100 value=0 ></progress>
 <input class="topdisplay" id="levelwave" type="text" disabled value="Wave : 0">
 <input class="topdisplay" id="levelhtml" type="text" disabled value="Test">
@@ -99,7 +118,7 @@
 </div>
 <canvas id="canvas"></canvas>
 
-<div class="shopbar">
+<div class="shopbar" id="shopbar">
 <div id="selectedtowerdisplay"></div>
 <div class="towerbar" id="towerbar">
 </div>
@@ -114,7 +133,7 @@
     <button class="towerselect" onclick="playSound(`menu`,{ volume: mastervolume }); togglePause();">Menu </button>
     <button class="towerselect" id="modebtn" onclick="playSound(`menu`,{ volume: mastervolume }); spawnhandler.changewavemode(this);"> Endless Mode</button>
     <button class="towerselect" onclick="playSound(`menu`,{ volume: mastervolume }); nextlevel()">Next Map </button>
-    <button class="towerselect" onclick="playSound(`menu`,{ volume: mastervolume }); loadlevel(LEVELS.length);">Add Map </button>
+    <button class="towerselect" id="addmapbtn" onclick="playSound(`menu`,{ volume: mastervolume }); if(spawnhandler.endlessmode.locked) {toggleMenu(`cmapslocked`); togglePause(true); return;} loadlevel(LEVELS.length);">Add Map </button>
 </div>
 
 <div class="GameSpeed" >
@@ -126,6 +145,7 @@
 
 </div>
 
+</div>
 <div id="editorbuttons">
 
 <div class="flex">
@@ -133,6 +153,11 @@
     <select id="inputs" class="btn" onchange="changeinput(this);" >
 
         <option value="platform" selected >Platform</option>
+        <option value="platform_level_1" selected >Platform Level 1</option>
+        <option value="platform_level_2" selected >Platform Level 2</option>
+        <option value="platform_level_3" selected >Platform Level 3</option>
+        <option value="lava" selected >Lava</option>
+        <option value="water" selected >Water</option>
         <option value="delete">Delete</option>
         <option value="move_to_top">Move To Top</option>
         <option value="path">Path</option>
@@ -145,11 +170,13 @@
 
 <div  class="flex">
     
-<button  class="btn" onclick="savelevel();" >Save Level</button>
-<button class="btn" onclick="loadlevel();" >Load Level</button>
-<button class="btn" onclick="loadlevel(LEVELS.length);" >Add Level</button>
+<button  class="btn" onclick="savelevel();" >Save Map</button>
+<button class="btn" onclick="loadlevel(); buildcurrentlevel();" >Load Map</button>
+<button class="btn" onclick="GAMEOBJECTS = []; LEVELS[0].lpath = [];" >Clear Map</button>
 </div>
 
+
+<!-- 
 <div class="flex">
 <button class="btn" onclick="savemap()" >Save Map</button>
 <button for="loadmap" class="btn" onclick="loadmap()" >Load Map</button>
@@ -161,12 +188,13 @@
     <a id="DownloadMap" download="map.txt" class="btn" onclick="this.style.display = 'none'"> Download Map</a>
     <input type="file" id="loadmap" accept=".txt" >
     </div>
-</div>
+</div> -->
 
-</div>
+
 
 </div>
 <!-- <p class="im_so_hidden">HEY, this is a super secret text. Why did you find it?</p> -->
+
 </body>
 
 <script src="script.js" defer></script>

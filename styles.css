@@ -39,11 +39,6 @@ input{
     margin-left: 1rem;
 }
 
-textarea{
-
-width: 30rem;
-}
-
 div.menu{
 
     display: none;
@@ -55,6 +50,28 @@ div.menu{
     padding: 1rem;
     background-color: white;
     z-index: 3;
+
+}
+
+div.start_game{
+
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    width: 300px;
+    height: 300px;
+    border: 2px solid rgb(31, 31, 31);
+    border-radius: 7px;
+    padding: 1rem;
+    background-color: white;
+    justify-content: center;
+    z-index: 3;
+
+}
+
+div h1.start{
+    display: block;
+    align-self: center;
 
 }
 
@@ -109,6 +126,7 @@ div h1{
     align-self: center;
 
 }
+
 
 #editorbuttons{
     margin: 2rem;
@@ -227,9 +245,6 @@ div#selectedtowerdisplay{
 }
 
 
-#test{
-    color:hsl(180, 14%, 40%);
-}
 
 .widefield{
     width: 10rem;
@@ -264,7 +279,7 @@ p.center{
 }
 
 div.editmenu{
-
+    
     position: absolute;
     display: none;
     flex-direction: column;
@@ -277,4 +292,8 @@ div.editmenu{
     background-color: white;
     z-index: 4;
     border-radius: 20px;
+}
+
+#test{
+    color:hsl(0, 0%, 38%);
 }
